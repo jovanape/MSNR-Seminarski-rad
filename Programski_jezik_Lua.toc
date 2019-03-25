@@ -1,12 +1,16 @@
-\select@language {serbian}
-\contentsline {section}{\numberline {1}Uvod}{2}{section.1}
-\contentsline {section}{\numberline {2}Nastanak i istorijski razvoj, mesto u razvojnom stablu, uticaji drugih programskih jezika}{2}{section.2}
-\contentsline {section}{\numberline {3}Osnovna namena i mogu\IeC {\'c}nosti programskog jezika Lua}{2}{section.3}
-\contentsline {section}{\numberline {4}Osnovne osobine ovog programskog jezika, podr\IeC {\v z}ane paradigme i koncepti }{3}{section.4}
-\contentsline {section}{\numberline {5}Najpoznatija okru\IeC {\v z}enja (framework) za kori\IeC {\v s}\IeC {\'c}enje ovog jezika i njihove karakteristike}{3}{section.5}
-\contentsline {section}{\numberline {6}Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima }{3}{section.6}
-\contentsline {section}{\numberline {7}Primer jednostavnog koda i njegovo obja\IeC {\v s}njene}{3}{section.7}
-\contentsline {section}{\numberline {8}Sve ono \IeC {\v s}to je specifi\IeC {\v c}no i va\IeC {\v z}no za sam taj programski jezik}{3}{section.8}
-\contentsline {section}{\numberline {9}Zaklju\IeC {\v c}ak}{3}{section.9}
-\contentsline {section}{Literatura}{3}{section.9}
-\contentsline {section}{\numberline {A}Dodatak}{4}{appendix.A}
+\babel@toc {serbian}{}
+\contentsline {section}{\numberline {1}Uvod}{2}{section.1}% 
+\contentsline {section}{\numberline {2}Nastanak i istorijski razvoj, mesto u razvojnom stablu, uticaji drugih programskih jezika}{2}{section.2}% 
+\contentsline {section}{\numberline {3}Osnovna namena i mogu\IeC {\'c}nosti programskog jezika Lua}{2}{section.3}% 
+\contentsline {section}{\numberline {4}Najpoznatija okru\IeC {\v z}enja (framework) za kori\IeC {\v s}\IeC {\'c}enje ovog jezika i njihove karakteristike}{3}{section.4}% 
+\contentsline {section}{\numberline {5}Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima}{3}{section.5}% 
+\contentsline {section}{\numberline {6}Paradigme i koncepti}{3}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Tabele i objekti}{3}{subsection.6.1}% 
+\contentsline {subsubsection}{\numberline {6.1.1}Tabele}{3}{subsubsection.6.1.1}% 
+\contentsline {subsubsection}{\numberline {6.1.2}Kreiranje tabela}{3}{subsubsection.6.1.2}% 
+\contentsline {subsubsection}{\numberline {6.1.3}Skladi\IeC {\v s}tenje vrednosti}{4}{subsubsection.6.1.3}% 
+\contentsline {subsection}{\numberline {6.2}Meta tabele i meta metodi}{4}{subsection.6.2}% 
+\contentsline {subsubsection}{\numberline {6.2.1}Kreiranje meta tabele}{5}{subsubsection.6.2.1}% 
+\contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{5}{section.7}% 
+\contentsline {section}{Literatura}{5}{section.7}% 
+\contentsline {section}{\numberline {A}Dodatak}{6}{appendix.A}% 

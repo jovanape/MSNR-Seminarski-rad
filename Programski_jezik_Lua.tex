@@ -95,41 +95,102 @@ Lua je i tzv. jezik za spajanje (eng. glue language). Ona podržava razvoj softv
 
 Kao i mnogi drugi jezici, Lua teži tome da bude fleksibilna. Ali, takođe teži tome da bude mali jezik - i u pogledu implementacije i u terminima specifikacije. Za ugrađne jezike ovo je veoma bitna osobina pošto se veoma često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik se pristupa ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele (koje su u suštini asocijativni nizovi), funkcije prvog reda, korutine i refleksivne mogućnosti. Takođe, da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo double floating-point (prevesti?) tip vrednosti.\cite{multiParadigms}
 
-\section{Osnovne osobine ovog programskog jezika, podržane paradigme i koncepti }
-\label{sec:osobine_paradigme_koncepti}
-
-
 \section{Najpoznatija okruženja (framework) za korišćenje ovog jezika i njihove karakteristike}
 \label{sec:framework}
 
 
-\section{Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima }
+\section{Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima}
 \label{sec:instalacija}
 
 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
+\section{Paradigme i koncepti}
+\label{sec:paradigme_koncepti}
 
+\subsection{Tabele i objekti}
+Jedina struktura podataka koju Lua pruža je tabela. Tabele su dovoljno moćne da pomoću njih može da se implementira druga struktura podataka, kao sto su liste, redovi ili stekovi.
+Lua nije objektno-orjentisani jezik, te nema podršku za objekte. Medjutim, koristeći tabele i meta-tabele, sistem objekata i klasa može biti implementiran iz temelja.
 
+\subsubsection{Tabele}
+Tabele su first-class, dinamički kreirani asocijativni nizovi [An associative array is an array that can be indexed not only with numbers, but also with strings or any other value of the language, except nil.]. One su u osnovi rečnik ili niz. Tabele se sastoje iz parova ključ-vrednost. Ako su ključevi tabele numerički, tabela predstavlja niz. Ako su ključevi ne-numeričke ili mešovite vrednosti, tabela je rečnik. Kao ključ u tabeli se može koristiti bilo šta, osim nil. Bilo Šta, uključujuci i nil, može biti vrednost.
+Tabele se skladište po referenci, a ne po vrednosti, i program jedino preko referenci (ili pokazivača) njima manipuliše. Nema skrivenih kopija ili kreiranja novih tabela iza scene.
 
-\section{Primer jednostavnog koda i njegovo objašnjene}
-\label{sec:primer_koda}
+\subsubsection{Kreiranje tabela}
+Tabela se kreira putem konstruktora, koji u svojoj najjednostavnijoj formi izgleda ovako {}. Nakon što je tabela kreirana, ona treba biti dodeljena promenljivoj. Ako se tabela ne dodeli promenljivoj, nije moguće na nju referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
+\begin{verbatim}
+a = {}     -- kreira tabelu i smešta njenu referencu u promenljivu a
+\end{verbatim}
 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
-Ovde pišem tekst. 
+\subsubsection{Skladištenje vrednosti}
+Tabela je relaciona struktura podataka koja skladisti vrednosti. Da bi se promenljiva sačuvala u tabeli, koristi se sledeća sintaksa:
+\begin{verbatim}
+table[key] = value
+\end{verbatim}
+Naredni primer demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako vratiti (izvaditi) tu vrednost:
+\begin{verbatim}
+k = "x"
+a[k] = 10        -- nov ulaz, sa ključem key="x" i vrednošću value=10
+a[20] = "great"  -- nov ulaz, sa ključem key=20 i vrednošću value="great"
+print(a["x"])    -- > 10
+k = 20
+print(a[k])      -- > "great"	- vraća vrednost (izvadi vrednost iz tabele)
+a["x"] = a["x"] + 1     -- uvećava ulaz "x"
+print(a["x"])    -- > 11
+\end{verbatim}
+Kada u programu ne postoji ni jedna referenca na neku tabelu, Lua menadzer (upravljač) memorije će (eventualno) obrisati tu tabelu (i osloboditi memoriju koju je zauzimala), tako da memorija koju je ta tabela zauzimala kasnije može biti ponovo upotrebljena.
+Ključ tabele moze biti bilo kog tipa (čak i druga tabela), osim nil, i svaka tabela može da čuva vrednosti različitih tipova indeksa. Razmotrimo sledeći primer:
+\begin{verbatim}
+a = {}     -- prazna tabela
+-- kreira se 1000 novih ulaza
+for i=1,1000 do a[i] = i*2 end
+print(a[9])    --> 18
+a["x"] = 10
+print(a["x"])  --> 10
+print(a["y"])  --> nil
+\end{verbatim}
+Primetite poslednju liniju: Baš kao globalne promenljive, polja tabele dobijaju vrednost nil ako nisu inicijalizovana (ako ne dodelite vrednost ključu u tabeli, podrazumevana (defalut) vrednost je nil). Takođe kao kod globalnih promenljivih, polju tabele možete dodeliti vrednost nil ako želite da ga obrišete.
+Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. dot syntax). Lua podržava ovu reprezentaciju pružajući a.name kao lepši zapis za ["name"]. Dakle, poslednje tri linije prethodnog koda (primera) mogu se napisati i ovako:
+\begin{verbatim}
+    a.x = 10                    -- isto što i a["x"] = 10
+    print(a.x)                  -- isto što i print(a["x"])
+    print(a.y)                  -- isto što i print(a["y"])
+\end{verbatim}
 
-\section{Sve ono što je specifično i važno za sam taj programski jezik}
-\label{sec:specificnosti}
+\subsection{Meta tabele i meta metodi}
+Meta tabele menjaju ponašanje tabela koristeći meta metode. Te meta metode su funkcije sa specifičnim imenom koje utiče na to kako se tabela ponaša. Na primer, koristeći meta tabele, možemo definisati kako Lua računa izraz a + b, gde su a i b tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \_\_add polje. Ako Lua pronadje to polje, zove odgovarajuću funkciju da bi izračunala sumu.
+Da bi se postavila ili promenila meta tabela bilo koje tabele koristi se funkcija setmetatable:
+\begin{verbatim}
+t1 = {}
+    setmetatable(t, t1)
+    assert(getmetatable(t) == t1)
+\end{verbatim}
+Bilo koja tabela može biti meta tabela bilo koje druge tabele; grupa povezanih tabela može da deli zajedničku meta tabelu (koja opisuje njihovo zajedničko ponašanje); tabela može biti svoja sopstvena meta tabela (tako da opisuje svoje individualno ponašanje). Bilo koja od ovih konfiguracija je validna.
 
+\subsubsection{Kreiranje meta tabele}
+Za kreiranje meta tabele neophodno je prvo kreirati običnu tabelu nazvanu meta. Ova tabela će imati funkciju koja se zove \_\_add[ \_\_add je rezervisano ime za funkciju]. \_\_add funkcija će primati dva argumenta. Levi argument će biti tabela sa poljem koje se zove value, a desni argument će biti broj:
+\begin{verbatim}
+meta = { } -- kreira tabelu
+meta.__add = function(left, right) -- dodaje meta metod
+return left.value + right -- pretpostavlja se da je left tabela
+end
+\end{verbatim}
+Dalje, treba napraviti tabelu zvanu container. Container tabela će imati promenljivu zvanu value, koja će imati vrednost 5:
+\begin{verbatim}
+container = {
+value = 5
+}
+\end{verbatim}
+Pokušajte da dodate broj 4 container tabeli; Lua će izbaciti sintaksnu grešku. Ovo je zato što ne možete da dodate broj tabeli. Kod koji uzrokuje grešku izgleda ovako:
+\begin{verbatim}
+result = container + 4 -- ERROR
+print ("result: " .. result)
+\end{verbatim}
+Dodavanjem meta tabele container tabeli, koja ima \_\_add meta metod, mozemo napraviti da ovaj kod radi. Funkcija setmetatable se koristi da dodeli meta tabelu. Kod koji omogućava da sve ovo radi izgleda ovako:
+\begin{verbatim}
+setmetatable(container, meta) -- postavlja meta tabelu
+result = container + 4 -- RADI!
+print ("result: " .. result)
+\end{verbatim}
+DOPUNITI... Meta tabele su možda najmoćnija karakteristika Lua-e.
 
 \section{Zaključak}
 \label{sec:zakljucak}
