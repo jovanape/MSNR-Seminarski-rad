@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{lua_org_iterators}
+Roberto Ierusalimschy.
+\newblock {Lua.org}, 2003-2004.
+\newblock on-line at: \url{https://www.lua.org/pil/7.1.html}.
+
 \bibitem{bookProgInLua}
 Roberto Ierusalimschy.
 \newblock {\em {Programming in Lua}}.
