@@ -195,7 +195,7 @@ print ("result: " .. result)
 DOPUNITI... Meta tabele su možda najmoćnija karakteristika Lua-e.
 
 
-\subsection{Iteratori i zatvoranja}
+\subsection{Iteratori}
 
 Iterator, konstrukcija koje omogćava prolazak kroz kolekciju, predstavlja se pomoću funkcije. Pri svakom pozivu ta funkcija vraća naredni element iz kolekcije. Na listingu \ref{iter1} dat je primer iteratora nad listom koji vraća vrednost elemenata liste.
 
@@ -211,9 +211,32 @@ for element in values(t) do
 end
 \end{lstlisting}
 
-Između uzastopnih poziva, iterator mora da pamti stanje u kom se nalazi kako bi znao da nastavi dalje odatle. U tu svrhu se koriste zatvorenja (eng. closure). Zatvorenje je funkcija koja se nalazi unutar neke druge funkcije. Pri tome, unutrašnja funkcija može da pristupa promenljivama spoljašnje funkcije. Ta spoljašnja funkcija, koja se zove fabrika (eng. factory), zapravo pravi zatvorenje. \cite{lua_org_iterators}
+Između uzastopnih poziva, iterator mora da pamti stanje u kom se nalazi kako bi znao da nastavi dalje odatle. U tu svrhu se koriste zatvorenja (eng. closure). Zatvorenje je funkcija koja se nalazi unutar neke druge funkcije. Pri tome, unutrašnja funkcija može da pristupa promenljivama spoljašnje funkcije. Ta spoljašnja funkcija, koja se zove fabrika (eng. factory), zapravo pravi zatvorenje \cite{lua_org_iterators}.
 
 U listingu \ref{iter1} fabrika je values(). Pri svakom pozivu ona pravi zatvorenje (koje predstavlja sam iterator). To zatvorenje čuva svoje stanje u spoljašnjim promenljivama (t, i, n) tako da, svaki put kada se pozove, vraća naredni element iz liste t. Kada više nema vrednosti u listi, vraća nil.
+
+Postoje i iteratori bez stanja (eng. stateless iterators). To su iteratori koji ne čuvaju sami svoja stanja, tako da možemo isti iterator iskoristiti u više petlji bez potrebe da pravimo nova zatvorenja. U svakoj itreaciji, for petlja poziva svoj iterator sa dva argumenta: invarijantnim stanjem i kontrolnom promenljivom. Iterator bez stanja generiše naredni element na osnovu te dve vrednosti. U listingu \ref{iter2} prikazan je jedan iterator bez stanja - ipairs()\cite{bookProgInLua}.
+
+\begin{lstlisting}[caption={Primer iteratora bez stanja},frame=single, label=iter2]
+a = {"one", "two", "three"}
+for i, v in ipairs(a) do
+	print(i, v)
+end
+\end{lstlisting}
+Rezultat izvrsavanja ovog programa je:
+\begin{verbatim}
+1	one
+2	two
+3	three
+\end{verbatim}
+Funkcija ipairs() vraća tri vrednosti: \textit{gen}, \textit{param}, i \textit{state} (koje se nazivaju iteratorski triplet). \textit{Gen} je funkcija koja generiše narednu vrednost u svakoj iteraciji. Ona vraća novo stanje (\textit{state}) i vrednost u tom stanju. \textit{Param} je trajni parametar \textit{gen} funkcije i koristi se za pravljenje instance \textit{gen} funkcije, npr. tabele. \textit{State} je privremeno stanje iteratora koje se menja nakon svake iteracije, npr. to je indeks niza\cite{luafun_ipairs}. Na listingu \ref{iter3} su prikazane ove tri vrednosti.
+\begin{lstlisting}[caption={Primer iteratora bez stanja (nastavak)},frame=single, label=iter3]
+gen, param, state = ipairs(a)
+-- rezultat izvrsavanja: function: 0x41b9e0	table: 0x1e8efb0	0
+print(gen(param, state))
+-- rezultat izvrsavanja: 1	one
+\end{lstlisting}
+
 
 \subsection{Funkcije}
 Funkcije u Lua-i su first-class values (primarne vrednosti, građani prvog reda) sa odgovarajućim "leksičkim opsegom". Za funkciju se kaže da je građanin prvog reda (vrednosti prve klase) ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da se vrate kao povratna vrednost funkcija. Da funkcija ima "leksički opseg" znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lua-i možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.

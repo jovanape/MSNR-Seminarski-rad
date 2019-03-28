@@ -1,21 +1,21 @@
-\babel@toc {serbian}{}
-\contentsline {section}{\numberline {1}Uvod}{3}{section.1}% 
-\contentsline {section}{\numberline {2}Nastanak i istorijski razvoj, mesto u razvojnom stablu, uticaji drugih programskih jezika}{3}{section.2}% 
-\contentsline {section}{\numberline {3}Osnovna namena i mogu\IeC {\'c}nosti programskog jezika Lua}{3}{section.3}% 
-\contentsline {section}{\numberline {4}Najpoznatija okru\IeC {\v z}enja (framework) za kori\IeC {\v s}\IeC {\'c}enje ovog jezika i njihove karakteristike}{4}{section.4}% 
-\contentsline {section}{\numberline {5}Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima}{4}{section.5}% 
-\contentsline {section}{\numberline {6}Paradigme i koncepti}{4}{section.6}% 
-\contentsline {subsection}{\numberline {6.1}Tabele i objekti}{4}{subsection.6.1}% 
-\contentsline {subsubsection}{\numberline {6.1.1}Tabele}{4}{subsubsection.6.1.1}% 
-\contentsline {subsubsection}{\numberline {6.1.2}Kreiranje tabela}{5}{subsubsection.6.1.2}% 
-\contentsline {subsubsection}{\numberline {6.1.3}Skladi\IeC {\v s}tenje vrednosti}{5}{subsubsection.6.1.3}% 
-\contentsline {subsection}{\numberline {6.2}Meta tabele i meta metodi}{6}{subsection.6.2}% 
-\contentsline {subsubsection}{\numberline {6.2.1}Kreiranje meta tabele}{6}{subsubsection.6.2.1}% 
-\contentsline {subsection}{\numberline {6.3}Iteratori i zatvoranja}{7}{subsection.6.3}% 
-\contentsline {subsection}{\numberline {6.4}Funkcije}{7}{subsection.6.4}% 
-\contentsline {subsubsection}{\numberline {6.4.1}Zatvorenja}{8}{subsubsection.6.4.1}% 
-\contentsline {subsection}{\numberline {6.5}Objektno orjentisana paradigma}{9}{subsection.6.5}% 
-\contentsline {subsubsection}{\numberline {6.5.1}Objekti}{9}{subsubsection.6.5.1}% 
-\contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{10}{section.7}% 
-\contentsline {section}{Literatura}{10}{section.7}% 
-\contentsline {section}{\numberline {A}Dodatak}{10}{appendix.A}% 
+\select@language {serbian}
+\contentsline {section}{\numberline {1}Uvod}{3}{section.1}
+\contentsline {section}{\numberline {2}Nastanak i istorijski razvoj, mesto u razvojnom stablu, uticaji drugih programskih jezika}{3}{section.2}
+\contentsline {section}{\numberline {3}Osnovna namena i mogu\IeC {\'c}nosti programskog jezika Lua}{3}{section.3}
+\contentsline {section}{\numberline {4}Najpoznatija okru\IeC {\v z}enja (framework) za kori\IeC {\v s}\IeC {\'c}enje ovog jezika i njihove karakteristike}{4}{section.4}
+\contentsline {section}{\numberline {5}Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima}{4}{section.5}
+\contentsline {section}{\numberline {6}Paradigme i koncepti}{4}{section.6}
+\contentsline {subsection}{\numberline {6.1}Tabele i objekti}{4}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Tabele}{4}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Kreiranje tabela}{5}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Skladi\IeC {\v s}tenje vrednosti}{5}{subsubsection.6.1.3}
+\contentsline {subsection}{\numberline {6.2}Meta tabele i meta metodi}{6}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Kreiranje meta tabele}{6}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}Iteratori}{7}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Funkcije}{8}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}Zatvorenja}{9}{subsubsection.6.4.1}
+\contentsline {subsection}{\numberline {6.5}Objektno orjentisana paradigma}{10}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}Objekti}{10}{subsubsection.6.5.1}
+\contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{10}{section.7}
+\contentsline {section}{Literatura}{10}{section.7}
+\contentsline {section}{\numberline {A}Dodatak}{11}{appendix.A}

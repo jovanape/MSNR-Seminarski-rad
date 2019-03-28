@@ -1,9 +1,5 @@
 \begin{thebibliography}{1}
 
-\bibitem{keplerProject}
-{Kepler Project}, 2003.
-\newblock on-line at: \url{https://keplerproject.github.io/cgilua/}.
-
 \bibitem{lua_org_iterators}
 Roberto Ierusalimschy.
 \newblock {Lua.org}, 2003-2004.
@@ -20,5 +16,15 @@ Roberto Ierusalimschy.
 \newblock {\em Proceedings of the 18th International Workshop on Functional and
   (Constraint) Logic Programming}, page 5–13, 2009.
 \newblock on-line at: \url{www.inf.puc-rio.br/%7Eroberto/docs/ry09-03.pdf}.
+
+\bibitem{keplerProject}
+Kepler Project.
+\newblock {Kepler Project}, 2003.
+\newblock on-line at: \url{https://keplerproject.github.io/cgilua/}.
+
+\bibitem{luafun_ipairs}
+Roman Tsisyk.
+\newblock {Lua Fun Documentation}, 2013-2017.
+\newblock on-line at: \url{https://luafun.github.io/under_the_hood.html}.
 
 \end{thebibliography}
