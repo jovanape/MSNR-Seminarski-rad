@@ -213,7 +213,73 @@ Između uzastopnih poziva, iterator mora da pamti stanje u kom se nalazi kako bi
 
 U listingu \ref{iter1} fabrika je values(). Pri svakom pozivu ona pravi zatvorenje (koje predstavlja sam iterator). To zatvorenje čuva svoje stanje u spoljašnjim promenljivama (t, i, n) tako da, svaki put kada se pozove, vraća naredni element iz liste t. Kada više nema vrednosti u listi, vraća nil.
 
+\subsection{Funkcije}
+Funkcije u Lua-i su first-class values (primarne vrednosti, građani prvog reda) sa odgovarajućim "leksičkim opsegom". Za funkciju se kaže da je građanin prvog reda (vrednosti prve klase) ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da se vrate kao povratna vrednost funkcija. Da funkcija ima "leksički opseg" znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lua-i možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
 
+Kada govorimo o imenu funkcije, na primer print, mi zapravo pričamo o promenljivoj koja sadrži (čuva) tu funkciju. Neke od posledica ove karakteristike Lua-e prikazene su u narednom primeru:
+
+\begin{verbatim}
+    a = {p = print}
+    a.p("Hello World") --> Hello World
+    print = math.sin  -- print sada referiše na funkciju sin
+    a.p(print(1))     --> 0.841470
+    sin = a.p         -- sin sada referiše na funkciju print
+	sin(10, 20)       --> 10      20
+\end{verbatim}
+Iako su funkcije vrednosti, postoji izraz kojim se funkcija kreira - deklaracija funkcije obično ovako izgleda:
+\begin{verbatim}
+    function foo (x) return 2*x end
+\end{verbatim}
+Deklaracija funkcije započinje ključnom rečju function, nakon koje sledi ime funkcije, a zatim lista parametara funkcije. [Parametri su imena promenljivih okružena zagradama], koja može biti prazna ako funkciji nisu potrebni parametri. Nakon liste parametara piše se telo funkcije. Telo funkcije se završava navođenjem ključne reči end.
+Međutim, prethodni primer deklaracije funkcije samo je lepši način da se zapiše:
+\begin{verbatim}
+    foo = function (x) return 2*x end
+\end{verbatim}
+To jest, definicija funkcije je u stvari naredba koja promenljivoj dodeljuje vrednost tipa “function”. Izraz function (x) ... end mozemo posmatrati kao konstruktor za funkcije, baš kao što je {} konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako uglavnom funkcijama dodeljujemo imena, postoje i (nekoliko) situacija kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruza funkciju table.sort, koja prima tabelu i sortira njene elemente. Ova funkcija mora da dozvoli (omogući) neograničeno varijacija in the sort order: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bile omogućene sve vrste opcija (načina sortiranja), sort pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. order function, koja vrši poređenje dve vrednosti): funkcija koja prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Sledeći primer prikazuje gde je zgodno upotrebiti anonimnu funkciju. Na primer, neka je data tabela sa slogovima:
+\begin{verbatim}
+     network = {
+       {name = "grauna",  IP = "210.26.30.34"},
+       {name = "arraial", IP = "210.26.30.23"},
+       {name = "lua",     IP = "210.26.23.12"},
+       {name = "derain",  IP = "210.26.23.20"},
+     }
+\end{verbatim}
+Ako želimo da sortiramo tabelu po imenu polja, u obrnutom alfabetskom poretku (in reverse alphabetical order), pišemo:
+\begin{verbatim}
+    table.sort(network, function (a,b)
+      return (a.name > b.name)
+    end)
+\end{verbatim}
+Funkcija koja prima drugu funkciju kao argument, kao što je sort, je ono sto zovemo funkcija višeg reda (a higher-order function). Higher-order funkcije su moćan mehanizam u programiranju I korišćenje anonimnih funkcija za kreiranje argumenata funkcije je odličan izvor fleksibilnosti. Ali funkcije višeg reda nemaju specijalna prava; have no special rights; one su samo posledica mogućnosti Lua-e da upravlja funkcijama kao prvoklasnim vrednostima.
+
+\subsubsection{Zatvorenja}
+U Lua-i, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Primer koji ovo oslikava jeste kada postoji neka funkcija koja vraća anonimnu funkciju. Anonimna funkcija može da vidi lokalne promenljive (enclosing) funkcije kojom je okruzena. Međutim, pošto je anonimna funkcija vraćena, ona može da nadživi postojeću funkciju. Kada vratimo anonimnu funkciju, ona kreira zatvorenje. To zatvorenje obuhvata njeno enclosing stanje (visible chunks). Ovaj mehanizam dopušta pristup stanju enclosing funkcije, iako se ta funkcija više ne izvršava. Ovo je prikazano u sledećem kodu:
+\begin{verbatim}
+function newCounter ()
+      local i = 0	-- lokalna promenljiva za newCounter() funkciju
+      return function ()   -- anonimna funkcija
+
+-- Posto je anonimna funkcija kreirana unutar funkcije newCounter () ona moze da vidi
+-- sve clanove funkcije newCounter ()
+-- ova funkcija ce moci da zapamti stanje funkcije newCounter (), praveci zatvorenje
+
+               i = i + 1
+               return i
+             end
+    end
+    
+    c1 = newCounter()
+    print(c1())  --> 1
+    print(c1())  --> 2
+\end{verbatim}
+Ovde anonimna funkcija koristi upvalue (upvalue je skraćenica za external local variable), i, da održi svoj brojač. Međutim, kada pozovemo anonimnu funkciju, i je van dometa (izvan scope-a), zato što je funkcija koja je kreirala tu promenljivu (newCounter) završila sa radom (vratila vrednost, returned). Ipak, Lua razrešava tu situaciju korektno, koristeći koncept zatvorenja. Jednostavno rečeno, zatvorenje je funkcija plus sve što joj je potrebno da pristupi njenim upvalues korektno. Ako pozovemo newCounter ponovo, napraviće novu lokalnu promenljivu i, pa ćemo dobiti novo zatvorenje, delujući sada nad tom novom promenljivom:
+\begin{verbatim}
+    c2 = newCounter()
+    print(c2())  --> 1
+    print(c1())  --> 3
+    print(c2())  --> 2
+\end{verbatim}
+Dakle, c1 i c2 su različita zatvorenja nad istom funkcijom i svako deluje na nezavisnu instantiation lokalne promenljive i. Tehnički govoreći, ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija sama za sebe je samo prototip za zatvorenje.
 
 \section{Zaključak}
 \label{sec:zakljucak}
