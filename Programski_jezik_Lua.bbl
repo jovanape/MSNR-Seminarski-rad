@@ -1,5 +1,9 @@
 \begin{thebibliography}{1}
 
+\bibitem{keplerProject}
+{Kepler Project}, 2003.
+\newblock on-line at: \url{https://keplerproject.github.io/cgilua/}.
+
 \bibitem{lua_org_iterators}
 Roberto Ierusalimschy.
 \newblock {Lua.org}, 2003-2004.

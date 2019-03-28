@@ -9,11 +9,11 @@
 \contentsline {subsubsection}{\numberline {6.1.1}Tabele}{4}{subsubsection.6.1.1}
 \contentsline {subsubsection}{\numberline {6.1.2}Kreiranje tabela}{5}{subsubsection.6.1.2}
 \contentsline {subsubsection}{\numberline {6.1.3}Skladi\IeC {\v s}tenje vrednosti}{5}{subsubsection.6.1.3}
-\contentsline {subsection}{\numberline {6.2}Meta tabele i meta metodi}{5}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.2}Meta tabele i meta metodi}{6}{subsection.6.2}
 \contentsline {subsubsection}{\numberline {6.2.1}Kreiranje meta tabele}{6}{subsubsection.6.2.1}
-\contentsline {subsection}{\numberline {6.3}Iteratori i zatvoranja}{6}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.3}Iteratori i zatvoranja}{7}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Funkcije}{7}{subsection.6.4}
 \contentsline {subsubsection}{\numberline {6.4.1}Zatvorenja}{8}{subsubsection.6.4.1}
 \contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{9}{section.7}
 \contentsline {section}{Literatura}{9}{section.7}
-\contentsline {section}{\numberline {A}Dodatak}{9}{appendix.A}
+\contentsline {section}{\numberline {A}Dodatak}{10}{appendix.A}
