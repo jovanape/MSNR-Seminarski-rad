@@ -83,9 +83,9 @@ Kada budete predavali seminarski rad, imenujete datoteke tako da sadrže redni b
 
 Iako je Lua prvenstveno razvijena za potrebe dva projekta, danas se, zbog svoje jednostavnosti, efikasnosti i portabilnosti, koristi u najrazličitijim oblastima: ugradnim sistemima, mobilnim uređajima, veb serverima i igricama.
 
-Lua se obično koristi na jedan od sledeća tri načina: kao skript jezik u sastavu aplikacija pisanih na nekom drugom jeziku, kao samostalan jezik ili zajedno sa C-om.\cite{bookProgInLua} 
+Lua se obično koristi na jedan od sledeća tri načina: kao skript jezik u sastavu aplikacija pisanih na nekom drugom jeziku, kao samostalan jezik ili zajedno sa C-om\cite{bookProgInLua}. 
 
-Ako se Lua upotrebljava u aplikaciji kao ugrađeni jezik, za njeno konfigurisanje u skladu sa domenom date aplikacije potrebno je koristiti Lua-C API. Pomoću njega se mogu, na primer, registrovati nove funkcije, praviti novi tipovi i vršiti izmene u ponašanja nekih operacija. Jedan od primera gde se Lua upotrebljava kao ugrađeni jezik je CGILua, alat za pravljenje dinamičkih veb stranica i manipulisanje podacima prikupljenih putem veb formi. U suštini, CGILua predstavlja apstrakciju za Veb server.\cite{keplerProject} Kao ugrađeni jezik, Lua je našla i široku primenu u igricama.
+Ako se Lua upotrebljava u aplikaciji kao ugrađeni jezik, za njeno konfigurisanje u skladu sa domenom date aplikacije potrebno je koristiti Lua-C API. Pomoću njega se mogu, na primer, registrovati nove funkcije, praviti novi tipovi i vršiti izmene u ponašanja nekih operacija. Jedan od primera gde se Lua upotrebljava kao ugrađeni jezik je CGILua, alat za pravljenje dinamičkih veb stranica i manipulisanje podacima prikupljenih putem veb formi. U suštini, CGILua predstavlja apstrakciju za Veb server\cite{keplerProject}. Kao ugrađeni jezik, Lua je našla i široku primenu u igricama.
 
 Sve češće, Lua se koristi i kao samostalan jezik, čak i za veće projekte. U te svrhe su razvijene biblioteke koje nude različite funkcionalnosti. Na primer, postoje biblioteke za rad sa stringovima, tabelama, fajlovima, modulima, itd.
 
@@ -93,7 +93,7 @@ Treća mogućnost za upotrebu Lue jeste u okviru programa pisanih u C-u. Lua se 
 
 Lua je i tzv. jezik za spajanje (eng. glue language). Ona podržava razvoj softvera zasnovan na komponentama. U tom slučaju, aplikacija se kreira spajanjem postojećih komponenti višeg nivoa - komponenti koje su napisane u kompajliranom, statički tipiziranom jeziku kao što je C ili C++. One obično predstavljaju koncepte niskog nivoa koji se neće mnogo menjati tokom razvoja programa jer oduzimaju mnogo procesorskog vremena. Takve komponente se spajaju pomoću Lue. Dakle, Lua se koristi za pisanje onih delova koda koji će se verovatno menjati mnogo puta i na taj način ubrzava proces razvoja programa.
 
-Kao i mnogi drugi jezici, Lua teži tome da bude fleksibilna. Ali, takođe teži tome da bude mali jezik - i u pogledu implementacije i u terminima specifikacije. Za ugrađne jezike ovo je veoma bitna osobina pošto se veoma često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik se pristupa ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele (koje su u suštini asocijativni nizovi), funkcije prvog reda, korutine i refleksivne mogućnosti. Takođe, da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo double floating-point (prevesti?) tip vrednosti.\cite{multiParadigms}
+Kao i mnogi drugi jezici, Lua teži tome da bude fleksibilna. Ali, takođe teži tome da bude mali jezik - i u pogledu implementacije i u terminima specifikacije. Za ugrađne jezike ovo je veoma bitna osobina pošto se veoma često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik se pristupa ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele (koje su u suštini asocijativni nizovi), funkcije prvog reda, korutine i refleksivne mogućnosti. Takođe, da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo double floating-point (prevesti?) tip vrednosti\cite{multiParadigms}.
 
 \section{Najpoznatija okruženja (framework) za korišćenje ovog jezika i njihove karakteristike}
 \label{sec:framework}
@@ -229,7 +229,7 @@ Rezultat izvrsavanja ovog programa je:
 2	two
 3	three
 \end{verbatim}
-Funkcija ipairs() vraća tri vrednosti: \textit{gen}, \textit{param}, i \textit{state} (koje se nazivaju iteratorski triplet). \textit{Gen} je funkcija koja generiše narednu vrednost u svakoj iteraciji. Ona vraća novo stanje (\textit{state}) i vrednost u tom stanju. \textit{Param} je trajni parametar \textit{gen} funkcije i koristi se za pravljenje instance \textit{gen} funkcije, npr. tabele. \textit{State} je privremeno stanje iteratora koje se menja nakon svake iteracije, npr. to je indeks niza\cite{luafun_ipairs}. Na listingu \ref{iter3} su prikazane ove tri vrednosti.
+Funkcija ipairs() vraća tri vrednosti: \textit{gen}, \textit{param}, i \textit{state} (koje se nazivaju iteratorski triplet). \textit{Gen} je funkcija koja generiše narednu vrednost u svakoj iteraciji. Ona vraća novo stanje (\textit{state}) i vrednost u tom stanju. \textit{Param} je trajni parametar \textit{gen} funkcije i koristi se za pravljenje instance \textit{gen} funkcije, npr. tabele. \textit{State} je privremeno stanje iteratora koje se menja nakon svake iteracije, npr. to je indeks niza\cite{luafun}. Na listingu \ref{iter3} su prikazane ove tri vrednosti.
 \begin{lstlisting}[caption={Primer iteratora bez stanja (nastavak)},frame=single, label=iter3]
 gen, param, state = ipairs(a)
 -- rezultat izvrsavanja: function: 0x41b9e0	table: 0x1e8efb0	0
@@ -305,6 +305,42 @@ Ovde anonimna funkcija koristi upvalue (upvalue je skraćenica za external local
     print(c2())  --> 2
 \end{verbatim}
 Dakle, c1 i c2 su različita zatvorenja nad istom funkcijom i svako deluje na nezavisnu instantiation lokalne promenljive i. Tehnički govoreći, ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija sama za sebe je samo prototip za zatvorenje.
+
+\subsection{Funkcionalna paradigma}
+Podršku funkcionalnom programiranju u Lui pruža biblioteka Lua Fun, koja se još uvek razvija. Ona omogućava pisanje jednostavnog i efikasnog funkcionalnog koda korišćenjem funkcija višeg reda, poput map(), filter(), reduce(), zip(), itd. Slede primeri nekih funkcija iz ove biblioteke.
+
+
+\begin{enumerate}
+  \item  fun.map(\textit{fun, gen, param, state})
+  
+  map() prihvata funkciju \textit{fun} i vraća novi iterator koji je nastao primenjivanjem funkcije \textit{fun} na svaki od elemenata tripletskog iteratora \textit{gen, param, state}. Mapiranje se vrši u prolazu kroz kolekciju, bez baferisanja vrednosti. Primer je dat na listingu \ref{map}. \cite{luafun}
+   \begin{lstlisting}[caption={Primer funkcije map()},frame=single, label=map]
+> each(print, map(function(x) return 2 * x end, range(4)))
+2
+4
+6
+8
+\end{lstlisting}
+  \item fun.filter(\textit{predicate, gen, param, state})
+  
+  filter() prihvata predikat \textit{predicate} na osnovu koga filtrira iterator predstavljen sa \textit{gen, param, state}. Vraća novi iterator za elemete koji zadovoljavaju predikat. Primer je dat na listingu \ref{filter}. \cite{luafun}
+   \begin{lstlisting}[caption={Primer funkcije filter()},frame=single, label=filter]
+> each(print, filter(function(x) return x % 3 == 0 end, range(10)))
+3
+6
+9
+\end{lstlisting}
+\item fun.zip(iterator1, iterator2, ...)
+
+   zip() prihvata listu iteratora i vraća novi iterator čija i-ta vrednost sadrži i-ti element iz svakog od prosleđenih iteratora. Povratni iterator je iste dužine kao najkraći prosledjeni iterator. Primer je dat na listingu \ref{zip}. \cite{luafun}
+   \begin{lstlisting}[caption={Primer funkcije zip()},frame=single, label=zip]
+> each(print, zip(range(5), {'a', 'b', 'c'}, rands()))
+1       a       0.57514179487402
+2       b       0.79693061238668
+3       c       0.45174307459403
+\end{lstlisting}
+\end{enumerate}
+
 
 \subsection{Objektno orjentisana paradigma}
 

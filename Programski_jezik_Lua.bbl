@@ -22,9 +22,12 @@ Kepler Project.
 \newblock {Kepler Project}, 2003.
 \newblock on-line at: \url{https://keplerproject.github.io/cgilua/}.
 
-\bibitem{luafun_ipairs}
+\bibitem{luafun}
 Roman Tsisyk.
 \newblock {Lua Fun Documentation}, 2013-2017.
-\newblock on-line at: \url{https://luafun.github.io/under_the_hood.html}.
+\newblock iterators: \url{https://luafun.github.io/under_the_hood.html}, map:
+  \url{https://luafun.github.io/transformations.html#fun.map}, filter:
+  \url{https://luafun.github.io/filtering.html}, zip:
+  \url{https://luafun.github.io/compositions.html#fun.zip}.
 
 \end{thebibliography}

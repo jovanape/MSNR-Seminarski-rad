@@ -14,8 +14,9 @@
 \contentsline {subsection}{\numberline {6.3}Iteratori}{7}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Funkcije}{8}{subsection.6.4}
 \contentsline {subsubsection}{\numberline {6.4.1}Zatvorenja}{9}{subsubsection.6.4.1}
-\contentsline {subsection}{\numberline {6.5}Objektno orjentisana paradigma}{10}{subsection.6.5}
-\contentsline {subsubsection}{\numberline {6.5.1}Objekti}{10}{subsubsection.6.5.1}
-\contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{10}{section.7}
-\contentsline {section}{Literatura}{10}{section.7}
-\contentsline {section}{\numberline {A}Dodatak}{11}{appendix.A}
+\contentsline {subsection}{\numberline {6.5}Funkcionalna paradigma}{10}{subsection.6.5}
+\contentsline {subsection}{\numberline {6.6}Objektno orjentisana paradigma}{11}{subsection.6.6}
+\contentsline {subsubsection}{\numberline {6.6.1}Objekti}{11}{subsubsection.6.6.1}
+\contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{11}{section.7}
+\contentsline {section}{Literatura}{11}{section.7}
+\contentsline {section}{\numberline {A}Dodatak}{12}{appendix.A}
