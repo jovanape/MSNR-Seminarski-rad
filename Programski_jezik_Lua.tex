@@ -283,6 +283,30 @@ Ovde anonimna funkcija koristi upvalue (upvalue je skraćenica za external local
 \end{verbatim}
 Dakle, c1 i c2 su različita zatvorenja nad istom funkcijom i svako deluje na nezavisnu instantiation lokalne promenljive i. Tehnički govoreći, ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija sama za sebe je samo prototip za zatvorenje.
 
+\subsection{Objektno orjentisana paradigma}
+
+OOP je metodologija koja ujedinjuje podatke (promenljive) i logiku (funkcije) u jednu kohezivnu jedinicu (objekat). Iako Lua nije objektno-orjentisan jezik, on nam obezbedjuje sve objekte (it does provide all the facilities) koji nam dopuštaju da implementiramo sistem objekata. Umesto klasa, u Lua-i pametna upotreba meta tabela moze da kreira sistem klasa. Meta tabele mogu da kreiraju a objekte bazirane na prototipovima.
+
+\subsubsection{Objekti}
+Objekat može biti predstavljen tabelom: promenljive instanci su regularna polja tabele, a metodi su polja tabele koja sadrže funkcije. Posebno, tabele imaju identitet (eng. selfness) koji je nezavisan od njihovih vrednosti. To znači, dva objekta (tabele) sa istom vrednošću su različiti objekti, pošto jedan objekat može imati različite vrednosti u različitim trenucima, ali je to uvek isti objekat. Kao i objekti, tabele imaju životni ciklus koji je nezavisan od toga ko ih je kreirao ili gde su kreirane.
+Objekti imaju svoje sopstvene operacije. Tabele takođe mogu imati operacije:
+\begin{verbatim}
+    Account = {balance = 0}
+    function Account.withdraw (v)
+      Account.balance = Account.balance - v
+    end
+\end{verbatim}
+Ova definicija pravi novu funkciju i smesta je u polje withdraw objekta Account. Zatim, možemo je pozvati ovako:
+\begin{verbatim}
+    Account.withdraw(100.00)
+\end{verbatim}
+
+Ovakve funkcije se zovu metodi. Međutim, upotreba globalnog imena Account unutar funkcije je losa praksa. Prvo, ova funkcija ce raditi samo za ovaj (poseban) objekat. Drugo, cak i za taj specijalni (poseban) objekat funkcija ce raditi onoliko dugo koliko je objekat smesten u toj globalnoj promenljivoj. Ako promenimo ime objektu, withdraw vise nece raditi:
+\begin{verbatim}
+    a = Account; Account = nil
+    a.withdraw(100.00)   -- ERROR!
+\end{verbatim}
+
 \section{Zaključak}
 \label{sec:zakljucak}
 
