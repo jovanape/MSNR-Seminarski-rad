@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Programski_jezik_Lua.aux
 The style file: plain.bst
 Database file #1: seminarski.bib
-You've used 5 entries,
+You've used 8 entries,
             2118 wiz_defined-function locations,
-            526 strings with 4853 characters,
-and the built_in function-call counts, 1215 in all, are:
-= -- 118
-> -- 35
+            543 strings with 5237 characters,
+and the built_in function-call counts, 1836 in all, are:
+= -- 177
+> -- 56
 < -- 1
-+ -- 15
-- -- 10
-* -- 40
-:= -- 200
-add.period$ -- 16
-call.type$ -- 5
-change.case$ -- 19
++ -- 24
+- -- 16
+* -- 59
+:= -- 308
+add.period$ -- 26
+call.type$ -- 8
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 57
-empty$ -- 115
-format.name$ -- 10
-if$ -- 270
+cite$ -- 8
+duplicate$ -- 81
+empty$ -- 176
+format.name$ -- 16
+if$ -- 402
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 3
-newline$ -- 29
-num.names$ -- 10
-pop$ -- 38
+int.to.str$ -- 8
+missing$ -- 4
+newline$ -- 45
+num.names$ -- 16
+pop$ -- 61
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 24
 quote$ -- 0
-skip$ -- 51
+skip$ -- 71
 stack$ -- 0
-substring$ -- 37
-swap$ -- 18
+substring$ -- 52
+swap$ -- 21
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 18
+type$ -- 30
 warning$ -- 0
-while$ -- 11
-width$ -- 6
-write$ -- 56
+while$ -- 17
+width$ -- 9
+write$ -- 87

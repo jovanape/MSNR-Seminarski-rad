@@ -1,5 +1,15 @@
 \begin{thebibliography}{1}
 
+\bibitem{frameworkSailor}
+Etiene Dalcol.
+\newblock {Sailor Project}, 2014-2015.
+\newblock on-line at: \url{http://sailorproject.org/main/about}.
+
+\bibitem{frameworkFengari}
+Fengari.
+\newblock {Fengari}.
+\newblock on-line at: \url{https://fengari.io/}.
+
 \bibitem{lua_org_iterators}
 Roberto Ierusalimschy.
 \newblock {Lua.org}, 2003-2004.
@@ -21,6 +31,12 @@ Roberto Ierusalimschy.
 Kepler Project.
 \newblock {Kepler Project}, 2003.
 \newblock on-line at: \url{https://keplerproject.github.io/cgilua/}.
+
+\bibitem{evolution}
+Waldemar~Celes Roberto~Ierusalimschy, Luiz Henrique de~Figueiredo.
+\newblock {The Evolution of Lua}.
+\newblock {\em Proceedings of ACM HOPL III}, 2007.
+\newblock on-line at: \url{https://www.lua.org/doc/hopl.pdf}.
 
 \bibitem{luafun}
 Roman Tsisyk.

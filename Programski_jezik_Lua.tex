@@ -76,6 +76,20 @@ Kada budete predavali seminarski rad, imenujete datoteke tako da sadrže redni b
 \section{Nastanak i istorijski razvoj, mesto u razvojnom stablu, uticaji drugih programskih jezika}
 \label{sec:istorijski_razvoj}
 
+Programski jezik Lua nastao je 1993. na Katoličkom univerzitetu u Rio de Žaneiru u Brazilu, i u prevodu sa portugalskog znači mesec. U okviru Tecgraf-a, Grupe za razvoj tehnologija u računarskoj grafici (Computer Graphics Technology Group), pri pomenutom univerzitetu, trojica naučnika zvanih Roberto Jeruzalimski, Luiz Henrike de Figereido i Valdemar Keles, svaki specijalizovan za različitu naučnu oblast, razvili su jezik Lua, i od tada pa do danas rade na njegovom održavanju i proširivanju.
+
+Zbog tadašnjih brazilskih zakona koji su striktno ograničavali uvoz softvera i hardvera, favorizujući domaće proizvode i znatno otežavajući uvoz iz inostranstva (koji je bio dozvoljen samo ukoliko ne postoji adekvatna zamena proizvedena od strane domaćih kompanija, što je bilo jako teško i komplikovano dokazati) stvorila se potreba za programskim jezikom nastalim u Brazilu. Lua se smatra jedinim programskim jezikom nastalim u nekoj zemlji u razvoju koji je dostigao globalnu popularnost, i pored Ruby nastalog u Japanu, jedinim značajnim jezikom nastalim van Evrope i severne Amerike.
+
+Prethodnici Lue, dva mala programska jezika zvana DEL (Data Entry Language) i SOL (Simple Object Language, čija skraćenica u prevodu označava sunce, što je bila direktna inspiracija za naziv Lua), nastali su 1992. za potrebe brazilskog naftnog giganta Petrobrasa. Svrha naručenog grafičkog interfejsa je bila da olakša, ubrza i učini otpornijim na greške unos ogromne količine numeričkih podataka koji je morao biti unesen u zastarelom formatu nasleđenom iz doba bušenih kartica. Ovaj interfejs je učinio unos podataka interaktivnim, kliktanjem na delove dijagrama, a potom prevodio ovako unesene podatke u potrebni format i automatski generisao izlazni fajl u tom formatu. Pored toga, program je vršio proveru unetih podataka i izračunavao određeni deo podataka koji više nije bilo potrebe ručno unositi. DEL je nastao kako bi se olakšalo pisanje ovih grafičkih interfejsa, kao deklarativni jezik koji je opisivao svojstva i ograničenja polja za unos podataka i entiteta kojima su ta polja pripadala. Entiteti u DEL-u se mogu uporediti sa strukturama u nekom drugom jeziku. Na razvoju ovog jezika radio je Luiz Henrike de Figerido.
+
+Paralelno sa razvojem DEL-a, razvijao se i PGM, na kojem su radili Roberto Jeruzalimski i Valdemar Keles. PGM je služio za ispis litoloških podataka i bilo je moguće ručno konfigurisati način ispisa. SOL je nastao kako bi se konfigurisanje olakšalo. SOL je završen marta 1993, ali nikada nije isporučen.
+
+Ubrzo je nastala potreba za dodatnim mogućnostima u okviru DEL-a i SOL-a, tako da su vođe timova iza ova dva projekta sredinom 1993. zaključili da bi najbolje bilo da se ova dva mini jezika integrišu u jedan. Odlučeno je da će biti potreban pravi programski jezik, koji će da sadrži naredbe dodele, kontrole toka, podrutine… Zbog toga što ogroman deo potencijalnih korisnika nisu profesionalni programeri, sintaksa i semantika je trebalo da budu što jednostavnije, a postojala je i potreba za opisom podataka kao u SOL-u. Portabilnost je takođe označena kao jedan od prioriteta. DEL nije direktno uticao na Luu kao jezik, već samo idejno, u smislu umetanja delova skript jezika u ogromne projekte. Mnogi koncepti u Lui pozajmljeni su iz drugih programskih jezika, uključujući Modulu, CLU, C++, SNOBOL i Awk. Operator tačka zarez je odlučeno da bude opcion. 
+
+U julu 1993, Valdermar je dovršio prvu implementaciju Lue, koja je veoma brzo doživela ogroman uspeh. Prevedena je korišćenjem lex i yacc alata i bila je izuzetno jednostavna. Od tada je izašlo ukupno pet verzija sa brojnim podverzijama, koje su redom dodavale nove funkcionalnosti, a vremenski intervali između verzija su postajali sve duži. 
+Lua spada u dinamički tipizirane, “embeddable” (klasu jezika koji se često koriste da prošire ili utiču na ponašanje postojeće aplikacije) skript jezike. Podržava proceduralno, objektno orjektisano, funkcionalno i programiranje okrenuto ka podacima. Na razvojnom stablu se nalazi kao naslednik Perl-a i Pascal-a. \cite{evolution}
+
+
 
 
 \section{Osnovna namena i mogućnosti programskog jezika Lua}	
@@ -97,6 +111,17 @@ Kao i mnogi drugi jezici, Lua teži tome da bude fleksibilna. Ali, takođe teži
 
 \section{Najpoznatija okruženja (framework) za korišćenje ovog jezika i njihove karakteristike}
 \label{sec:framework}
+
+Tokom godina, nastala su brojna okruženja za jezik Lua koja olakšavaju razvoj veb aplikacija. Korišćena su za razvoj mnogih poznatih sajtova i aplikacija, između ostalog i za Vikipedija templejting sistem, kao i kineski sajt za onlajn kupovinu Taobao. Međutim, veliki problem predstavlja manjak pratećih biblioteka zbog kojih je PHP dostigao toliku popularnost. 
+Među najpopuilarnija Lua okruženja spadaju Lapis, Sailor, Luvit i Fengari. 
+
+Lapis je okruženje za pisanje veb aplikacija korišćenjem Lue ili Moonscripta (programski jezik sa lepšom i kraćom sintaksom koji se kompajlira u Luu) i izvršava se u okviru distribucije Nginx-a zvane OpenResty. OpenResty izvršava Lua (odnosno MoonScript) koristeći LuaJIT. Lapis je po svojoj funkcionalnosti analogan Rails okruženju za Ruby i Laravel okruženju za PHP. Omogućava HTML templating, jednostavno uvođenje middleware-a, upravljanje ORM modelima (uključujući i migracije istih) i slično. 
+
+Sailor okruženje je slično Lapisu ali razlikuje se po tome što uvodi dodatne, naprednije funkcionalnosti, od kojih je najvažnija mogućnost pisanja klijentskog koda u Lui, pomoću Lua virtuelne mašine implementirane u JavaScriptu. Još jedna prednost je što nije vezan za OpenResty, već ga je moguće izvršavati i na Apache2, Nginx, Mongoose, Lighttpd, Xavante i Lwan veb serverima. Naziv je inspirisan popularnom animiranom serijom zvanom Sailor Moon, naime kada je autorka okruženja počela da uči Luu, rešila je da ako ikada napiše projekat u njoj, zvaće se Sailor jer Lua znači mesec na portugalskom. Značajna je i po tome što je učenica jednog od autora Lue\cite{frameworkSailor}.
+
+Luvit je okruženje za Luu koje implementira API identičan Node.js okruženju. Asinhrone I/O operacije se oslanjaju na istu biblioteku kao u Node.js-u (libuv). Zbog ove dve stvari, kod pisan za Luvit izgleda veoma slično kodu, stoga može biti pogodna polazna tačka za JavaScript/Node programere koji žele da nauče Luu.
+
+Fengari je implementacija Lua virtuelne mašine pisana u JavaScriptu. Izvršava se u veb pregledaču i omogućava izvršavanje Lua programa u tom okruženju. Lua kodu je dostupan kompletan API pregledača, uključujući i funkcije za manipulaciju DOM-a, pa može u potpunosti da zameni JavaScript pri pisanju klijentskog koda\cite{frameworkFengari}.
 
 
 \section{Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima}
