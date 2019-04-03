@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {6.2}Meta tabele i meta metodi}{7}{subsection.6.2}% 
 \contentsline {subsubsection}{\numberline {6.2.1}Kreiranje meta tabele}{8}{subsubsection.6.2.1}% 
 \contentsline {subsection}{\numberline {6.3}Iteratori}{8}{subsection.6.3}% 
-\contentsline {subsection}{\numberline {6.4}Funkcije}{10}{subsection.6.4}% 
+\contentsline {subsection}{\numberline {6.4}Funkcije}{9}{subsection.6.4}% 
 \contentsline {subsubsection}{\numberline {6.4.1}Zatvorenja}{11}{subsubsection.6.4.1}% 
 \contentsline {subsection}{\numberline {6.5}Funkcionalna paradigma}{12}{subsection.6.5}% 
 \contentsline {subsection}{\numberline {6.6}Objektno orjentisana paradigma}{12}{subsection.6.6}% 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.28)  3 APR 2019 17:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.28)  3 APR 2019 17:36
 entering extended mode
 **./Programski_jezik_Lua.tex
 (Programski_jezik_Lua.tex
@@ -656,31 +656,33 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 426.
  ) 
 Here is how much of TeX's memory you used:
- 11347 strings out of 492946
- 157924 string characters out of 3126266
- 482925 words of memory out of 3000000
- 15066 multiletter control sequences out of 15000+200000
- 17989 words of font info for 41 fonts, out of 3000000 for 9000
+ 11352 strings out of 492946
+ 157977 string characters out of 3126266
+ 476925 words of memory out of 3000000
+ 15068 multiletter control sequences out of 15000+200000
+ 19595 words of font info for 43 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,7n,40p,1197b,2018s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,8n,40p,1197b,2018s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi525\la
 tt0800.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/d
 pi600\larm0500.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/
-lh-t2a/dpi600\latt0900.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/lj
-four/lh/lh-t2a/dpi600\labx1000.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fon
-ts/pk/ljfour/lh/lh-t2a/dpi600\labx1200.pk> <C:\Users\jovan\AppData\Local\MiKTeX
-\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1000.pk> <C:\Users\jovan\AppData\Loca
-l\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1440.pk> <C:\Users\jovan\AppD
-ata\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\lati0900.pk> <C:\Users\jo
-van\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx0900.pk> <C:\
-Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1200.
+lh-t2a/dpi600\larm0800.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/lj
+four/lh/lh-t2a/dpi600\latt0900.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fon
+ts/pk/ljfour/lh/lh-t2a/dpi600\larm0600.pk> <C:\Users\jovan\AppData\Local\MiKTeX
+\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1000.pk> <C:\Users\jovan\AppData\Loca
+l\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1200.pk> <C:\Users\jovan\AppD
+ata\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1000.pk> <C:\Users\jo
+van\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1440.pk> <C:\
+Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\lati0900.
 pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/dpi600\l
-arm0900.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/
-dpi600\larm1728.pk><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr9.pfb>
-Output written on Programski_jezik_Lua.pdf (14 pages, 235212 bytes).
+abx0900.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh/lh-t2a/
+dpi600\larm1200.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/lh
+/lh-t2a/dpi600\larm0900.pk> <C:\Users\jovan\AppData\Local\MiKTeX\2.9\fonts/pk/l
+jfour/lh/lh-t2a/dpi600\larm1728.pk><C:/Users/jovan/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb>
+Output written on Programski_jezik_Lua.pdf (14 pages, 243872 bytes).
 PDF statistics:
- 800 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
+ 836 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
