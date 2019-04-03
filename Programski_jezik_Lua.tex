@@ -134,15 +134,16 @@ Fengari je implementacija Lua virtuelne mašine pisana u JavaScriptu. Izvršava 
 Lua podržava različite paradigme, kao što su objektno-orjentisana, funkcionalna i proceduralna. Ona ne podržava ove paradigme pomoću specfičnih mehanizama za svaku od njih, već pomoću opštih mehanizama kao što su tabele, funkcije prvog reda, delegacija i korutine. Pošto ti mehanizmi nisu specifični ni za jednu određenu paradigmu, moguće su i druge paradigme. Svi mehanizmi Lue rade nad standardnom proceduralnom semantikom, što omogućuje laku integraciju između njih. Prema tome, većina programa napisanih u Lui su proceduralni, s tim što uključuju i korisne tehnike iz drugih paradigmi. \cite{multiParadigms}
 
 \subsection{Tabele i objekti}
-Jedina struktura podataka koju Lua pruža je tabela. Tabele su dovoljno moćne da pomoću njih može da se implementira druga struktura podataka, kao sto su liste, redovi ili stekovi.
-Lua nije objektno-orjentisani jezik, te nema podršku za objekte. Medjutim, koristeći tabele i meta-tabele, sistem objekata i klasa može biti implementiran iz temelja.
+Jedina struktura podataka koju Lua pruža je tabela. Tabele su dovoljno fleksibilne da pomoću njih mogu da se implementiraju druge strukture podataka, kao sto su liste, redovi ili stekovi.
+
+Lua nije objektno-orjentisani jezik, te nema podršku za objekte. Međutim, sistem objekata se može implementirati korišćenjem tabela i meta-tabela. Dva bitna koncepta nad kojima je zasnovana objektno-orjentisana paradigma su polimorfizam i nasleđivanje.
 
 \subsubsection{Tabele}
 Tabele su first-class, dinamički kreirani asocijativni nizovi [An associative array is an array that can be indexed not only with numbers, but also with strings or any other value of the language, except nil.]. One su u osnovi rečnik ili niz. Tabele se sastoje iz parova ključ-vrednost. Ako su ključevi tabele numerički, tabela predstavlja niz. Ako su ključevi ne-numeričke ili mešovite vrednosti, tabela je rečnik. Kao ključ u tabeli se može koristiti bilo šta, osim nil. Bilo Šta, uključujuci i nil, može biti vrednost.
 Tabele se skladište po referenci, a ne po vrednosti, i program jedino preko referenci (ili pokazivača) njima manipuliše. Nema skrivenih kopija ili kreiranja novih tabela iza scene.
 
 \subsubsection{Kreiranje tabela}
-Tabela se kreira putem konstruktora, koji u svojoj najjednostavnijoj formi izgleda ovako {}. Nakon što je tabela kreirana, ona treba biti dodeljena promenljivoj. Ako se tabela ne dodeli promenljivoj, nije moguće na nju referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
+Tabela se kreira uz pomoć konstruktora, koji u svojoj najjednostavnijoj formi izgleda ovako {}. Nakon što je kreirana, tabelu treba dodeliti promenljivoj, u suprotnom na nju nije moguće referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
 \begin{verbatim}
 a = {}     -- kreira tabelu i smešta njenu referencu u promenljivu a
 \end{verbatim}
@@ -152,7 +153,7 @@ Tabela je relaciona struktura podataka koja skladisti vrednosti. Da bi se promen
 \begin{verbatim}
 table[key] = value
 \end{verbatim}
-Naredni primer demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako vratiti (izvaditi) tu vrednost:
+Naredni primer demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako tu vrednost izvući iz tabele:
 \begin{verbatim}
 k = "x"
 a[k] = 10        -- nov ulaz, sa ključem key="x" i vrednošću value=10
@@ -163,8 +164,8 @@ print(a[k])      -- > "great"	- vraća vrednost (izvadi vrednost iz tabele)
 a["x"] = a["x"] + 1     -- uvećava ulaz "x"
 print(a["x"])    -- > 11
 \end{verbatim}
-Kada u programu ne postoji ni jedna referenca na neku tabelu, Lua menadzer (upravljač) memorije će (eventualno) obrisati tu tabelu (i osloboditi memoriju koju je zauzimala), tako da memorija koju je ta tabela zauzimala kasnije može biti ponovo upotrebljena.
-Ključ tabele moze biti bilo kog tipa (čak i druga tabela), osim nil, i svaka tabela može da čuva vrednosti različitih tipova indeksa. Razmotrimo sledeći primer:
+Kada u programu ne postoji ni jedna referenca na neku tabelu, upravljač memorije će obrisati tu tabelu (i osloboditi memoriju koju je tabela zauzimala), tako da memorija koju je ta tabela zauzimala kasnije može biti ponovo upotrebljena.
+Ključ tabele moze biti bilo kog tipa (pa čak i druga tabela), osim nil, i svaka tabela može da čuva vrednosti različitih tipova indeksa. Razmotrimo sledeći primer:
 \begin{verbatim}
 a = {}     -- prazna tabela
 -- kreira se 1000 novih ulaza
@@ -174,8 +175,8 @@ a["x"] = 10
 print(a["x"])  --> 10
 print(a["y"])  --> nil
 \end{verbatim}
-Primetite poslednju liniju: Baš kao globalne promenljive, polja tabele dobijaju vrednost nil ako nisu inicijalizovana (ako ne dodelite vrednost ključu u tabeli, podrazumevana (defalut) vrednost je nil). Takođe kao kod globalnih promenljivih, polju tabele možete dodeliti vrednost nil ako želite da ga obrišete.
-Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. dot syntax). Lua podržava ovu reprezentaciju pružajući a.name kao lepši zapis za ["name"]. Dakle, poslednje tri linije prethodnog koda (primera) mogu se napisati i ovako:
+U poslednjoj liniji primera brojPrimera????? je prikazano da polja tabele dobijaju vrednost nil ako nisu inicijalizovana (ako se ne dodeli vrednost ključu u tabeli, podrazumevana (defalut) vrednost je nil) baš kao i globalne promenljive. Takođe kao kod globalnih promenljivih, polju tabele se može dodeliti vrednost nil ako se želi ????? TODO ????? da ono bude obrisano.
+Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. dot syntax). Lua podržava ovu reprezentaciju pružajući a.name kao lepši zapis za ["name"]. Dakle, poslednje tri linije prethodnog koda (primera brojPrimera?????) mogu se napisati i ovako:
 \begin{verbatim}
     a.x = 10                    -- isto što i a["x"] = 10
     print(a.x)                  -- isto što i print(a["x"])
@@ -183,8 +184,8 @@ Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka
 \end{verbatim}
 
 \subsection{Meta tabele i meta metodi}
-Meta tabele menjaju ponašanje tabela koristeći meta metode. Te meta metode su funkcije sa specifičnim imenom koje utiče na to kako se tabela ponaša. Na primer, koristeći meta tabele, možemo definisati kako Lua računa izraz a + b, gde su a i b tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \_\_add polje. Ako Lua pronadje to polje, zove odgovarajuću funkciju da bi izračunala sumu.
-Da bi se postavila ili promenila meta tabela bilo koje tabele koristi se funkcija setmetatable:
+Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz a + b, gde su a i b tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \_\_add polje. Ako Lua pronadje to polje, zove odgovarajuću funkciju da bi izračunala sumu.
+Da bi se postavila ili promenila meta tabela bilo koje tabele koristi se funkcija setmetatable, kao što je prikazano u primeru brojPrimera?????.
 \begin{verbatim}
 t1 = {}
     setmetatable(t, t1)
@@ -206,12 +207,12 @@ container = {
 value = 5
 }
 \end{verbatim}
-Pokušajte da dodate broj 4 container tabeli; Lua će izbaciti sintaksnu grešku. Ovo je zato što ne možete da dodate broj tabeli. Kod koji uzrokuje grešku izgleda ovako:
+Ako se pokuša sa dodavanjem broja 4 container tabeli, Lua izbacuje sintaksnu grešku. Ovo se dešava zato što nije moguće tabeli dodati broj. Kod koji uzrokuje grešku prikazan je u primeru brojPrimera?????.
 \begin{verbatim}
 result = container + 4 -- ERROR
 print ("result: " .. result)
 \end{verbatim}
-Dodavanjem meta tabele container tabeli, koja ima \_\_add meta metod, mozemo napraviti da ovaj kod radi. Funkcija setmetatable se koristi da dodeli meta tabelu. Kod koji omogućava da sve ovo radi izgleda ovako:
+Dodavanjem meta tabele container tabeli, koja ima \_\_add meta metod, može se napraviti da ovaj kod radi. Funkcija setmetatable se koristi da tabeli dodeli meta tabelu. Kod koji omogućava da sve ovo radi dat je u primeru brojPrimera?????
 \begin{verbatim}
 setmetatable(container, meta) -- postavlja meta tabelu
 result = container + 4 -- RADI!
