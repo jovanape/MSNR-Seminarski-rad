@@ -154,19 +154,19 @@ Tabela je relaciona struktura podataka koja skladisti vrednosti. Da bi se promen
 table[key] = value
 \end{verbatim}
 Naredni primer demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako tu vrednost izvući iz tabele:
-\begin{verbatim}
+\begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela1]
 k = "x"
-a[k] = 10        -- nov ulaz, sa ključem key="x" i vrednošću value=10
-a[20] = "great"  -- nov ulaz, sa ključem key=20 i vrednošću value="great"
-print(a["x"])    -- > 10
+a[k]=10      -- nov ulaz, sa kljucem key="x" i vrednoscu value=10
+a[20] = "great"-- nov ulaz, sa kljucem key=20 i vrednoscu value="great"
+print(a["x"])  -- > 10
 k = 20
-print(a[k])      -- > "great"	- vraća vrednost (izvadi vrednost iz tabele)
-a["x"] = a["x"] + 1     -- uvećava ulaz "x"
-print(a["x"])    -- > 11
-\end{verbatim}
+print(a[k])    -- > "great"	- vraca vrednost (izvadi vrednost iz tabele)
+a["x"] = a["x"] + 1   -- uvecava ulaz "x"
+print(a["x"])  -- > 11
+\end{lstlisting}
 Kada u programu ne postoji ni jedna referenca na neku tabelu, upravljač memorije će obrisati tu tabelu (i osloboditi memoriju koju je tabela zauzimala), tako da memorija koju je ta tabela zauzimala kasnije može biti ponovo upotrebljena.
 Ključ tabele moze biti bilo kog tipa (pa čak i druga tabela), osim nil, i svaka tabela može da čuva vrednosti različitih tipova indeksa. Razmotrimo sledeći primer:
-\begin{verbatim}
+\begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela2]
 a = {}     -- prazna tabela
 -- kreira se 1000 novih ulaza
 for i=1,1000 do a[i] = i*2 end
@@ -174,50 +174,50 @@ print(a[9])    --> 18
 a["x"] = 10
 print(a["x"])  --> 10
 print(a["y"])  --> nil
-\end{verbatim}
-U poslednjoj liniji primera brojPrimera????? je prikazano da polja tabele dobijaju vrednost nil ako nisu inicijalizovana (ako se ne dodeli vrednost ključu u tabeli, podrazumevana (defalut) vrednost je nil) baš kao i globalne promenljive. Takođe kao kod globalnih promenljivih, polju tabele se može dodeliti vrednost nil ako se želi ????? TODO ????? da ono bude obrisano.
-Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. dot syntax). Lua podržava ovu reprezentaciju pružajući a.name kao lepši zapis za ["name"]. Dakle, poslednje tri linije prethodnog koda (primera brojPrimera?????) mogu se napisati i ovako:
-\begin{verbatim}
-    a.x = 10                    -- isto što i a["x"] = 10
-    print(a.x)                  -- isto što i print(a["x"])
-    print(a.y)                  -- isto što i print(a["y"])
-\end{verbatim}
+\end{lstlisting}
+U poslednjoj liniji primera \ref{tabela2} je prikazano da polja tabele dobijaju vrednost nil ako nisu inicijalizovana (ako se ne dodeli vrednost ključu u tabeli, podrazumevana (defalut) vrednost je nil) baš kao i globalne promenljive. Takođe kao kod globalnih promenljivih, polju tabele se može dodeliti vrednost nil ako se želi ????? TODO ????? da ono bude obrisano.
+Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. dot syntax). Lua podržava ovu reprezentaciju pružajući a.name kao lepši zapis za ["name"]. Dakle, poslednje tri linije prethodnog koda (primera \ref{tabela2}) mogu se napisati i ovako:
+\begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela3]
+    a.x = 10                    -- isto sto i a["x"] = 10
+    print(a.x)                  -- isto sto i print(a["x"])
+    print(a.y)                  -- isto sto i print(a["y"])
+\end{lstlisting}
 
 \subsection{Meta tabele i meta metodi}
 Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz a + b, gde su a i b tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \_\_add polje. Ako Lua pronadje to polje, zove odgovarajuću funkciju da bi izračunala sumu.
-Da bi se postavila ili promenila meta tabela bilo koje tabele koristi se funkcija setmetatable, kao što je prikazano u primeru brojPrimera?????.
-\begin{verbatim}
+Da bi se postavila ili promenila meta tabela bilo koje tabele koristi se funkcija setmetatable, kao što je prikazano u primeru \ref{meta1}.
+\begin{lstlisting}[caption={Postavljanje metatabele},frame=single, label=meta1]
 t1 = {}
     setmetatable(t, t1)
     assert(getmetatable(t) == t1)
-\end{verbatim}
+\end{lstlisting}
 Bilo koja tabela može biti meta tabela bilo koje druge tabele; grupa povezanih tabela može da deli zajedničku meta tabelu (koja opisuje njihovo zajedničko ponašanje); tabela može biti svoja sopstvena meta tabela (tako da opisuje svoje individualno ponašanje). Bilo koja od ovih konfiguracija je validna.
 
 \subsubsection{Kreiranje meta tabele}
 Za kreiranje meta tabele neophodno je prvo kreirati običnu tabelu nazvanu meta. Ova tabela će imati funkciju koja se zove \_\_add[ \_\_add je rezervisano ime za funkciju]. \_\_add funkcija će primati dva argumenta. Levi argument će biti tabela sa poljem koje se zove value, a desni argument će biti broj:
-\begin{verbatim}
+\begin{lstlisting}[caption={Metatabela},frame=single, label=meta2]
 meta = { } -- kreira tabelu
 meta.__add = function(left, right) -- dodaje meta metod
 return left.value + right -- pretpostavlja se da je left tabela
 end
-\end{verbatim}
+\end{lstlisting}
 Dalje, treba napraviti tabelu zvanu container. Container tabela će imati promenljivu zvanu value, koja će imati vrednost 5:
-\begin{verbatim}
+\begin{lstlisting}[caption={Metatabela},frame=single, label=meta3]
 container = {
 value = 5
 }
-\end{verbatim}
-Ako se pokuša sa dodavanjem broja 4 container tabeli, Lua izbacuje sintaksnu grešku. Ovo se dešava zato što nije moguće tabeli dodati broj. Kod koji uzrokuje grešku prikazan je u primeru brojPrimera?????.
-\begin{verbatim}
+\end{lstlisting}
+Ako se pokuša sa dodavanjem broja 4 container tabeli, Lua izbacuje sintaksnu grešku. Ovo se dešava zato što nije moguće tabeli dodati broj. Kod koji uzrokuje grešku prikazan je u primeru \ref{meta4}.
+\begin{lstlisting}[caption={Metatabela},frame=single, label=meta4]
 result = container + 4 -- ERROR
 print ("result: " .. result)
-\end{verbatim}
-Dodavanjem meta tabele container tabeli, koja ima \_\_add meta metod, može se napraviti da ovaj kod radi. Funkcija setmetatable se koristi da tabeli dodeli meta tabelu. Kod koji omogućava da sve ovo radi dat je u primeru brojPrimera?????
-\begin{verbatim}
+\end{lstlisting}
+Dodavanjem meta tabele container tabeli, koja ima \_\_add meta metod, može se napraviti da ovaj kod radi. Funkcija setmetatable se koristi da tabeli dodeli meta tabelu. Kod koji omogućava da sve ovo radi dat je u primeru \ref{meta5}.
+\begin{lstlisting}[caption={Metatabela},frame=single, label=meta5]
 setmetatable(container, meta) -- postavlja meta tabelu
 result = container + 4 -- RADI!
 print ("result: " .. result)
-\end{verbatim}
+\end{lstlisting}
 DOPUNITI... Meta tabele su možda najmoćnija karakteristika Lua-e.
 
 
@@ -267,16 +267,16 @@ print(gen(param, state))
 \subsection{Funkcije}
 Funkcije u Lua-i su first-class values (primarne vrednosti, građani prvog reda) sa odgovarajućim "leksičkim opsegom". Za funkciju se kaže da je građanin prvog reda (vrednosti prve klase) ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da se vrate kao povratna vrednost funkcija. Da funkcija ima "leksički opseg" znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lua-i možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
 
-Kada govorimo o imenu funkcije, na primer print, mi zapravo pričamo o promenljivoj koja sadrži (čuva) tu funkciju. Neke od posledica ove karakteristike Lua-e prikazene su u narednom primeru:
+Kada govorimo o imenu funkcije, na primer print, mi zapravo pričamo o promenljivoj koja sadrži (čuva) tu funkciju. Neke od posledica ove karakteristike Lua-e prikazene su u primeru \ref{fun1}:
 
-\begin{verbatim}
+\begin{lstlisting}[caption={Funkcije},frame=single, label=fun1]
     a = {p = print}
     a.p("Hello World") --> Hello World
-    print = math.sin  -- print sada referiše na funkciju sin
+    print = math.sin  -- print sada referise na funkciju sin
     a.p(print(1))     --> 0.841470
-    sin = a.p         -- sin sada referiše na funkciju print
+    sin = a.p         -- sin sada referise na funkciju print
 	sin(10, 20)       --> 10      20
-\end{verbatim}
+\end{lstlisting}
 Iako su funkcije vrednosti, postoji izraz kojim se funkcija kreira - deklaracija funkcije obično ovako izgleda:
 \begin{verbatim}
     function foo (x) return 2*x end
@@ -287,25 +287,25 @@ Međutim, prethodni primer deklaracije funkcije samo je lepši način da se zapi
     foo = function (x) return 2*x end
 \end{verbatim}
 To jest, definicija funkcije je u stvari naredba koja promenljivoj dodeljuje vrednost tipa “function”. Izraz function (x) ... end mozemo posmatrati kao konstruktor za funkcije, baš kao što je {} konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako uglavnom funkcijama dodeljujemo imena, postoje i (nekoliko) situacija kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruza funkciju table.sort, koja prima tabelu i sortira njene elemente. Ova funkcija mora da dozvoli (omogući) neograničeno varijacija in the sort order: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bile omogućene sve vrste opcija (načina sortiranja), sort pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. order function, koja vrši poređenje dve vrednosti): funkcija koja prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Sledeći primer prikazuje gde je zgodno upotrebiti anonimnu funkciju. Na primer, neka je data tabela sa slogovima:
-\begin{verbatim}
+\begin{lstlisting}[caption={Funkcije},frame=single, label=fun2]
      network = {
        {name = "grauna",  IP = "210.26.30.34"},
        {name = "arraial", IP = "210.26.30.23"},
        {name = "lua",     IP = "210.26.23.12"},
        {name = "derain",  IP = "210.26.23.20"},
      }
-\end{verbatim}
+\end{lstlisting}
 Ako želimo da sortiramo tabelu po imenu polja, u obrnutom alfabetskom poretku (in reverse alphabetical order), pišemo:
-\begin{verbatim}
+\begin{lstlisting}[caption={Funkcije},frame=single, label=fun3]
     table.sort(network, function (a,b)
       return (a.name > b.name)
     end)
-\end{verbatim}
+\end{lstlisting}
 Funkcija koja prima drugu funkciju kao argument, kao što je sort, je ono sto zovemo funkcija višeg reda (a higher-order function). Higher-order funkcije su moćan mehanizam u programiranju I korišćenje anonimnih funkcija za kreiranje argumenata funkcije je odličan izvor fleksibilnosti. Ali funkcije višeg reda nemaju specijalna prava; have no special rights; one su samo posledica mogućnosti Lua-e da upravlja funkcijama kao prvoklasnim vrednostima.
 
 \subsubsection{Zatvorenja}
-U Lua-i, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Primer koji ovo oslikava jeste kada postoji neka funkcija koja vraća anonimnu funkciju. Anonimna funkcija može da vidi lokalne promenljive (enclosing) funkcije kojom je okruzena. Međutim, pošto je anonimna funkcija vraćena, ona može da nadživi postojeću funkciju. Kada vratimo anonimnu funkciju, ona kreira zatvorenje. To zatvorenje obuhvata njeno enclosing stanje (visible chunks). Ovaj mehanizam dopušta pristup stanju enclosing funkcije, iako se ta funkcija više ne izvršava. Ovo je prikazano u sledećem kodu:
-\begin{verbatim}
+U Lua-i, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Primer koji ovo oslikava jeste kada postoji neka funkcija koja vraća anonimnu funkciju. Anonimna funkcija može da vidi lokalne promenljive (enclosing) funkcije kojom je okruzena. Međutim, pošto je anonimna funkcija vraćena, ona može da nadživi postojeću funkciju. Kada vratimo anonimnu funkciju, ona kreira zatvorenje. To zatvorenje obuhvata njeno enclosing stanje (visible chunks). Ovaj mehanizam dopušta pristup stanju enclosing funkcije, iako se ta funkcija više ne izvršava. Ovo je prikazano u sledećem kodu, \ref{zatv1}:
+\begin{lstlisting}[caption={Zatvorenja},frame=single, label=zatv1]
 function newCounter ()
       local i = 0	-- lokalna promenljiva za newCounter() funkciju
       return function ()   -- anonimna funkcija
@@ -322,14 +322,14 @@ function newCounter ()
     c1 = newCounter()
     print(c1())  --> 1
     print(c1())  --> 2
-\end{verbatim}
+\end{lstlisting}
 Ovde anonimna funkcija koristi upvalue (upvalue je skraćenica za external local variable), i, da održi svoj brojač. Međutim, kada pozovemo anonimnu funkciju, i je van dometa (izvan scope-a), zato što je funkcija koja je kreirala tu promenljivu (newCounter) završila sa radom (vratila vrednost, returned). Ipak, Lua razrešava tu situaciju korektno, koristeći koncept zatvorenja. Jednostavno rečeno, zatvorenje je funkcija plus sve što joj je potrebno da pristupi njenim upvalues korektno. Ako pozovemo newCounter ponovo, napraviće novu lokalnu promenljivu i, pa ćemo dobiti novo zatvorenje, delujući sada nad tom novom promenljivom:
-\begin{verbatim}
+\begin{lstlisting}[caption={Zatvorenja},frame=single, label=zatv2]
     c2 = newCounter()
     print(c2())  --> 1
     print(c1())  --> 3
     print(c2())  --> 2
-\end{verbatim}
+\end{lstlisting}
 Dakle, c1 i c2 su različita zatvorenja nad istom funkcijom i svako deluje na nezavisnu instantiation lokalne promenljive i. Tehnički govoreći, ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija sama za sebe je samo prototip za zatvorenje.
 
 \subsection{Funkcionalna paradigma}
@@ -375,22 +375,22 @@ Objaktno orjentisana paradigma je metodologija koja ujedinjuje podatke (promenlj
 \subsubsection{Objekti}
 Objekat može biti predstavljen tabelom: promenljive instanci su regularna polja tabele, a metodi su polja tabele koja sadrže funkcije. Posebno, tabele imaju identitet (eng. selfness) koji je nezavisan od njihovih vrednosti. To znači, dva objekta (tabele) sa istom vrednošću su različiti objekti, pošto jedan objekat može imati različite vrednosti u različitim trenucima, ali je to uvek isti objekat. Kao i objekti, tabele imaju životni ciklus koji je nezavisan od toga ko ih je kreirao ili gde su kreirane.
 Objekti imaju svoje sopstvene operacije. Tabele takođe mogu imati operacije:
-\begin{verbatim}
+\begin{lstlisting}[caption={OOP},frame=single, label=oop1]
     Account = {balance = 0}
     function Account.withdraw (v)
       Account.balance = Account.balance - v
     end
-\end{verbatim}
+\end{lstlisting}
 Ova definicija pravi novu funkciju i smesta je u polje withdraw objekta Account. Zatim, možemo je pozvati ovako:
-\begin{verbatim}
+\begin{lstlisting}[caption={OOP},frame=single, label=oop2]
     Account.withdraw(100.00)
-\end{verbatim}
+\end{lstlisting}
 
 Ovakve funkcije se zovu metodi. Međutim, upotreba globalnog imena Account unutar funkcije je losa praksa. Prvo, ova funkcija ce raditi samo za ovaj (poseban) objekat. Drugo, cak i za taj specijalni (poseban) objekat funkcija ce raditi onoliko dugo koliko je objekat smesten u toj globalnoj promenljivoj. Ako promenimo ime objektu, withdraw vise nece raditi:
-\begin{verbatim}
+\begin{lstlisting}[caption={OOP},frame=single, label=oop3]
     a = Account; Account = nil
     a.withdraw(100.00)   -- ERROR!
-\end{verbatim}
+\end{lstlisting}
 
 \section{Zaključak}
 \label{sec:zakljucak}
