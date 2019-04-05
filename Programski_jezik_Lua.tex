@@ -131,52 +131,43 @@ Fengari je implementacija Lua virtuelne mašine pisana u JavaScriptu. Izvršava 
 \section{Paradigme i koncepti}
 \label{sec:paradigme_koncepti}
 
-Lua podržava različite paradigme, kao što su objektno-orjentisana, funkcionalna i proceduralna. Ona ne podržava ove paradigme pomoću specfičnih mehanizama za svaku od njih, već pomoću opštih mehanizama kao što su tabele, funkcije prvog reda, delegacija i korutine. Pošto ti mehanizmi nisu specifični ni za jednu određenu paradigmu, moguće su i druge paradigme. Svi mehanizmi Lue rade nad standardnom proceduralnom semantikom, što omogućuje laku integraciju između njih. Prema tome, većina programa napisanih u Lui su proceduralni, s tim što uključuju i korisne tehnike iz drugih paradigmi \cite{multiParadigms}.
+Lua podržava različite paradigme, kao što su objektno-orijentisana, funkcionalna i proceduralna. Ona ne podržava ove paradigme pomoću specfičnih mehanizama za svaku od njih, već pomoću opštih mehanizama kao što su tabele, funkcije prvog reda, delegacija i korutine. Pošto ti mehanizmi nisu specifični ni za jednu određenu paradigmu, moguće su i druge paradigme. Svi mehanizmi Lue rade nad standardnom proceduralnom semantikom, što omogućuje laku integraciju između njih. Prema tome, većina programa napisanih u Lui su proceduralni, s tim što uključuju i korisne tehnike iz drugih paradigmi. \cite{multiParadigms}
 
 \subsection*{Tabele i objekti}
-Jedina struktura podataka koju Lua pruža je tabela. Tabele su dovoljno fleksibilne da se pomoću njih mogu implementirati druge strukture podataka, kao sto su liste, redovi ili stekovi.
+Jedina struktura podataka koju Lua pruža je tabela. Tabele su dovoljno fleksibilne da se pomoću njih mogu implementirati druge strukture podataka, kao što su liste, redovi ili stekovi.
 
-Lua nije objektno-orjentisani jezik, te nema podršku za objekte. Međutim, sistem objekata se može implementirati korišćenjem tabela i meta-tabela.
+Lua nije objektno-orijentisani jezik, te nema podršku za objekte. Međutim, sistem objekata se može implementirati korišćenjem tabela i meta-tabela.
 
 \subsubsection*{Tabele}
 Tabele su dinamički kreirani asocijativni nizovi \footnote{Asocijativni niz je niz koji može biti indeksiran ne samo brojevima, već i stringovima ili bilo kojim drugim vrednostima, osim nil.}. One su u osnovi rečnik ili niz. Tabele se sastoje iz parova ključ-vrednost. Ako su ključevi tabele numerički, tabela predstavlja niz. Ako su ključevi ne-numeričke ili mešovite vrednosti, tabela je rečnik. Kao ključ u tabeli se može koristiti bilo šta, osim nil. Bilo šta, uključujuci i nil, može biti vrednost.
 Tabele se skladište po referenci, a ne po vrednosti, i program jedino preko referenci (ili pokazivača) njima manipuliše. Nema skrivenih kopija ili kreiranja novih tabela iza scene.
 
 \subsubsection*{Kreiranje tabela}
-Tabela se kreira uz pomoć konstruktora, koji u svojoj najjednostavnijoj formi izgleda ovako {}. Nakon što je kreirana, tabelu treba dodeliti promenljivoj, u suprotnom na nju nije moguće referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
-\begin{verbatim}
-a = {}     -- kreira tabelu i smešta njenu referencu u promenljivu a
-\end{verbatim}
+Tabela se kreira uz pomoć konstruktora, koji se označava pomoću otvorene i zatvorene vitičaste zagrade (primer \ref{tabela1}). Nakon što je kreirana, tabelu treba dodeliti promenljivoj, u suprotnom na nju nije moguće referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
+\begin{lstlisting}[caption={Kreiranje nove tabele i smeštanje u promenljivu},frame=single, label=tabela1]
+a = {}     -- kreira tabelu i smesta njenu referencu u promenljivu a
+\end{lstlisting}
 
 \subsubsection*{Skladištenje vrednosti}
-Tabela je relaciona struktura podataka koja skladisti vrednosti. Da bi se promenljiva sačuvala u tabeli, koristi se sledeća sintaksa:
-\begin{verbatim}
+Tabela je relaciona struktura podataka koja skladišti vrednosti. Da bi se promenljiva sačuvala u tabeli, koristi se sledeća sintaksa:
+\begin{lstlisting}[caption={Čuvanje vrednosti \textit{value} u tabeli},frame=single, label=tabela1]
 table[key] = value
-\end{verbatim}
-Naredni primer demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako tu vrednost izvući iz tabele:
-\begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela1]
-k = "x"
-a[k]=10      -- nov ulaz, sa kljucem key="x" i vrednoscu value=10
-a[20] = "great"-- nov ulaz, sa kljucem key=20 i vrednoscu value="great"
-print(a["x"])  -- > 10
-k = 20
-print(a[k])    -- > "great"	- vraca vrednost (izvadi vrednost iz tabele)
-a["x"] = a["x"] + 1   -- uvecava ulaz "x"
-print(a["x"])  -- > 11
 \end{lstlisting}
-Kada u programu ne postoji ni jedna referenca na neku tabelu, upravljač memorije će obrisati tu tabelu (i osloboditi memoriju koju je tabela zauzimala), tako da memorija koju je ta tabela zauzimala kasnije može biti ponovo upotrebljena.
-Ključ tabele moze biti bilo kog tipa (pa čak i druga tabela), osim nil, i svaka tabela može da čuva vrednosti različitih tipova indeksa. Razmotrimo sledeći primer:
-\begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela2]
-a = {}     -- prazna tabela
+Kada u programu ne postoji ni jedna referenca na neku tabelu, upravljač memorije će obrisati tu tabelu i osloboditi memoriju koju je tabela zauzimala, tako da ona može biti kasnije ponovo upotrebljena.
+
+Ključ tabele moze biti bilo kog tipa (pa čak i druga tabela), osim \textit{nill}, i svaka tabela može da čuva vrednosti različitih tipova indeksa. Naredni primer demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako tu vrednost izvući iz tabele:
+\begin{lstlisting}[caption={Kreiranje tabele, dodeljivanje i vraćanje vrednosti},frame=single, label=tabela2]
+a = {}										          -- prazna tabela
 -- kreira se 1000 novih ulaza
 for i=1,1000 do a[i] = i*2 end
-print(a[9])    --> 18
+print(a[9])    										--> 18
 a["x"] = 10
-print(a["x"])  --> 10
-print(a["y"])  --> nil
+print(a["x"])  										--> 10
+print(a["y"])  										--> nil
 \end{lstlisting}
-U poslednjoj liniji primera \ref{tabela2} je prikazano da polja tabele dobijaju vrednost nil ako nisu inicijalizovana (ako se ne dodeli vrednost ključu u tabeli, podrazumevana (defalut) vrednost je nil) baš kao i globalne promenljive. Takođe kao kod globalnih promenljivih, polju tabele se može dodeliti vrednost nil ako se želi ????? TODO ????? da ono bude obrisano.
-Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. dot syntax). Lua podržava ovu reprezentaciju pružajući a.name kao lepši zapis za ["name"]. Dakle, poslednje tri linije prethodnog koda (primera \ref{tabela2}) mogu se napisati i ovako:
+U poslednjoj liniji primera \ref{tabela2} je prikazano da polja tabele dobijaju vrednost nil ako nisu inicijalizovana. Takođe, ako se ne dodeli vrednost ključu u tabeli, podrazumevana vrednost je \textit{nill}, a polju tabele se može dodeliti vrednost \textit{nill} ako se želi da ono bude obrisano.
+
+Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. \textit{dot syntax}). Lua podržava ovu reprezentaciju pružajući \textit{a.name} kao lepši zapis za \textit{["name"]}. Dakle, poslednje tri linije prethodnog koda (primera \ref{tabela2}) mogu se napisati i ovako:
 \begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela3]
     a.x = 10                    -- isto sto i a["x"] = 10
     print(a.x)                  -- isto sto i print(a["x"])
@@ -184,31 +175,31 @@ Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka
 \end{lstlisting}
 
 \subsection*{Meta tabele i meta metodi}
-Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz a + b, gde su a i b tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \_\_add polje. Ako Lua pronadje to polje, zove odgovarajuću funkciju da bi izračunala sumu.
+Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz \textit{a + b}, gde su \textit{a} i \textit{b} tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \textit{\_\_add} polje. Ako Lua pronadje to polje, zove odgovarajuću funkciju da bi izračunala sumu.
 Da bi se postavila ili promenila meta tabela bilo koje tabele koristi se funkcija setmetatable, kao što je prikazano u primeru \ref{meta1}.
-\begin{lstlisting}[caption={Postavljanje metatabele},frame=single, label=meta1]
+\begin{lstlisting}[caption={Postavljanje meta-tabele},frame=single, label=meta1]
 t1 = {}
-    setmetatable(t, t1)
-    assert(getmetatable(t) == t1)
+setmetatable(t, t1)									-- t je tabela
+assert(getmetatable(t) == t1)
 \end{lstlisting}
 Bilo koja tabela može biti meta tabela bilo koje druge tabele; grupa povezanih tabela može da deli zajedničku meta tabelu (koja opisuje njihovo zajedničko ponašanje); tabela može biti svoja sopstvena meta tabela (tako da opisuje svoje individualno ponašanje). Bilo koja od ovih konfiguracija je validna.
 
 \subsubsection*{Kreiranje meta tabele}
-Za kreiranje meta tabele neophodno je prvo kreirati običnu tabelu nazvanu meta. Ova tabela će imati funkciju koja se zove \_\_add[ \_\_add je rezervisano ime za funkciju]. \_\_add funkcija će primati dva argumenta. Levi argument će biti tabela sa poljem koje se zove value, a desni argument će biti broj:
+Za kreiranje meta-tabele neophodno je prvo kreirati običnu tabelu (u primeru \ref{meta2} ta tabela je nazvana \textit{meta}). Ova tabela će imati funkciju koja se zove \textit{\_\_add}\footnote{\textit{\_\_add} je rezervisano ime za funkciju.}. \textit{\_\_add} funkcija će primati dva argumenta. Levi argument će biti tabela sa poljem koje se zove \textit{value}, a desni argument će biti broj:
 \begin{lstlisting}[caption={Metatabela},frame=single, label=meta2]
 meta = { } -- kreira tabelu
-meta.__add = function(left, right) -- dodaje meta metod
-return left.value + right -- pretpostavlja se da je left tabela
+meta.__add = function(left, right)		-- dodaje meta-metod
+return left.value + right 						-- left je tabela
 end
 \end{lstlisting}
-Dalje, treba napraviti tabelu zvanu container. Container tabela će imati promenljivu zvanu value, koja će imati vrednost 5:
-\begin{lstlisting}[caption={Metatabela},frame=single, label=meta3]
+Dalje, treba napraviti tabelu zvanu \textit{container}. \textit{Container} tabela će imati promenljivu zvanu \textit{value}, koja će imati vrednost \textit{5}:
+\begin{lstlisting}[caption={Kreiranje meta-tabele},frame=single, label=meta3]
 container = {
 value = 5
 }
 \end{lstlisting}
-Ako se pokuša sa dodavanjem broja 4 container tabeli, Lua izbacuje sintaksnu grešku. Ovo se dešava zato što nije moguće tabeli dodati broj. Kod koji uzrokuje grešku prikazan je u primeru \ref{meta4}.
-\begin{lstlisting}[caption={Metatabela},frame=single, label=meta4]
+Ako se pokuša sa dodavanjem broja 4 \textit{container} tabeli, Lua izbacuje sintaksnu grešku. Ovo se dešava zato što nije moguće tabeli dodati broj. Kod koji uzrokuje grešku prikazan je u primeru \ref{meta4}.
+\begin{lstlisting}[caption={Neispravno sabiranje tabele i broja},frame=single, label=meta4]
 result = container + 4 -- ERROR
 print ("result: " .. result)
 \end{lstlisting}
@@ -370,7 +361,7 @@ Podršku funkcionalnom programiranju u Lui pruža biblioteka Lua Fun, koja se jo
 
 \subsection*{Objektno orjentisana paradigma}
 
-Objaktno orjentisana paradigma je metodologija koja ujedinjuje podatke (promenljive) i logiku (funkcije) u jednu kohezivnu jedinicu (objekat). Iako Lua nije objektno-orjentisan jezik, on nam obezbedjuje sve objekte (it does provide all the facilities) koji nam dopuštaju da implementiramo sistem objekata. Umesto klasa, u Lua-i pametna upotreba meta tabela moze da kreira sistem klasa. Meta tabele mogu da kreiraju a objekte bazirane na prototipovima.
+Objaktno-orijentisana paradigma je metodologija koja ujedinjuje podatke (promenljive) i logiku (funkcije) u jednu kohezivnu jedinicu (objekat). Iako Lua nije objektno-orijentisan jezik, on pruža sve što je potrebno da bi se implementirao sistem objekata. Umesto klasa, u Lua-i pametna upotreba meta-tabela može da kreira sistem klasa. Meta-tabele mogu da kreiraju objekte bazirane na prototipovima.
 
 \subsubsection*{Objekti}
 Objekat može biti predstavljen tabelom: promenljive instanci su regularna polja tabele, a metodi su polja tabele koja sadrže funkcije. Posebno, tabele imaju identitet (eng. selfness) koji je nezavisan od njihovih vrednosti. To znači, dva objekta (tabele) sa istom vrednošću su različiti objekti, pošto jedan objekat može imati različite vrednosti u različitim trenucima, ali je to uvek isti objekat. Kao i objekti, tabele imaju životni ciklus koji je nezavisan od toga ko ih je kreirao ili gde su kreirane.
