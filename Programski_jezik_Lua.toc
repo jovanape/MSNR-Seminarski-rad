@@ -1,8 +1,8 @@
 \select@language {serbian}
 \contentsline {section}{\numberline {1}Uvod}{2}{section.1}
-\contentsline {section}{\numberline {2}Nastanak i istorijski razvoj, mesto u razvojnom stablu, uticaji drugih programskih jezika}{2}{section.2}
-\contentsline {section}{\numberline {3}Osnovna namena i mogu\IeC {\'c}nosti programskog jezika Lua}{3}{section.3}
-\contentsline {section}{\numberline {4}Najpoznatija okru\IeC {\v z}enja (framework) za kori\IeC {\v s}\IeC {\'c}enje ovog jezika i njihove karakteristike}{4}{section.4}
+\contentsline {section}{\numberline {2}Nastanak i istorijski razvoj}{2}{section.2}
+\contentsline {section}{\numberline {3}Osnovna namena i mogu\IeC {\'c}nosti}{3}{section.3}
+\contentsline {section}{\numberline {4}Najpoznatija okru\IeC {\v z}enja}{4}{section.4}
 \contentsline {section}{\numberline {5}Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima}{5}{section.5}
 \contentsline {section}{\numberline {6}Paradigme i koncepti}{5}{section.6}
 \contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{12}{section.7}
