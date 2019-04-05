@@ -144,19 +144,19 @@ Tabele se skladište po referenci, a ne po vrednosti, i program jedino preko ref
 
 \subsubsection*{Kreiranje tabela}
 Tabela se kreira uz pomoć konstruktora, koji se označava pomoću otvorene i zatvorene vitičaste zagrade (primer \ref{tabela1}). Nakon što je kreirana, tabelu treba dodeliti promenljivoj, u suprotnom na nju nije moguće referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
-\begin{lstlisting}[caption={Kreiranje nove tabele i smeštanje u promenljivu},frame=single, label=tabela1]
-a = {} -- kreira tabelu i smesta njenu referencu u promenljivu a
+\begin{lstlisting}[caption={Kreiranje nove tabele i smeštanje u promenljivu \cite{bookProgInLua}},frame=single, label=tabela1]
+a = {} -- kreira tabelu i stavlja njenu referencu u promenljivu a
 \end{lstlisting}
 
 \subsubsection*{Skladištenje vrednosti}
 Tabela je relaciona struktura podataka koja skladišti vrednosti. Da bi se promenljiva sačuvala u tabeli, koristi se sledeća sintaksa:
-\begin{lstlisting}[caption={Čuvanje vrednosti \textit{value} u tabeli},frame=single, label=tabela1]
+\begin{lstlisting}[caption={Čuvanje vrednosti \textit{value} u tabeli \cite{bookProgInLua}},frame=single, label=tabela1]
 table[key] = value
 \end{lstlisting}
 Kada u programu ne postoji ni jedna referenca na neku tabelu, upravljač memorije će obrisati tu tabelu i osloboditi memoriju koju je tabela zauzimala, tako da ona može biti kasnije ponovo upotrebljena.
 
 Ključ tabele moze biti bilo kog tipa (pa čak i druga tabela), osim \textit{nill}, i svaka tabela može da čuva vrednosti različitih tipova indeksa. Naredni primer demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako tu vrednost izvući iz tabele:
-\begin{lstlisting}[caption={Kreiranje tabele, dodeljivanje i vraćanje vrednosti},frame=single, label=tabela2]
+\begin{lstlisting}[caption={Kreiranje tabele, dodeljivanje i vraćanje vrednosti \cite{bookProgInLua}},frame=single, label=tabela2]
 a = {}										          -- prazna tabela
 -- kreira se 1000 novih ulaza
 for i=1,1000 do a[i] = i*2 end
@@ -168,38 +168,38 @@ print(a["y"])  										--> nil
 U poslednjoj liniji primera \ref{tabela2} je prikazano da polja tabele dobijaju vrednost nil ako nisu inicijalizovana. Takođe, ako se ne dodeli vrednost ključu u tabeli, podrazumevana vrednost je \textit{nill}, a polju tabele se može dodeliti vrednost \textit{nill} ako se želi da ono bude obrisano.
 
 Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. \textit{dot syntax}). Lua podržava ovu reprezentaciju pružajući \textit{a.ime} kao lepši zapis za \textit{["ime"]}. Dakle, poslednje tri linije prethodnog koda (primera \ref{tabela2}) mogu se napisati i ovako:
-\begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela3]
-    a.x = 10                    -- isto sto i a["x"] = 10
-    print(a.x)                  -- isto sto i print(a["x"])
-    print(a.y)                  -- isto sto i print(a["y"])
+\begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli \cite{bookProgInLua}},frame=single, label=tabela3]
+    a.x = 10                    -- isto kao i a["x"] = 10
+    print(a.x)                  -- isto kao i print(a["x"])
+    print(a.y)                  -- isto kao i print(a["y"])
 \end{lstlisting}
 
 \subsection*{Meta tabele i meta metodi}
 Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz \textit{a + b}, gde su \textit{a} i \textit{b} tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \textit{\_\_add} polje. Ako Lua pronadje to polje, poziva odgovarajuću funkciju za računanje sume.
 
-Bilo koja tabela može biti meta-tabela bilo koje druge tabele. Grupa povezanih tabela može da deli zajedničku meta-tabelu (koja opisuje njihovo zajedničko ponašanje), a takođe tabela može biti svoja sopstvena meta-tabela (tako da opisuje svoje individualno ponašanje).
+Bilo koja tabela može biti meta-tabela bilo koje druge tabele. Grupa povezanih tabela može da deli zajedničku meta-tabelu (koja opisuje njihovo zajedničko ponašanje), a takođe tabela može biti svoja sopstvena meta-tabela (tako da opisuje svoje individualno ponašanje) \cite{bookProgInLua}.
 
 \subsubsection*{Kreiranje meta tabele}
 Za kreiranje meta-tabele neophodno je prvo kreirati običnu tabelu, a zatim njoj pridružiti odgovarajuće funkcije. U primeru \ref{meta2} obična tabela je nazvana \textit{meta}. Ovoj tabeli je pridružena funkcija koja se zove \textit{\_\_add}\footnote{\textit{\_\_add} je rezervisano ime za funkciju.}. \textit{\_\_add} funkcija prima dva argumenta: levi argument je tabela sa poljem koje se zove \textit{value}, a desni argument je broj:
-\begin{lstlisting}[caption={Kreiranje meta-tabele i dodavanje meta-metoda},frame=single, label=meta2]
+\begin{lstlisting}[caption={Kreiranje meta-tabele i dodavanje meta-metoda \cite{bookProgInLua}},frame=single, label=meta2]
 meta = { } 														-- kreira tabelu
 meta.__add = function(left, right)		-- dodaje meta-metod
 return left.value + right 						-- left je tabela
 end
 \end{lstlisting}
 Zatim je napravljena nova tabela koja je nazvana \textit{container}. \textit{Container} tabela sadrži promenljivu nazvanu \textit{value}, koja ima vrednost \textit{5}:
-\begin{lstlisting}[caption={Tabela \textit{container}},frame=single, label=meta3]
+\begin{lstlisting}[caption={Tabela \textit{container} \cite{bookProgInLua}},frame=single, label=meta3]
 container = {
 value = 5
 }
 \end{lstlisting}
 Ako se u ovom trenutku pokuša sa dodavanjem broja 4 tabeli \textit{container}, Lua izbacuje sintaksnu grešku. Ovo se dešava zato što nije moguće tabeli dodati broj. Kod koji uzrokuje grešku prikazan je u primeru \ref{meta4}.
-\begin{lstlisting}[caption={Neispravno sabiranje tabele i broja},frame=single, label=meta4]
+\begin{lstlisting}[caption={Neispravno sabiranje tabele i broja \cite{bookProgInLua}},frame=single, label=meta4]
 result = container + 4 							-- neispravno
 print ("result: " .. result)
 \end{lstlisting}
 Da bi ovaj kod bio ispravan potrebno je tabeli \textit{container} dodati meta-tabelu, koja ima \textit{\_\_add} meta-metod. Funkcija koja se koristi da tabeli dodeli meta-tabelu zove se \textit{setmetatable}. Ispravan kod dat je u primeru \ref{meta5}.
-\begin{lstlisting}[caption={Ispravno sabiranje tabele i broja},frame=single, label=meta5]
+\begin{lstlisting}[caption={Ispravno sabiranje tabele i broja \cite{bookProgInLua}},frame=single, label=meta5]
 setmetatable(container, meta) 			-- postavljanje meta-tabele
 result = container + 4 							-- sada je ispravno
 print ("result: " .. result)
@@ -252,16 +252,16 @@ print(gen(param, state))
 Funkcije u Lua-i su vrednosti prve klase (eng. \textit{first-class values}) sa odgovarajućim "leksičkim opsegom". Za funkciju se kaže da je vrednost prve klase ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da budu vraćene kao povratne vrednosti funkcija. Da funkcija ima "leksički opseg" znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lua-i možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
 
 Iako su funkcije vrednosti, postoji izraz kojim se funkcija kreira - deklaracija funkcije obično izgleda ovako:
-\begin{lstlisting}[caption={Deklaracija funkcije},frame=single, label=fun1]
+\begin{lstlisting}[caption={Deklaracija funkcije \cite{bookProgInLua}},frame=single, label=fun1]
     function foo (x) return 2*x end
 \end{lstlisting}
 Deklaracija funkcije započinje ključnom rečju \textit{function}, nakon koje sledi ime funkcije, a zatim lista parametara funkcije, koja može biti prazna ako funkciji nisu potrebni parametri. Nakon liste parametara piše se telo funkcije. Telo funkcije se završava navođenjem ključne reči \textit{end}.
 Međutim, prethodni primer deklaracije funkcije samo je lepši način da se zapiše:
-\begin{lstlisting}[caption={Dodela vrednosti tipa \textit{function} promenljivoj foo},frame=single, label=fun1]
+\begin{lstlisting}[caption={Dodela vrednosti tipa \textit{function} promenljivoj foo \cite{bookProgInLua}},frame=single, label=fun1]
     foo = function (x) return 2*x end
 \end{lstlisting}
 To jest, definicija funkcije je u stvari naredba koja promenljivoj dodeljuje vrednost tipa \textit{function}. Izraz sa desne strane operatora dodele se može posmatrati kao konstruktor za funkcije, baš kao što se vitičastim zagradama predstavlja konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako se uglavnom funkcijama dodeljuju imena, postoje i situacije kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruža funkciju \textit{table.sort}, koja prima tabelu i sortira njene elemente. Ova funkcija treba da omogući više varijacija sortiranja: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bi bile omogućene sve varijacije sortiranja, \textit{sort} pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. \textit{order function}), koja vrši poređenje dve vrednosti - prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Sledeći primer prikazuje gde je zgodno upotrebiti anonimnu funkciju. Na primer, neka je data tabela sa slogovima:
-\begin{lstlisting}[caption={Primer tabele},frame=single, label=fun2]
+\begin{lstlisting}[caption={Primer tabele \cite{bookProgInLua}},frame=single, label=fun2]
      network = {
        {name = "grauna",  IP = "210.26.30.34"},
        {name = "arraial", IP = "210.26.30.23"},
@@ -270,7 +270,7 @@ To jest, definicija funkcije je u stvari naredba koja promenljivoj dodeljuje vre
      }
 \end{lstlisting}
 Da bi se vrednosti u tabeli sortirale po imenu polja u obrnutom alfabetskom poretku, kod treba da izgleda ovako:
-\begin{lstlisting}[caption={Sortiranje vrednosti tabele},frame=single, label=fun3]
+\begin{lstlisting}[caption={Sortiranje vrednosti tabele \cite{bookProgInLua}},frame=single, label=fun3]
     table.sort(network, function (a,b)
       return (a.name > b.name)
     end)
@@ -284,9 +284,10 @@ function newCounter ()
       local i = 0	-- lokalna promenljiva za newCounter() funkciju
       return function ()   -- anonimna funkcija
 
--- Posto je anonimna funkcija kreirana unutar funkcije newCounter () ona moze da vidi
--- sve clanove funkcije newCounter ()
--- ova funkcija ce moci da zapamti stanje funkcije newCounter (), praveci zatvorenje
+-- anonimna funkcija je kreirana unutar funkcije newCounter (),
+-- pa ona vidi sve njene lokalne promenljive
+
+-- kada napravi zatvorenje, ova funkcija pamti stanje funkcije newCounter ()
 
                i = i + 1
                return i
