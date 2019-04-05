@@ -62,7 +62,7 @@
 \maketitle
 
 \abstract{
-Zahvaljujući svojoj efikasnosti, jednostavnosti i portabilnosti, Lua danas predstavlja jedan od važnijih programskih jezika i pronalazi sve češću primenu u industriji - pre svega u ``embedded``  sistemima. Pošto se teži tome da Lua bude mali jezik, koncepti koji se koriste u okviru njega moraju biti veoma efikasni. Neki od tih koncepata, poput tabela, metatabela, iteratora, zatvorenja i funkcija prvog reda, prikazani su u okviru ovog rada. Takođe, prikazano je i na koji način Lua može da se koristi u okviru različitih paradigmi. Iako je prvenstveno proceduralni jezik, Lua podržava mehanizme koji omogućuju pisanje u objektno-orjentisanom i funkcionalnom stilu.}
+Zahvaljujući svojoj efikasnosti, jednostavnosti i portabilnosti, Lua danas predstavlja jedan od važnijih programskih jezika i pronalazi sve češću primenu u industriji - pre svega u \textit{embedded} sistemima. Pošto se teži tome da Lua bude mali jezik, koncepti koji se koriste u okviru njega moraju biti veoma efikasni. Neki od tih koncepata, poput tabela, metatabela, iteratora, zatvorenja i funkcija prvog reda, prikazani su u okviru ovog rada. Takođe, prikazano je i na koji način Lua može da se koristi u okviru različitih paradigmi. Iako je prvenstveno proceduralni jezik, Lua podržava mehanizme koji omogućuju pisanje u objektno-orjentisanom i funkcionalnom stilu.}
 
 \tableofcontents
 
@@ -249,28 +249,18 @@ print(gen(param, state))
 
 
 \subsection*{Funkcije}
-Funkcije u Lua-i su vrednosti prve klase (eng. first-class values) sa odgovarajućim "leksičkim opsegom". Za funkciju se kaže da je vrednost prve klase ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da budu vraćene kao povratne vrednosti funkcija. Da funkcija ima "leksički opseg" znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lua-i možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
+Funkcije u Lua-i su vrednosti prve klase (eng. \textit{first-class values}) sa odgovarajućim "leksičkim opsegom". Za funkciju se kaže da je vrednost prve klase ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da budu vraćene kao povratne vrednosti funkcija. Da funkcija ima "leksički opseg" znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lua-i možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
 
-Kada govorimo o imenu funkcije, na primer \textit{print}, mi zapravo pričamo o promenljivoj koja sadrži tu funkciju. Neke od posledica ove karakteristike Lua-e prikazene su u primeru \ref{fun1}:
-
-\begin{lstlisting}[caption={Funkcije},frame=single, label=fun1]
-    a = {p = print}
-    a.p("Hello World") --> Hello World
-    print = math.sin  -- print sada referise na funkciju sin
-    a.p(print(1))     --> 0.841470
-    sin = a.p         -- sin sada referise na funkciju print
-	sin(10, 20)       --> 10      20
-\end{lstlisting}
 Iako su funkcije vrednosti, postoji izraz kojim se funkcija kreira - deklaracija funkcije obično izgleda ovako:
 \begin{lstlisting}[caption={Deklaracija funkcije},frame=single, label=fun1]
     function foo (x) return 2*x end
 \end{lstlisting}
-Deklaracija funkcije započinje ključnom rečju function, nakon koje sledi ime funkcije, a zatim lista parametara funkcije. \footnote{Pravilno je termin parametar funkcije koristiti za promenljivu koja čini deklaraciju funkcije, a termin argument funkcije za izraz naveden u pozivu funkcije na mestu parametra funkcije.??????????}, koja može biti prazna ako funkciji nisu potrebni parametri. Nakon liste parametara piše se telo funkcije. Telo funkcije se završava navođenjem ključne reči end.
+Deklaracija funkcije započinje ključnom rečju \textit{function}, nakon koje sledi ime funkcije, a zatim lista parametara funkcije, koja može biti prazna ako funkciji nisu potrebni parametri. Nakon liste parametara piše se telo funkcije. Telo funkcije se završava navođenjem ključne reči \textit{end}.
 Međutim, prethodni primer deklaracije funkcije samo je lepši način da se zapiše:
-\begin{lstlisting}[caption={Dodela vrednosti tipa function promenljivoj foo},frame=single, label=fun1]
+\begin{lstlisting}[caption={Dodela vrednosti tipa \textit{function} promenljivoj foo},frame=single, label=fun1]
     foo = function (x) return 2*x end
 \end{lstlisting}
-To jest, definicija funkcije je u stvari naredba koja promenljivoj dodeljuje vrednost tipa “function”. Izraz sa desne strane operatora dodele možemo posmatrati kao konstruktor za funkcije, baš kao što je {} konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako uglavnom funkcijama dodeljujemo imena, postoje i situacije kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruza funkciju table.sort, koja prima tabelu i sortira njene elemente. Ova funkcija treba da omogući više varijacija sortiranja: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bi bile omogućene sve vrse sortiranja, sort pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. order function, koja vrši poređenje dve vrednosti): funkcija koja prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Sledeći primer prikazuje gde je zgodno upotrebiti anonimnu funkciju. Na primer, neka je data tabela sa slogovima:
+To jest, definicija funkcije je u stvari naredba koja promenljivoj dodeljuje vrednost tipa \textit{function}. Izraz sa desne strane operatora dodele se može posmatrati kao konstruktor za funkcije, baš kao što se vitičastim zagradama predstavlja konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako se uglavnom funkcijama dodeljuju imena, postoje i situacije kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruža funkciju \textit{table.sort}, koja prima tabelu i sortira njene elemente. Ova funkcija treba da omogući više varijacija sortiranja: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bi bile omogućene sve varijacije sortiranja, \textit{sort} pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. \textit{order function}), koja vrši poređenje dve vrednosti - prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Sledeći primer prikazuje gde je zgodno upotrebiti anonimnu funkciju. Na primer, neka je data tabela sa slogovima:
 \begin{lstlisting}[caption={Primer tabele},frame=single, label=fun2]
      network = {
        {name = "grauna",  IP = "210.26.30.34"},
@@ -279,16 +269,16 @@ To jest, definicija funkcije je u stvari naredba koja promenljivoj dodeljuje vre
        {name = "derain",  IP = "210.26.23.20"},
      }
 \end{lstlisting}
-Ako želimo da sortiramo tabelu po imenu polja, u obrnutom alfabetskom poretku, pišemo:
-\begin{lstlisting}[caption={Sortiranje tabele},frame=single, label=fun3]
+Da bi se vrednosti u tabeli sortirale po imenu polja u obrnutom alfabetskom poretku, kod treba da izgleda ovako:
+\begin{lstlisting}[caption={Sortiranje vrednosti tabele},frame=single, label=fun3]
     table.sort(network, function (a,b)
       return (a.name > b.name)
     end)
 \end{lstlisting}
-Funkcija koja prima drugu funkciju kao argument, kao što je \textit{sort}, je ono sto zovemo funkcija višeg reda (eng. \textit{higher-order function}). Funkcije višeg reda predstavljaju mehanizam u programiranju koji za kreiranje svojih argumenata često koristi anonimne funkcije. Funkcije višeg reda su posledica mogućnosti Lua-e da upravlja funkcijama kao vrednostima prve klase.
+Funkciju koja prima drugu funkciju kao argument, kao što je \textit{sort}, zovemo funkcijom višeg reda (eng. \textit{higher-order function}). Funkcije višeg reda predstavljaju mehanizam u programiranju koji za kreiranje svojih argumenata često koristi anonimne funkcije. Funkcije višeg reda su posledica mogućnosti Lua-e da upravlja funkcijama kao vrednostima prve klase.
 
 \subsubsection*{Zatvorenja}
-U Lua-i, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Primer koji ovo oslikava jeste kada postoji neka funkcija koja vraća anonimnu funkciju. Anonimna funkcija može da "vidi" lokalne promenljive funkcije kojom je okruzena. Međutim, pošto je anonimna funkcija vraćena, ona može da nadživi postojeću funkciju. Kada se vrati anonimna funkcija kao povratna vrednost neke funkcije, ona kreira zatvorenje. To zatvorenje obuhvata njeno spoljašnje stanje. Ovaj mehanizam dopušta pristup stanju spoljašnje funkcije, iako se ta funkcija više ne izvršava. Ovo je prikazano u kodu \ref{zatv1}:
+U Lua-i, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Primer koji ovo oslikava jeste kada postoji neka funkcija koja vraća anonimnu funkciju. Anonimna funkcija može da "vidi" lokalne promenljive funkcije kojom je okruzena. Međutim, pošto je anonimna funkcija vraćena, ona može da nadživi postojeću funkciju. Kada se vrati anonimna funkcija kao povratna vrednost neke funkcije, ona kreira zatvorenje. Ovaj mehanizam dopušta pristup stanju spoljašnje funkcije (koje ovo zatvorenje obuhvata), iako se ta funkcija više ne izvršava. Ovo je prikazano u kodu \ref{zatv1}:
 \begin{lstlisting}[caption={Primer zatvorenja},frame=single, label=zatv1]
 function newCounter ()
       local i = 0	-- lokalna promenljiva za newCounter() funkciju
@@ -307,14 +297,14 @@ function newCounter ()
     print(c1())  --> 1
     print(c1())  --> 2
 \end{lstlisting}
-Ovde anonimna funkcija koristi upvalue (upvalue je skraćenica za external local variable), i, da održi svoj brojač. Međutim, kada pozovemo anonimnu funkciju, \textit{i} je izvan dometa (eng. \textit{scope}), zato što je funkcija koja je kreirala tu promenljivu (\textit{newCounter}) završila sa radom. Ipak, Lua razrešava tu situaciju korektno, koristeći koncept zatvorenja. Jednostavno rečeno, zatvorenje je funkcija plus sve što joj je potrebno da pristupi njenim upvalues korektno. Ako pozovemo newCounter ponovo, napraviće novu lokalnu promenljivu \textit{i}, pa ćemo dobiti novo zatvorenje, delujući sada nad tom novom promenljivom:
-\begin{lstlisting}[caption={Zatvorenja},frame=single, label=zatv2]
+Ovde anonimna funkcija koristi eksternu lokalnu promenljivu \textit{i} da održi svoj brojač. Međutim, kada se pozove anonimna funkcija, \textit{i} je izvan dometa (eng. \textit{scope}), zato što je funkcija koja je kreirala tu promenljivu (funkcija \textit{newCounter}) završila sa radom. Ipak, Lua razrešava tu situaciju korektno, koristeći koncept zatvorenja. Jednostavno rečeno, zatvorenje je funkcija plus sve što joj je potrebno da bi pristupila njenim eksternim promenljivama. Ako se funkcija \textit{newCounter} pozove ponovo, ona će napraviti novu lokalnu promenljivu \textit{i}, pa će nastati novo zatvorenje koje onda deluje nad tom novom promenljivom:
+\begin{lstlisting}[caption={Nastavak primera zatvorenja},frame=single, label=zatv2]
     c2 = newCounter()
     print(c2())  --> 1
     print(c1())  --> 3
     print(c2())  --> 2
 \end{lstlisting}
-Dakle, c1 i c2 su različita zatvorenja nad istom funkcijom i svako deluje na nezavisnu instancu lokalne promenljive i. Tehnički govoreći, ono što je vrednost u Lua-i je zatvorenje, a ne funkcija. Funkcija sama za sebe je samo prototip za zatvorenje.
+Dakle, c1 i c2 su različita zatvorenja nad istom funkcijom, gde svako deluje na nezavisnu instancu lokalne promenljive \textit{i}. Tehnički govoreći, ono što je vrednost u Lua-i je zatvorenje, a ne funkcija. Funkcija sama za sebe je samo prototip za zatvorenje.
 
 \subsection*{Funkcionalna paradigma}
 Podršku funkcionalnom programiranju u Lui pruža biblioteka Lua Fun, koja se još uvek razvija. Ona omogućava pisanje jednostavnog i efikasnog funkcionalnog koda korišćenjem funkcija višeg reda, poput map(), filter(), reduce(), zip(), itd. Slede primeri nekih funkcija iz ove biblioteke.

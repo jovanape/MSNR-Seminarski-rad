@@ -7,4 +7,4 @@
 \contentsline {section}{\numberline {6}Paradigme i koncepti}{5}{section.6}% 
 \contentsline {section}{\numberline {7}Zaklju\IeC {\v c}ak}{12}{section.7}% 
 \contentsline {section}{Literatura}{12}{section.7}% 
-\contentsline {section}{\numberline {A}Dodatak}{13}{appendix.A}% 
+\contentsline {section}{\numberline {A}Dodatak}{12}{appendix.A}% 
