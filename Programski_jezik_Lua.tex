@@ -145,7 +145,7 @@ Tabele se skladište po referenci, a ne po vrednosti, i program jedino preko ref
 \subsubsection*{Kreiranje tabela}
 Tabela se kreira uz pomoć konstruktora, koji se označava pomoću otvorene i zatvorene vitičaste zagrade (primer \ref{tabela1}). Nakon što je kreirana, tabelu treba dodeliti promenljivoj, u suprotnom na nju nije moguće referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
 \begin{lstlisting}[caption={Kreiranje nove tabele i smeštanje u promenljivu},frame=single, label=tabela1]
-a = {}     -- kreira tabelu i smesta njenu referencu u promenljivu a
+a = {} -- kreira tabelu i smesta njenu referencu u promenljivu a
 \end{lstlisting}
 
 \subsubsection*{Skladištenje vrednosti}
@@ -167,7 +167,7 @@ print(a["y"])  										--> nil
 \end{lstlisting}
 U poslednjoj liniji primera \ref{tabela2} je prikazano da polja tabele dobijaju vrednost nil ako nisu inicijalizovana. Takođe, ako se ne dodeli vrednost ključu u tabeli, podrazumevana vrednost je \textit{nill}, a polju tabele se može dodeliti vrednost \textit{nill} ako se želi da ono bude obrisano.
 
-Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. \textit{dot syntax}). Lua podržava ovu reprezentaciju pružajući \textit{a.name} kao lepši zapis za \textit{["name"]}. Dakle, poslednje tri linije prethodnog koda (primera \ref{tabela2}) mogu se napisati i ovako:
+Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka sintaksa (eng. \textit{dot syntax}). Lua podržava ovu reprezentaciju pružajući \textit{a.ime} kao lepši zapis za \textit{["ime"]}. Dakle, poslednje tri linije prethodnog koda (primera \ref{tabela2}) mogu se napisati i ovako:
 \begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela3]
     a.x = 10                    -- isto sto i a["x"] = 10
     print(a.x)                  -- isto sto i print(a["x"])
@@ -175,17 +175,12 @@ Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka
 \end{lstlisting}
 
 \subsection*{Meta tabele i meta metodi}
-Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz \textit{a + b}, gde su \textit{a} i \textit{b} tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \textit{\_\_add} polje. Ako Lua pronadje to polje, zove odgovarajuću funkciju da bi izračunala sumu.
-Da bi se postavila ili promenila meta tabela bilo koje tabele koristi se funkcija setmetatable, kao što je prikazano u primeru \ref{meta1}.
-\begin{lstlisting}[caption={Postavljanje meta-tabele},frame=single, label=meta1]
-t1 = {}
-setmetatable(t, t1)									-- t je tabela
-assert(getmetatable(t) == t1)
-\end{lstlisting}
-Bilo koja tabela može biti meta tabela bilo koje druge tabele; grupa povezanih tabela može da deli zajedničku meta tabelu (koja opisuje njihovo zajedničko ponašanje); tabela može biti svoja sopstvena meta tabela (tako da opisuje svoje individualno ponašanje). Bilo koja od ovih konfiguracija je validna.
+Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz \textit{a + b}, gde su \textit{a} i \textit{b} tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \textit{\_\_add} polje. Ako Lua pronadje to polje, poziva odgovarajuću funkciju za računanje sume.
+
+Bilo koja tabela može biti meta-tabela bilo koje druge tabele. Grupa povezanih tabela može da deli zajedničku meta-tabelu (koja opisuje njihovo zajedničko ponašanje), a takođe tabela može biti svoja sopstvena meta-tabela (tako da opisuje svoje individualno ponašanje).
 
 \subsubsection*{Kreiranje meta tabele}
-Za kreiranje meta-tabele neophodno je prvo kreirati običnu tabelu, a zatim njoj pridružiti odgovarajuće funkcije. U primeru \ref{meta2} obična tabela je nazvana \textit{meta}. Ovoj tabeli je pridružena funkciju koja se zove \textit{\_\_add}\footnote{\textit{\_\_add} je rezervisano ime za funkciju.}. \textit{\_\_add} funkcija prima dva argumenta: levi argument je tabela sa poljem koje se zove \textit{value}, a desni argument je broj:
+Za kreiranje meta-tabele neophodno je prvo kreirati običnu tabelu, a zatim njoj pridružiti odgovarajuće funkcije. U primeru \ref{meta2} obična tabela je nazvana \textit{meta}. Ovoj tabeli je pridružena funkcija koja se zove \textit{\_\_add}\footnote{\textit{\_\_add} je rezervisano ime za funkciju.}. \textit{\_\_add} funkcija prima dva argumenta: levi argument je tabela sa poljem koje se zove \textit{value}, a desni argument je broj:
 \begin{lstlisting}[caption={Kreiranje meta-tabele i dodavanje meta-metoda},frame=single, label=meta2]
 meta = { } 														-- kreira tabelu
 meta.__add = function(left, right)		-- dodaje meta-metod
