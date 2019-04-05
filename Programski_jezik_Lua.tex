@@ -62,7 +62,7 @@
 \maketitle
 
 \abstract{
-U ovom tekstu je ukratko prikazana osnovna forma seminarskog rada. Obratite pažnju da je pored ove .pdf datoteke, u prilogu i odgovarajuća .tex datoteka, kao i .bib datoteka korišćena za generisanje literature. Na prvoj strani seminarskog rada su naslov, apstrakt i sadržaj, i to sve mora da stane na prvu stranu! Kako bi Vaš seminarski zadovoljio standarde i očekivanja, koristite uputstva i materijale sa predavanja na temu pisanja seminarskih radova. Ovo je samo šablon koji se odnosi na fizički izgled seminarskog rada (šablon koji \emph{morate} da koristite!) kao i par tehničkih pomoćnih uputstava.}
+Zahvaljujući svojoj efikasnosti, jednostavnosti i portabilnosti, Lua danas predstavlja jedan od važnijih programskih jezika i pronalazi sve češću primenu u industriji - pre svega u ``embedded``  sistemima. Pošto se teži tome da Lua bude mali jezik, koncepti koji se koriste u okviru njega moraju biti veoma efikasni. Neki od tih koncepata, poput tabela, metatabela, iteratora, zatvorenja i funkcija prvog reda, prikazani su u okviru ovog rada. Takođe, prikazano je i na koji način Lua može da se koristi u okviru različitih paradigmi. Iako je prvenstveno proceduralni jezik, Lua podržava mehanizme koji omogućuju pisanje u objektno-orjentisanom i funkcionalnom stilu.}
 
 \tableofcontents
 
@@ -97,17 +97,17 @@ Lua spada u dinamički tipizirane, “embeddable” (klasu jezika koji se često
 
 Iako je Lua prvenstveno razvijena za potrebe dva projekta, danas se, zbog svoje jednostavnosti, efikasnosti i portabilnosti, koristi u najrazličitijim oblastima: ugradnim sistemima, mobilnim uređajima, veb serverima i igricama.
 
-Lua se obično koristi na jedan od sledeća tri načina: kao skript jezik u sastavu aplikacija pisanih na nekom drugom jeziku, kao samostalan jezik ili zajedno sa C-om\cite{bookProgInLua}. 
+Lua se obično koristi na jedan od sledeća tri načina: kao skript jezik u sastavu aplikacija pisanih na nekom drugom jeziku, kao samostalan jezik ili zajedno sa C-om \cite{bookProgInLua}. 
 
-Ako se Lua upotrebljava u aplikaciji kao ugrađeni jezik, za njeno konfigurisanje u skladu sa domenom date aplikacije potrebno je koristiti Lua-C API. Pomoću njega se mogu, na primer, registrovati nove funkcije, praviti novi tipovi i vršiti izmene u ponašanja nekih operacija. Jedan od primera gde se Lua upotrebljava kao ugrađeni jezik je CGILua, alat za pravljenje dinamičkih veb stranica i manipulisanje podacima prikupljenih putem veb formi. U suštini, CGILua predstavlja apstrakciju za Veb server\cite{keplerProject}. Kao ugrađeni jezik, Lua je našla i široku primenu u igricama.
+Ako se Lua upotrebljava u aplikaciji kao ugrađeni jezik, za njeno konfigurisanje u skladu sa domenom date aplikacije potrebno je koristiti Lua-C API. Pomoću njega se mogu, na primer, registrovati nove funkcije, praviti novi tipovi i vršiti izmene u ponašanja nekih operacija. Jedan od primera gde se Lua upotrebljava kao ugrađeni jezik je CGILua, alat za pravljenje dinamičkih veb stranica i manipulisanje podacima prikupljenih putem veb formi. U suštini, CGILua predstavlja apstrakciju za Veb server \cite{keplerProject}. Kao ugrađeni jezik, Lua je našla i široku primenu u igricama.
 
 Sve češće, Lua se koristi i kao samostalan jezik, čak i za veće projekte. U te svrhe su razvijene biblioteke koje nude različite funkcionalnosti. Na primer, postoje biblioteke za rad sa stringovima, tabelama, fajlovima, modulima, itd.
 
 Treća mogućnost za upotrebu Lue jeste u okviru programa pisanih u C-u. Lua se tada importuje kao C biblioteka. Programeri koji se opredele za ovakav način rada uglavnom najveći deo programa pišu u C-u, ali moraju dobro da poznaju i Luu kako bi kreirali jednostavne interfejse lake za upotrebu.
 
-Lua je i tzv. jezik za spajanje (eng. glue language). Ona podržava razvoj softvera zasnovan na komponentama. U tom slučaju, aplikacija se kreira spajanjem postojećih komponenti višeg nivoa - komponenti koje su napisane u kompajliranom, statički tipiziranom jeziku kao što je C ili C++. One obično predstavljaju koncepte niskog nivoa koji se neće mnogo menjati tokom razvoja programa jer oduzimaju mnogo procesorskog vremena. Takve komponente se spajaju pomoću Lue. Dakle, Lua se koristi za pisanje onih delova koda koji će se verovatno menjati mnogo puta i na taj način ubrzava proces razvoja programa.
+Lua je i tzv. jezik za spajanje (eng. glue language). Ona podržava razvoj softvera zasnovan na komponentama. U tom slučaju, aplikacija se kreira spajanjem postojećih komponenti višeg nivoa - komponenti koje su napisane u kompajliranom, statički tipiziranom jeziku kao što je C ili C++. One obično predstavljaju koncepte niskog nivoa koji se neće mnogo menjati tokom razvoja programa jer oduzimaju mnogo procesorskog vremena. Takve komponente se spajaju pomoću Lue. Dakle, Lua se koristi za pisanje onih delova koda koji će verovatno biti menjani mnogo puta i na taj način ubrzava proces razvoja programa \cite{bookProgInLua}.
 
-Kao i mnogi drugi jezici, Lua teži tome da bude fleksibilna. Ali, takođe teži tome da bude mali jezik - i u pogledu implementacije i u terminima specifikacije. Za ugrađne jezike ovo je veoma bitna osobina pošto se veoma često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik se pristupa ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele (koje su u suštini asocijativni nizovi), funkcije prvog reda, korutine i refleksivne mogućnosti. Takođe, da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo double floating-point (prevesti?) tip vrednosti\cite{multiParadigms}.
+Kao i mnogi drugi jezici, Lua teži tome da bude fleksibilna. Ali, takođe teži tome da bude mali jezik. Za ugrađne jezike ovo je veoma bitna osobina pošto se veoma često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik se pristupa ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su tabele, funkcije prvog reda, korutine i refleksivne mogućnosti. Takođe, da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua podržava samo brojeve u pokretnom zarezu \cite{multiParadigms}.
 
 \section{Najpoznatija okruženja (framework) za korišćenje ovog jezika i njihove karakteristike}
 \label{sec:framework}
@@ -131,24 +131,24 @@ Fengari je implementacija Lua virtuelne mašine pisana u JavaScriptu. Izvršava 
 \section{Paradigme i koncepti}
 \label{sec:paradigme_koncepti}
 
-Lua podržava različite paradigme, kao što su objektno-orjentisana, funkcionalna i proceduralna. Ona ne podržava ove paradigme pomoću specfičnih mehanizama za svaku od njih, već pomoću opštih mehanizama kao što su tabele, funkcije prvog reda, delegacija i korutine. Pošto ti mehanizmi nisu specifični ni za jednu određenu paradigmu, moguće su i druge paradigme. Svi mehanizmi Lue rade nad standardnom proceduralnom semantikom, što omogućuje laku integraciju između njih. Prema tome, većina programa napisanih u Lui su proceduralni, s tim što uključuju i korisne tehnike iz drugih paradigmi. \cite{multiParadigms}
+Lua podržava različite paradigme, kao što su objektno-orjentisana, funkcionalna i proceduralna. Ona ne podržava ove paradigme pomoću specfičnih mehanizama za svaku od njih, već pomoću opštih mehanizama kao što su tabele, funkcije prvog reda, delegacija i korutine. Pošto ti mehanizmi nisu specifični ni za jednu određenu paradigmu, moguće su i druge paradigme. Svi mehanizmi Lue rade nad standardnom proceduralnom semantikom, što omogućuje laku integraciju između njih. Prema tome, većina programa napisanih u Lui su proceduralni, s tim što uključuju i korisne tehnike iz drugih paradigmi \cite{multiParadigms}.
 
-\subsection{Tabele i objekti}
+\subsection*{Tabele i objekti}
 Jedina struktura podataka koju Lua pruža je tabela. Tabele su dovoljno fleksibilne da se pomoću njih mogu implementirati druge strukture podataka, kao sto su liste, redovi ili stekovi.
 
 Lua nije objektno-orjentisani jezik, te nema podršku za objekte. Međutim, sistem objekata se može implementirati korišćenjem tabela i meta-tabela.
 
-\subsubsection{Tabele}
+\subsubsection*{Tabele}
 Tabele su dinamički kreirani asocijativni nizovi \footnote{Asocijativni niz je niz koji može biti indeksiran ne samo brojevima, već i stringovima ili bilo kojim drugim vrednostima, osim nil.}. One su u osnovi rečnik ili niz. Tabele se sastoje iz parova ključ-vrednost. Ako su ključevi tabele numerički, tabela predstavlja niz. Ako su ključevi ne-numeričke ili mešovite vrednosti, tabela je rečnik. Kao ključ u tabeli se može koristiti bilo šta, osim nil. Bilo šta, uključujuci i nil, može biti vrednost.
 Tabele se skladište po referenci, a ne po vrednosti, i program jedino preko referenci (ili pokazivača) njima manipuliše. Nema skrivenih kopija ili kreiranja novih tabela iza scene.
 
-\subsubsection{Kreiranje tabela}
+\subsubsection*{Kreiranje tabela}
 Tabela se kreira uz pomoć konstruktora, koji u svojoj najjednostavnijoj formi izgleda ovako {}. Nakon što je kreirana, tabelu treba dodeliti promenljivoj, u suprotnom na nju nije moguće referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
 \begin{verbatim}
 a = {}     -- kreira tabelu i smešta njenu referencu u promenljivu a
 \end{verbatim}
 
-\subsubsection{Skladištenje vrednosti}
+\subsubsection*{Skladištenje vrednosti}
 Tabela je relaciona struktura podataka koja skladisti vrednosti. Da bi se promenljiva sačuvala u tabeli, koristi se sledeća sintaksa:
 \begin{verbatim}
 table[key] = value
@@ -183,7 +183,7 @@ Ako je ključ za tabelu tipa string, za pristup tabeli se može koristiti tačka
     print(a.y)                  -- isto sto i print(a["y"])
 \end{lstlisting}
 
-\subsection{Meta tabele i meta metodi}
+\subsection*{Meta tabele i meta metodi}
 Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz a + b, gde su a i b tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \_\_add polje. Ako Lua pronadje to polje, zove odgovarajuću funkciju da bi izračunala sumu.
 Da bi se postavila ili promenila meta tabela bilo koje tabele koristi se funkcija setmetatable, kao što je prikazano u primeru \ref{meta1}.
 \begin{lstlisting}[caption={Postavljanje metatabele},frame=single, label=meta1]
@@ -193,7 +193,7 @@ t1 = {}
 \end{lstlisting}
 Bilo koja tabela može biti meta tabela bilo koje druge tabele; grupa povezanih tabela može da deli zajedničku meta tabelu (koja opisuje njihovo zajedničko ponašanje); tabela može biti svoja sopstvena meta tabela (tako da opisuje svoje individualno ponašanje). Bilo koja od ovih konfiguracija je validna.
 
-\subsubsection{Kreiranje meta tabele}
+\subsubsection*{Kreiranje meta tabele}
 Za kreiranje meta tabele neophodno je prvo kreirati običnu tabelu nazvanu meta. Ova tabela će imati funkciju koja se zove \_\_add[ \_\_add je rezervisano ime za funkciju]. \_\_add funkcija će primati dva argumenta. Levi argument će biti tabela sa poljem koje se zove value, a desni argument će biti broj:
 \begin{lstlisting}[caption={Metatabela},frame=single, label=meta2]
 meta = { } -- kreira tabelu
@@ -221,7 +221,7 @@ print ("result: " .. result)
 DOPUNITI... Meta tabele su možda najmoćnija karakteristika Lua-e.
 
 
-\subsection{Iteratori}
+\subsection*{Iteratori}
 
 Iterator, konstrukcija koje omogćava prolazak kroz kolekciju, predstavlja se pomoću funkcije. Pri svakom pozivu ta funkcija vraća naredni element iz kolekcije. Na listingu \ref{iter1} dat je primer iteratora nad listom koji vraća vrednost elemenata liste.
 
@@ -241,7 +241,7 @@ Između uzastopnih poziva, iterator mora da pamti stanje u kom se nalazi kako bi
 
 U listingu \ref{iter1} fabrika je values(). Pri svakom pozivu ona pravi zatvorenje (koje predstavlja sam iterator). To zatvorenje čuva svoje stanje u spoljašnjim promenljivama (t, i, n) tako da, svaki put kada se pozove, vraća naredni element iz liste t. Kada više nema vrednosti u listi, vraća nil.
 
-Postoje i iteratori bez stanja (eng. stateless iterators). To su iteratori koji ne čuvaju sami svoja stanja, tako da možemo isti iterator iskoristiti u više petlji bez potrebe da pravimo nova zatvorenja. U svakoj itreaciji, for petlja poziva svoj iterator sa dva argumenta: invarijantnim stanjem i kontrolnom promenljivom. Iterator bez stanja generiše naredni element na osnovu te dve vrednosti. U listingu \ref{iter2} prikazan je jedan iterator bez stanja - ipairs()\cite{bookProgInLua}.
+Postoje i iteratori bez stanja (eng. stateless iterators). To su iteratori koji ne čuvaju sami svoja stanja, tako da je moguće isti iterator iskoristiti u više petlji bez potrebe za pravljenjem novih zatvorenja. U svakoj itreaciji, for petlja poziva svoj iterator sa dva argumenta: invarijantnim stanjem i kontrolnom promenljivom. Iterator bez stanja generiše naredni element na osnovu te dve vrednosti. U listingu \ref{iter2} prikazan je jedan iterator bez stanja - ipairs()\cite{bookProgInLua}.
 
 \begin{lstlisting}[caption={Primer iteratora bez stanja},frame=single, label=iter2]
 a = {"one", "two", "three"}
@@ -264,7 +264,7 @@ print(gen(param, state))
 \end{lstlisting}
 
 
-\subsection{Funkcije}
+\subsection*{Funkcije}
 Funkcije u Lua-i su vrednosti prve klase (eng. first-class values) sa odgovarajućim "leksičkim opsegom". Za funkciju se kaže da je vrednost prve klase ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da budu vraćene kao povratne vrednosti funkcija. Da funkcija ima "leksički opseg" znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lua-i možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
 
 Kada govorimo o imenu funkcije, na primer \textit{print}, mi zapravo pričamo o promenljivoj koja sadrži tu funkciju. Neke od posledica ove karakteristike Lua-e prikazene su u primeru \ref{fun1}:
@@ -303,7 +303,7 @@ Ako želimo da sortiramo tabelu po imenu polja, u obrnutom alfabetskom poretku, 
 \end{lstlisting}
 Funkcija koja prima drugu funkciju kao argument, kao što je \textit{sort}, je ono sto zovemo funkcija višeg reda (eng. \textit{higher-order function}). Funkcije višeg reda predstavljaju mehanizam u programiranju koji za kreiranje svojih argumenata često koristi anonimne funkcije. Funkcije višeg reda su posledica mogućnosti Lua-e da upravlja funkcijama kao vrednostima prve klase.
 
-\subsubsection{Zatvorenja}
+\subsubsection*{Zatvorenja}
 U Lua-i, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Primer koji ovo oslikava jeste kada postoji neka funkcija koja vraća anonimnu funkciju. Anonimna funkcija može da "vidi" lokalne promenljive funkcije kojom je okruzena. Međutim, pošto je anonimna funkcija vraćena, ona može da nadživi postojeću funkciju. Kada se vrati anonimna funkcija kao povratna vrednost neke funkcije, ona kreira zatvorenje. To zatvorenje obuhvata njeno spoljašnje stanje. Ovaj mehanizam dopušta pristup stanju spoljašnje funkcije, iako se ta funkcija više ne izvršava. Ovo je prikazano u kodu \ref{zatv1}:
 \begin{lstlisting}[caption={Primer zatvorenja},frame=single, label=zatv1]
 function newCounter ()
@@ -332,7 +332,7 @@ Ovde anonimna funkcija koristi upvalue (upvalue je skraćenica za external local
 \end{lstlisting}
 Dakle, c1 i c2 su različita zatvorenja nad istom funkcijom i svako deluje na nezavisnu instancu lokalne promenljive i. Tehnički govoreći, ono što je vrednost u Lua-i je zatvorenje, a ne funkcija. Funkcija sama za sebe je samo prototip za zatvorenje.
 
-\subsection{Funkcionalna paradigma}
+\subsection*{Funkcionalna paradigma}
 Podršku funkcionalnom programiranju u Lui pruža biblioteka Lua Fun, koja se još uvek razvija. Ona omogućava pisanje jednostavnog i efikasnog funkcionalnog koda korišćenjem funkcija višeg reda, poput map(), filter(), reduce(), zip(), itd. Slede primeri nekih funkcija iz ove biblioteke.
 
 
@@ -368,11 +368,11 @@ Podršku funkcionalnom programiranju u Lui pruža biblioteka Lua Fun, koja se jo
 \end{enumerate}
 
 
-\subsection{Objektno orjentisana paradigma}
+\subsection*{Objektno orjentisana paradigma}
 
 Objaktno orjentisana paradigma je metodologija koja ujedinjuje podatke (promenljive) i logiku (funkcije) u jednu kohezivnu jedinicu (objekat). Iako Lua nije objektno-orjentisan jezik, on nam obezbedjuje sve objekte (it does provide all the facilities) koji nam dopuštaju da implementiramo sistem objekata. Umesto klasa, u Lua-i pametna upotreba meta tabela moze da kreira sistem klasa. Meta tabele mogu da kreiraju a objekte bazirane na prototipovima.
 
-\subsubsection{Objekti}
+\subsubsection*{Objekti}
 Objekat može biti predstavljen tabelom: promenljive instanci su regularna polja tabele, a metodi su polja tabele koja sadrže funkcije. Posebno, tabele imaju identitet (eng. selfness) koji je nezavisan od njihovih vrednosti. To znači, dva objekta (tabele) sa istom vrednošću su različiti objekti, pošto jedan objekat može imati različite vrednosti u različitim trenucima, ali je to uvek isti objekat. Kao i objekti, tabele imaju životni ciklus koji je nezavisan od toga ko ih je kreirao ili gde su kreirane.
 Objekti imaju svoje sopstvene operacije. Tabele takođe mogu imati operacije:
 \begin{lstlisting}[caption={OOP},frame=single, label=oop1]
