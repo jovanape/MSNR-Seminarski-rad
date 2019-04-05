@@ -185,32 +185,30 @@ assert(getmetatable(t) == t1)
 Bilo koja tabela može biti meta tabela bilo koje druge tabele; grupa povezanih tabela može da deli zajedničku meta tabelu (koja opisuje njihovo zajedničko ponašanje); tabela može biti svoja sopstvena meta tabela (tako da opisuje svoje individualno ponašanje). Bilo koja od ovih konfiguracija je validna.
 
 \subsubsection*{Kreiranje meta tabele}
-Za kreiranje meta-tabele neophodno je prvo kreirati običnu tabelu (u primeru \ref{meta2} ta tabela je nazvana \textit{meta}). Ova tabela će imati funkciju koja se zove \textit{\_\_add}\footnote{\textit{\_\_add} je rezervisano ime za funkciju.}. \textit{\_\_add} funkcija će primati dva argumenta. Levi argument će biti tabela sa poljem koje se zove \textit{value}, a desni argument će biti broj:
-\begin{lstlisting}[caption={Metatabela},frame=single, label=meta2]
-meta = { } -- kreira tabelu
+Za kreiranje meta-tabele neophodno je prvo kreirati običnu tabelu, a zatim njoj pridružiti odgovarajuće funkcije. U primeru \ref{meta2} obična tabela je nazvana \textit{meta}. Ovoj tabeli je pridružena funkciju koja se zove \textit{\_\_add}\footnote{\textit{\_\_add} je rezervisano ime za funkciju.}. \textit{\_\_add} funkcija prima dva argumenta: levi argument je tabela sa poljem koje se zove \textit{value}, a desni argument je broj:
+\begin{lstlisting}[caption={Kreiranje meta-tabele i dodavanje meta-metoda},frame=single, label=meta2]
+meta = { } 														-- kreira tabelu
 meta.__add = function(left, right)		-- dodaje meta-metod
 return left.value + right 						-- left je tabela
 end
 \end{lstlisting}
-Dalje, treba napraviti tabelu zvanu \textit{container}. \textit{Container} tabela će imati promenljivu zvanu \textit{value}, koja će imati vrednost \textit{5}:
-\begin{lstlisting}[caption={Kreiranje meta-tabele},frame=single, label=meta3]
+Zatim je napravljena nova tabela koja je nazvana \textit{container}. \textit{Container} tabela sadrži promenljivu nazvanu \textit{value}, koja ima vrednost \textit{5}:
+\begin{lstlisting}[caption={Tabela \textit{container}},frame=single, label=meta3]
 container = {
 value = 5
 }
 \end{lstlisting}
-Ako se pokuša sa dodavanjem broja 4 \textit{container} tabeli, Lua izbacuje sintaksnu grešku. Ovo se dešava zato što nije moguće tabeli dodati broj. Kod koji uzrokuje grešku prikazan je u primeru \ref{meta4}.
+Ako se u ovom trenutku pokuša sa dodavanjem broja 4 tabeli \textit{container}, Lua izbacuje sintaksnu grešku. Ovo se dešava zato što nije moguće tabeli dodati broj. Kod koji uzrokuje grešku prikazan je u primeru \ref{meta4}.
 \begin{lstlisting}[caption={Neispravno sabiranje tabele i broja},frame=single, label=meta4]
-result = container + 4 -- ERROR
+result = container + 4 							-- neispravno
 print ("result: " .. result)
 \end{lstlisting}
-Dodavanjem meta tabele container tabeli, koja ima \_\_add meta metod, može se napraviti da ovaj kod radi. Funkcija setmetatable se koristi da tabeli dodeli meta tabelu. Kod koji omogućava da sve ovo radi dat je u primeru \ref{meta5}.
-\begin{lstlisting}[caption={Metatabela},frame=single, label=meta5]
-setmetatable(container, meta) -- postavlja meta tabelu
-result = container + 4 -- RADI!
+Da bi ovaj kod bio ispravan potrebno je tabeli \textit{container} dodati meta-tabelu, koja ima \textit{\_\_add} meta-metod. Funkcija koja se koristi da tabeli dodeli meta-tabelu zove se \textit{setmetatable}. Ispravan kod dat je u primeru \ref{meta5}.
+\begin{lstlisting}[caption={Ispravno sabiranje tabele i broja},frame=single, label=meta5]
+setmetatable(container, meta) 			-- postavljanje meta-tabele
+result = container + 4 							-- sada je ispravno
 print ("result: " .. result)
 \end{lstlisting}
-DOPUNITI... Meta tabele su možda najmoćnija karakteristika Lua-e.
-
 
 \subsection*{Iteratori}
 
