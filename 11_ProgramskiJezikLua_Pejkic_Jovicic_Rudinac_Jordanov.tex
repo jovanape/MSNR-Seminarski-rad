@@ -246,6 +246,14 @@ nil &   & false \\
 
 %% \ beginAutor{Jovana Pejkic}
 
+
+Jedina struktura podataka koju Lua pruža je tabela. Tabele su dovoljno fleksibilne da se pomoću njih mogu implementirati druge strukture podataka, kao što su liste, redovi ili stekovi.
+
+Lua nije objektno-orijentisani jezik, te nema podršku za objekte. Međutim, sistem objekata se može implementirati korišćenjem tabela i meta-tabela.
+
+Tabele su dinamički kreirani asocijativni nizovi \footnote{Asocijativni niz je niz koji može biti indeksiran ne samo brojevima, već i stringovima ili bilo kojim drugim vrednostima, osim nil.}. One su u osnovi rečnik ili niz. Tabele se sastoje iz parova ključ-vrednost. Ako su ključevi tabele numerički, tabela predstavlja niz. Ako su ključevi ne-numeričke ili mešovite vrednosti, tabela je rečnik. Kao ključ u tabeli se može koristiti bilo šta, osim nil. Bilo šta, uključujuci i nil, može biti vrednost.
+Tabele se skladište po referenci, a ne po vrednosti, i program jedino preko referenci (ili pokazivača) njima manipuliše. Nema skrivenih kopija ili kreiranja novih tabela iza scene.
+
 Tabela se kreira uz pomoć konstruktora, koji se označava pomoću otvorene i zatvorene vitičaste zagrade (primer \ref{tabela1}). Nakon što je kreirana, tabelu treba dodeliti promenljivoj, u suprotnom na nju nije moguće referisati. Sledeći kod kreira novu tabelu i dodeljuje je promenljivoj a:
 \begin{lstlisting}[caption={Funkcije},frame=single, label=fun1]
 a = {} -- kreira tabelu i stavlja njenu referencu u promenljivu a
