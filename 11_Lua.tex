@@ -1,0 +1,306 @@
+
+
+ % !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{report}
+
+\usepackage[T2A]{fontenc} % enable Cyrillic fonts
+\usepackage[utf8x,utf8]{inputenc} % make weird characters work
+\usepackage[serbian]{babel}
+%\usepackage[english,serbianc]{babel}
+\usepackage{amssymb}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+
+\newcommand{\odgovor}[1]{\textcolor{black}{#1}}
+\newcommand{\odgovorAutora}[1]{\textcolor{blue}{#1}}
+\newcommand{\note}[1]{\textcolor{red}{#1}}
+
+% posto je jedan recenzent koristio tag odgovor, mi cemo koristiti tag odgovorAutora
+
+\begin{document}
+
+\title{Programski jezik Lua\\ \small{Jovana Pejkić, Jana Jovičić, Katarina Rudinac, Ivana Jordanov}}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Uputstva}
+\emph{Prilikom predavanja odgovora na recenziju, obrišite ovo poglavlje.}
+
+Neophodno je odgovoriti \odgovorAutora{na sve} zamerke koje su navedene u okviru recenzija. Svaki odgovor pišete u okviru okruženja \verb"\odgovor", \odgovor{kako bi vaši odgovori bili lakše uočljivi.} 
+\begin{enumerate}
+
+\item Odgovor treba da sadrži na koji način ste izmenili rad da bi adresirali problem koji je recenzent naveo. Na primer, to može biti neka dodata rečenica ili dodat pasus. Ukoliko je u pitanju kraći tekst onda ga možete navesti direktno u ovom dokumentu, ukoliko je u pitanju duži tekst, onda navedete samo na kojoj strani i gde tačno se taj novi tekst nalazi. Ukoliko je izmenjeno ime nekog poglavlja, navedite na koji način je izmenjeno, i slič\note{no}, u zavisnosti od izmena koje ste napravili. 
+
+\item Ukoliko ništa niste izmenili povodom neke zamerke, detaljno obrazložite zašto zahtev recenzenta nije uvažen.
+
+\item Ukoliko ste napravili i neke izmene koje recenzenti nisu tražili, njih navedite u poslednjem poglavlju tj u poglavlju Dodatne izmene.
+\end{enumerate}
+
+Za svakog recenzenta dodajte ocenu od 1 do 5 koja označava koliko vam je recenzija bila korisna, odnosno koliko vam je pomogla da unapredite rad. Ocena 1 označava da vam recenzija nije bila korisna, ocena 5 označava da vam je recenzija bila veoma korisna. 
+
+NAPOMENA: Recenzije ce biti ocenjene nezavisno od vaših ocena. Na osnovu recenzije ja znam da li je ona korisna ili ne, pa na taj način vama idu negativni poeni ukoliko kažete da je korisno nešto što nije korisno. Vašim kolegama šteti da kažete da im je recenzija korisna jer će misliti da su je dobro uradili, iako to zapravo nisu. Isto važi i na drugu stranu, tj nemojte reći da nije korisno ono što jeste korisno. Prema tome, trudite se da budete objektivni. 
+\chapter{Recenzent \odgovor{--- ocena:} }
+
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+\odgovor{
+U ovom radu se govori o karakteristikama programskog jezika Lua, uslovima njegovog nastanka i načinima korišćenja. Saznajemo da je programski jezik napravljen zbog striktnih zakona u Brazilu koji su zabranjivali korišćenje stranog softvera i hardvera. Pošto se jezik uglavnom koristi kao deo programa pisanih na drugim jezicima, teži da bude što jednostavniji i efikasniji. U te svrhe koristi se što manji skup osnovnih tipova podataka i funkcionalnosti, ali se ipak vodi računa da jezik ostane fleksibilan i portabilan. 
+}
+\note{Globalno: Na osnovu ovoga vidimo da je rad ispunio svoj cilj jer je citalac shvatio sve sto nam je bio cilj da mu prenesemo. Stoga, ne zelimo da menjame spomenute delove}
+
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+\odgovor{
+Seminarski rad je sastavljen u skladu sa uputstvima koja su data. Poglavlje o nastanku jezika je veoma zanimljivo, jedina zamerka je da nema potrebe pisati toliko detaljno o pretečama jezika, postaje malo konfuzno .\newline
+\note{Za Kacu: na jednom mestu je spomenuto da nam treba vise podnaslova, mozes mozda tako da podelis da bude lakse za citanje kao manja celina.}
+Po mom mišljenju, svrha seminarskih radova je da nam približe programski jezik, gde i kada se koristi, zašto baš taj jezik i koje tipove problema najbolje rešava. Zato bih produžio sekciju o primenama jezika sa još primera \note{(Za Janu: mozda dodati primere nekih velikih projekata koji su radjeni posredstvom Lue, npr photoshop, sa sve referencama na github repozitorijume ako su open src, ili nesto slicno)} i detaljima korišćenja jezika \note{(Za Janu: mozda nacin kompajliranja sa C-om)}, a sekciju 
+\textbf{Programiranje u Lui} bih skratio 
+\note{(Za Jovanu: mozda da se na jednom primeru pokaze sve o metatabelama umesto na 4 razdvojena mesta, tako ce biti skraceno (ako nista bice manje captiona), a tekst ce ostati. Takodje sad tek vidim da u metatabelama imamo fusnotu na ,,\_\_add'' tek drugi put kad se pojavljuje, to treba da se stavi na prvo pominjanje \_add i da se upise u dodatne izmene u ovom fajlu}.  
+}
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+\odgovor{
+Na nekim mestima nedostaju dijakritičke oznake( c-ć ,z-ž itd.)
+\note{Za Jovanu, Janu, Katarinu: svi treba ovo jos jednom da prekontrolisemo. U narednom odeljku dodajte u spisak sve reci u kojima je ovo promenjeno} \odgovorAutora{Spisak reči promenjenih u skladu sa ovim: složeni, } \\
+Koristiti redosled reči u rečenici subjekat-predikat-objekat osim kada se želi nekom stilskom figurom ili nekom sintagmom nešto istaći.
+\note{Za Jovanu, Janu, Katarinu: pretpostavljam da je dobar savet da bismo sacuvali uniformnost, mada nisam sigurna koliko je vazno samo po sebi da ide ovako. Treba razmotriti i odluciti se za ili protiv ovog.}\newline
+Neke ispravke:\newline
+Sažetak:
+\begin{itemize}
+  \item Potrebno je da - Potrebno je da programski jezik \\
+  \odgovorAutora{Ispravljeno sa ,,Potrebno je da on''. Bilo bi previše da se u tri rečenice za redom spominje ,,programski jezik''.}
+  \item Cilj rada je pokazati - Cilj rada je da se pokaže \\
+  \note{Globalno: je l' ovo zaista greska?}
+  \item  jezik, a kako  -  jezik, kako se \\
+  \odgovorAutora{Preglog je usvojen.}
+  \item  nacina - način (bez a) \\
+  \odgovorAutora{Ispravljeno u ,, način''. Reč je upotrebljena u kontekstu ,,rad obuhvata opis načina'' , zbog toga ,,a'' nije izbačeno.}
+\end{itemize}
+Nastanak: \\
+\note{Za Kacu: odgovoriti na sve primedbe} 
+\begin{itemize}
+  \item zakona koji su - zakona, koji su
+  \item zamena proizvedena od strane domaćih kompanija - zamena, koju su proizvele domaće kompanije
+\end{itemize}
+Primena: \\
+\note{Za Janu: odgovoriti na sve primedbe} 
+\begin{itemize}
+  \item za njeno konfigurisanje u skladu sa domenom date aplikacije - izmeniti
+  \item alat za pravljenje dinamičkim veb stranicama i manipulisanje podacima prikupljenih putem veb formi - dinamičkih ; prikupljenih veb formama
+  \item  za upotrebu Lue jeste - za upotrebu Lue je
+\end{itemize}
+Podržane paradigme:
+\begin{itemize}
+  \item laku integraciju izmedu njih - njihovu laku integraciju \\
+  \note{Za Janu}
+  \item tehnike iz drugih paradigmi - tehnike drugih paradigmi \\
+  \note{Za Janu}
+  \item on nam obezbeđuje - on obezbeđuje \\
+  \note{Za Jovanu}
+\end{itemize}
+Okruženja: \\
+\note{Za Kacu: odgovoriti na sve primedbe} 
+\begin{itemize}
+  \item jezik Lua koja - jezik Lua, koja 
+  \item Sailor jer Lua - Sailor, jer Lua 
+  \item portugalskom kao - portugalskom, kao  
+  \item  za Luu koje -  za Luu, koje
+\end{itemize}
+Instalacija:
+\begin{itemize}
+  \item licencom . Na - licencom. Na \\
+  \odgovorAutora{Predlog je usvojen.}
+  \item instalacije treba  - instalacije, treba \\
+  \odgovorAutora{Predlog je usvojen.} 
+  \item  koda 6 s tim -  koda 6, s tim \\
+  \odgovorAutora{Predlog je usvojen.}
+  \item  u zavisnosti od platforme ’linux’ treba zameniti \\ doslovno nekom - izmeniti \\
+  \note{Za Ivanu: smisli kasnije}
+  \item  nijedna nije - ni jedna reč nije \\
+  \odgovorAutora{Predlog je usvojen.}
+\end{itemize}
+Programiranje u Lui: \\
+\note{Za Janu i Jovanu}
+\begin{itemize}
+  \item dodavanju novih karakteristika u jezik se pristupa ekonomično. - ekonomično se pristupa dodavanju novih karakteristika u jezik
+  \item nekim važnim konceptima vezanim za njih.  - nekim njihovim važnim konceptima.
+  \item opsegžnači -  opseg znači
+  \item  je u stvari - je, u stvari,
+  \item  Funkciju koja prima drugu funkciju kao argument, - Funkciju, koja prima drugu funkciju kao argument,
+  \item programiranju koji - programiranju, koji
+  \item  Na primer kada -  Na primer, kada
+  \item   funkcija plus -  funkcija, plus
+  \item  Funkcija sama za sebe je - Funkcija, sama za sebe, je     
+  \item  konstrukcija koje omogćava - konstrukcija koja omogućava
+  \item   Pri svakom pozivu ta funkcija  -  Pri svakom pozivu, ta funkcija 
+  \item  više petlji bez potrebe - više petlji, bez potrebe
+\end{itemize}
+}
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item Da li rad dobro odgovara na zadatu temu?\\
+\odgovor{Rad dobro odgovara na temu. U radu je opisana istorija programskog jezika Lua, primene, podržane paradigme i osnovni mehanizmi programiranja.}
+\item Da li je nešto važno propušteno?\\
+\odgovor{Autori rada su obradili sve preporučene teme.}
+\item Da li ima suštinskih grešaka i propusta?\\
+\odgovor{Nema primedbi jer su izlaganja autora sistematična, dosledna i logična.}
+\item Da li je naslov rada dobro izabran?\\
+\odgovor{Naslov seminarskog rada odgovara njegovom sadržaju i tematici koju obrađuje.}
+\item Da li sažetak sadrži prave podatke o radu?\\
+\odgovor{Sažetak je primereno napisan, autori nam ispravno najavljuju šta će rad obuhvatiti.}
+\item Da li je rad lak-težak za čitanje?\\
+\odgovor{Autori koriste standardne, razumljive stručno tehničke nazive i terminologiju, što čini rad lakim za čitanje.}
+\item Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?\\
+\odgovor{Potrebno je predznanje o osnovnim konstrukcijama programskih jezika.}
+\item Da li je u radu navedena odgovarajuća literatura?\\
+\odgovor{Korišćena literatura je klasifikovana na standardan način i označena sa svim elementima.}
+\item Da li su reference korektno navedene?\\
+\odgovor{Reference su naznačene na propisan način.}
+\item Da li je struktura rada adekvatna?\\
+\odgovor{Struktura rada je primerena tematici koju rad obrađuje. Ispoštovani su svi uslovi rada. Autori se najpre bave istorijom, pa postepeno uvode karakteristike, primene i načine korišćenja programskog jezika.}
+\item Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?\\
+\odgovor{Autori su ispoštovali uslove seminarskog rada. Rad sadrži originalnu sliku i tabelu, broj strana rada odgovara propisanim uslovima seminarskog rada.}
+\item Da li su slike i tabele funkcionalne i adekvatne?\\
+\odgovor{Reference na slike, kodove i tabele su neispravne i ne prikazuju odgovarajući sadržaj, kada se kliknu.} \\
+\note{Za Jovanu, Janu, Kacu: Trebalo bi da popravimo ovo. Verovatno je svuda isti problem, pa ko ga prvi resi neka primeni na sve reference.}
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+\odgovor{
+Recezent je potpuno neupućen u oblast recenziranja. Prvi put se srećem sa programskim jezikom Lua. 
+}
+\chapter{Recenzent \odgovor{--- ocena:} }
+
+
+\section{O čemu rad govori?}
+% Напишете један кратак пасус у којим ћете својим речима препричати суштину рада (и тиме показати да сте рад пажљиво прочитали и разумели). Обим од 200 до 400 карактера.
+
+Nastao u Brazilu 1993. godine. Primenjuje se kao ugradjen jezik u druge sisteme, pri razvijanju mobilnih aplikacija, igrica i veb aplikacija. Podrzava proceduralnu, funkcionalnu i oo paradigmu. Dinami\v cki tipiziran. Ima koncepte kao \v sto su zatvorenja, tabele, meta-tabele.. Razna okruzenja za razvoj veb aplikacija. Ima jednostavnu sintaksu. Fleksibilan jezik. Mo\v ze da vrati funkciju kao povratnu vr.
+
+\section{Krupne primedbe i sugestije}
+% Напишете своја запажања и конструктивне идеје шта у раду недостаје и шта би требало да се промени-измени-дода-одузме да би рад био квалитетнији.
+  
+  \begin{enumerate}
+    \item  Dodati primer koda (kao sto je "HelloWorld") uz njegov opis, gde \' ce biti prikazana sintaksa uz obja\v snjenje osnovnih elemenata jezika. \\
+\note{Za Janu i Jovanu: vas dve ste se bavile kodovima, tako da moze neka od vas dve ovo da resi. Tj. samo jedan primer da se napravi lagan sa 'hello world' u uvodu u sekciju Programiranje u Lui mozda? Mada sta znam, prvo bi se koristilo nesto a tek kasnije bi bilo objasnjeno. Mozda nije ni to lose. Da se da neki sveobuhvatni primer, na koji ce se kasnije ponovo referisati. Samo da primer bude iskucan, a ne kopiran.}
+    \item U sekciji 5. mo\v zda treba dodati reference na pojam kao \v sto je Node.js ili barem kratak opis, da \v citaoci znaju o \v cemu se radi. \note{Za Katarinu}
+  \end{enumerate}
+\section{Sitne primedbe}
+% Напишете своја запажања на тему штампарских-стилских-језичких грешки
+Nekoliko sitnih primedbi:
+\begin{enumerate}
+  \item Na nekoliko mesta sam naisao na \v stamparske greske. \\
+  \odgovorAutora{Štamparske greške su ispravljene.}
+  \item Menjanje reci Lua po pade\v zima. U nekim delovima rada autor menja Lua po pade\v zima(npr. Lui, Lue), a u nekim navodi ne\v sto tipa: Lua-i, Lua-e. Ili se opredeliti za jedno (mislim, mo\v zda gre\v sim, da bi bilo bolje ovo drugo), ili izbeci menjanje po pade\v zima. \\
+  \note{Za Jovanu: ovaj deo sam ispravila prvobitno, medjutim kada smo na kraju dodavale deo ostalo je ,,Lua-u'' u sl. Samo to ispravi da se menja po padezima kao sto je svuda i napisi odg ovde.}
+  \item Autor na nekim mestima navodi "listing", na nekim \"kod\"  referi\v suci na deo rada koji sadr\v zi kod. Uskladiti to. \\
+  \note{Za Jovanu i Janu: ovo sam prepravila gde god sam nasla, medjutim ili mi je promaklo, ili je ostalo u onim delovima koji su dodati pred predavanje u Jovaninom delu. Koristite svuda ,,kod''.}
+  \item Pronaci adekvatan prevod za re\v c 'templejting'  ili izbaciti skroz. \\
+  \note{Za Jovanu, Janu ili Kacu: ovo ne znam gde pise}
+  \item Sekcija 7. prva recenica. "Lua te\v zi tome da bude fleksibilna, ali, takodje te\v zi tome da bude mali
+jezik - i u pogledu implementacije i u terminima specifikacije." - U kom smislu mali u pogledima implementacije i specifikacije? Nije ba\v s jasno. \\
+  \note{Za Janu}
+  \item U sekciji 4. kada se navode pojmovi: funkcije prvog reda, korutine, tabele i delegacije, mo\v zda treba navesti \v citaocu da \' ce u toku rada biti razja\v snjeno sta su pojmovi i referisati na mesto gde se to nalazi, jer mu u tom trenutku \v citanja nije jasno. \\
+  \note{Za Janu i Jovanu: Jana spominje ovo sto je napisano, a kod Jovane se jos spominju i meta tabele i objekti. Trebalo bi da se stavi referenca na deo teksta. Za delove koji se ne spominju nigde u radu, npr. delegati, mozda treba takodje da se stavi referenca na neki sajt ili eko objasnjenje...}
+
+\end{enumerate}
+
+
+\section{Provera sadržajnosti i forme seminarskog rada}
+% Oдговорите на следећа питања --- уз сваки одговор дати и образложење
+
+\begin{enumerate}
+\item \textbf {Da li rad dobro odgovara na zadatu temu?}\\
+  Za svaku celinu komentar da li je opisana i na koji na\v cin:
+\begin{itemize}
+   
+
+    \item \textbf {Nastanak i istorijski razvoj, mesto u razvojnom stablu, uticaji drugih programskih jezika} \\
+      -Rad sadrzi opise delova "nastanak i istorijski razvoj" i "uticaj drugih programskih jezike", dok smatram da nije dovoljno opisan deo "mesto u razvojnom stablu". Trebalo bi dodati grafi\v cki opis tog dela. \\
+\note{Za Kacu: pricale smo o ubacivanju one slike pa moze ona mozda da se ubaci.}
+
+    \item \textbf {Osnovna namena programskog jezika, svrha i mogućnosti}\\
+      -Sekcija 3. odgovara u dovoljnoj meri na ova pitanja.
+    \item \textbf {Osnovne osobine ovog programskog jezika, podržane paradigme i koncepti}\\
+      -Deo "podrzane paradigme" je solidno opisan. U sekciji 7. su vrlo lepo opisane osnovne osobine i koncepti.
+    \item \textbf {Najpoznatija okruženja (framework) za korišćenje ovog jezika i njihove karakteristike}\\
+      -Lepo i op\v sirno opisan deo.
+    \item \textbf {Instalacija i uputstvo za pokretanje na Linux/Windows operativnim sistemima} \\
+       -Za instalaciju za Windows operativne sisteme je data referenca na uputstvo za instalaciju, nije, barem ukratko, opisano kako se to radi. Za Linux i Mac sisteme dato je obja\v snjenje kako se instalira i pokre\' ce. \\
+\note{Za Ivanu}
+    \item \textbf {Primer jednostavnog koda i njegovo objašnjene}\\
+      -Rad sadrzi primere koda i njihova obja\v snjenja, ali u kontekstu nekog specifi\v cnog koncepta. \\
+\note{Globalno: ovo se vrv odnosi na to da nema koda sa hello worl, to ce biti dodato i moze ovde da se spomene da je dodato}
+    \item \textbf {Sve ono što je specifično i važno za sam taj programski jezik} \\
+      -Rad sadrzi specificne karakteristike jezika, obja\v snjene u nekom drugom kontekstu, ali opet sadr\v zi. Tako da smatram da je ovaj deo ispunjen.
+\note{Globalno: ne znam sta znaci ovaj komentar, je l dobar ili los utisak. Sta znaci ,,ali ipak sadrzi'', kako nece sadrzati kad mu je posveceno najvise strana. Ne znam sta se drugo ocekuje}
+\end{itemize}
+
+\item \textbf {Da li je nešto važno propušteno?}\\
+  Rad ne sadr\v zi opis standardne biblioteke Lua programskog jezika. \\ \note{Globalno: Mislite li da bi trebalo dodati i ovo? Ja mislim da se moze eventualno spomenuti, staviti par primera u dodatke i slicno, nazivi nekih najkoriscenijih biblioteka, to je to... Mozda nesto da se iskoristi u onom helloWorld primeru, ne znam.}
+\item \textbf {Da li ima suštinskih grešaka i propusta?}\\
+  Uzimaju\' ci u obzir moje znanje opisanog programskog jezika, nema.
+\item \textbf {Da li je naslov rada dobro izabran?}\\
+  Ne. Nije kreativan. Ali opet, zavisi kako se posmatra. Mislim da je potrebno izabrati drugi naslov koji opisuje ili su\v stinu rada, ili programski jezik Lua. \\ \note{Globalno: Sta mislite o ovome? Po meni nema smisla da pisemo neki neozbiljan naslov. Konkretno ovaj rad jeste  Lui i to i pise u naslovu. Detaljnije bi mozda moglo da se kaze: o nastanku, konceptima, i danasnjoj podrsci za rad, ali zar to nije ono sto se pomisli kad se kaze da je o programskom jeziku Lua?}
+\item \textbf {Da li sažetak sadrži prave podatke o radu?}\\
+  Sve sto je obe\' cano u sa\v zetku jeste ispunjeno u radu.
+\item \textbf {Da li je rad lak-težak za čitanje?}\\
+  Rad je lak za \v citanje, s tim sto sam nai\v sao na par re\v cenica kod kojih sam se pomu\v cio da razumem \v sta je autor hteo da ka\v ze. \\ \note{Globalno: beskorisno jer ne ukazuje koji su to delovi da bismo mogle da ispravimo. Samo detaljnije procitajte svoje i tudje delove, i ako ima nesto sto ne razumete kod drugih napisite ovde pa cemo staviti sta je ispravljeno.}
+\item \textbf {Da li je za razumevanje teksta potrebno predznanje i u kolikoj meri?}\\
+  Smatram da za razumevanja ovog rada jeste potrebno predznanje u odredjenoj meri. Neophodno je poznavati osnove programiranja i programskih jezika (sintakse, sematike, primena...).
+\item \textbf {Da li je u radu navedena odgovarajuća literatura?}\\
+  Odgovaraju\' ca literatura jeste navedena.
+\item \textbf {Da li su u radu reference korektno navedene?}\\
+  Uglavnom jesu korektno navedene reference, s tim sto na nekim mestima je ista referenca navedena na razli\v cite na\v cine. \\
+\note{Za Jovanu, Janu i Kacu: proverite jos jednom reference. Mozda se recenzent zbunio jer je svuda autor isti pa bi to trebalo napisati u odg na ovu primedbu (Jana)?}
+\item \textbf {Da li je struktura rada adekvatna?}\\
+  Rad ima siroma\v san skup podsekcija. Samo sekcija 7. ima nekoliko podsekcija. Mozda treba drugacije organizovati strukturu rada. \\
+\note{Globalno: Sta vi mislite o vome? Ne vidim potrebu za vestackim pravljenjem sekcija, sekcije su priblizno slicnih velicina. Jedino sto bi moglo da se spoji su mozda instalazija i programiranje, ali time bismo samo prositili programiranje. Najduzi odeljci su ,,Nastanak'' i ,,Funckije'' tako da bi to moglo da se podeli na odeljke ako se odlucimo za deljenje.}
+\item \textbf {Da li rad sadrži sve elemente propisane uslovom seminarskog rada (slike, tabele, broj strana...)?}\\
+  Rad ukupno ima 12 strana i sadr\v zi jednu sliku na strani 3. i jednu tabelu na strani 6., tako da ispunjava propisane uslove seminarskog rada.
+\item \textbf {Da li su slike i tabele funkcionalne i adekvatne?}\\ \note{Za Ivanu} \\
+  Po mom mi\v sljenju, slika na strani 3. nije funkcionalna, jer je iskori\v s\' cen bar chart za prikazivanje godina kada su nastali programski jezici koji su uticali na razvoj Lua programskog jezika. Smatram da bar chart grafikoni na y osi treba da sadr\v ze neke mere koje imaju potrebu za poredjenjem, dok se na x-osi nalaze elementi koji obuhvataju te mere koje se porede (npr. x-osa sadr\v zi godine, a y-osa broj stanovnika neke zemlje). Na taj na\v cin, \v citaocu je grafi\v cki opisana razlika u
+    broju stanovnika. U ovom slu\v caju, ne vidim da postoji tolika potreba za poredjenjem godina kada je nastao koji programski jezik.\\
+  Tabela na strani 6. je, za svrhe primera gde je navedena, dovoljna, ali mislim da je nepotpuna. U \v sta se konvertuju ostali tipovi podataka?
+\end{enumerate}
+
+\section{Ocenite sebe}
+% Napišite koliko ste upućeni u oblast koju recenzirate: 
+% a) ekspert u datoj oblasti
+% b) veoma upućeni u oblast
+% c) srednje upućeni
+% d) malo upućeni 
+% e) skoro neupućeni
+% f) potpuno neupućeni
+% Obrazložite svoju odluku
+
+Rekao bih za sebe da sam srednje upucen u oblast koju recenziram. Razlog je \v sto poznajem osnove programiranja i
+osnovne koncepte programskih jezika(\v sto mi omogu\' cava da ve\' cinu stvari razumem, zaklju\v cim i naslutim), a sa druge strane,
+nisam nikada otkucao neki Lua program, niti sam pre \v citanja ovog rada znao gde se Lua primenjuje, koje su joj osobine i mogu\' cnosti. Ovde bih jo\v s dodao i to
+da sve \v sto sam naveo je moje mi\v sljenje, koje mo\v ze, po ne\v cijem mi\v sljenju, da bude pogre\v sno. Takodje, izvinjavam se za na\v cin izra\v zavanja u ovoj recenziji i na svim gramati\v ckim gre\v skama.
+
+
+\chapter{Dodatne izmene}
+%Ovde navedite ukoliko ima izmena koje ste uradili a koje vam recenzenti nisu tražili. 
+
+\note{Za Ivanu: izmeni one dve reference: za licencu i onu sto je na engleskom.}
+
+\end{document}
