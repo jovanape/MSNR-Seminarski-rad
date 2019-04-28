@@ -130,11 +130,11 @@ U julu 1993, Valdermar je dovršio prvu implementaciju Lue, koja je veoma brzo d
 
 Lua danas, zbog svoje jednostavnosti, efikasnosti i portabilnosti, ima primenu u najrazličitijim oblastima: ugradnim sistemima, mobilnim  uređajima, veb serverima i igricama. Koristi se na jedan od sledeća tri načina: kao skript jezik u sastavu aplikacija pisanih na nekom drugom jeziku, kao samostalan jezik ili zajedno sa C-om \cite{bookProgInLua}.
 
-Ako se Lua upotrebljava u aplikaciji kao skript jezik, za njeno konfigurisanje u skladu sa domenom date aplikacije potrebno je koristiti Lua-C API. Pomoću njega se mogu registrovati nove funkcije, praviti novi tipovi i vršiti izmene u ponašanju nekih operacija. Jedan od primera gde se Lua upotrebljava kao skript jezik je CGILua, alat za pravljenje dinamičkim veb stranicama i manipulisanje podacima prikupljenih putem veb formi. CGILua predstavlja apstrakciju za Veb server \cite{keplerProject}.
+Ako se Lua upotrebljava u aplikaciji kao skript jezik, za njeno konfigurisanje potrebno je koristiti Lua-C API. Pomoću njega se mogu registrovati nove funkcije, praviti novi tipovi i vršiti izmene u ponašanju nekih operacija. Jedan od primera gde se Lua upotrebljava kao skript jezik je CGILua, alat za pravljenje dinamičkih veb stranica i manipulisanje podacima prikupljenih veb formama. U suštini, CGILua predstavlja apstrakciju za Veb server \cite{keplerProject}.
 
 Sve češće, Lua se koristi i kao samostalan jezik, čak i za veće projekte. U te svrhe su razvijene biblioteke koje nude različite funkcionalnosti. Na primer, postoje biblioteke za rad sa stringovima, tabelama, fajlovima, modulima, itd.
 
-Treća mogućnost za upotrebu Lue jeste u okviru programa pisanih u C-u. Tada se ona importuje kao C biblioteka. U praksi, najveći deo programa je u C-u, a Lua se koristi za kreiranje interfejsa lakih za upotrebu.
+Treća mogućnost za upotrebu Lue je u okviru programa pisanih u C-u. Tada se ona importuje kao C biblioteka. U praksi, najveći deo programa je u C-u, a Lua se koristi za kreiranje interfejsa lakih za upotrebu.
 
 %% \endAutor{Jana Jovicic}
 
@@ -143,7 +143,7 @@ Treća mogućnost za upotrebu Lue jeste u okviru programa pisanih u C-u. Tada se
 
 %% \beginAutor{Jana Jovicic}
 
-Lua podržava različite paradigme, kao što su objektno-orjentisana, funkcionalna i proceduralna. Ona ne podržava ove paradigme pomoću specfičnih mehanizama za svaku od njih, već pomoću opštih mehanizama kao što su tabele, funkcije prvog reda, delegacija i korutine. Pošto ti mehanizmi nisu specifični ni za jednu određenu paradigmu, moguće su i druge paradigme. Svi mehanizmi Lue rade nad standardnom proceduralnom semantikom, što omogućuje laku integraciju između njih. Prema tome, većina programa napisanih u Lui su proceduralni, s tim što uključuju i korisne tehnike iz drugih paradigmi \cite{multiParadigms} .
+Lua podržava različite paradigme, kao što su objektno-orjentisana, funkcionalna i proceduralna. Ona ne podržava ove paradigme pomoću specfičnih mehanizama za svaku od njih, već pomoću opštih mehanizama kao što su tabele, funkcije prvog reda, delegacija i korutine. Pošto ti mehanizmi nisu specifični ni za jednu određenu paradigmu, moguće su i druge paradigme. Svi mehanizmi Lue rade nad standardnom proceduralnom semantikom, što omogućuje njihovu laku integraciju. Prema tome, većina programa napisanih u Lui su proceduralni, s tim što uključuju i korisne tehnike drugih paradigmi \cite{multiParadigms} .
 
 Podršku funkcionalnom programiranju u Lui pruža biblioteka Lua Fun, koja se još uvek razvija. Ona omogućava pisanje jednostavnog i efikasnog funkcionalnog koda korišćenjem funkcija višeg reda, poput map(), filter(), reduce(), zip(), itd. Primeri nekih funkcija iz ove biblioteke mogu se naći u dodacima \ref{dodaci}.
 
@@ -151,7 +151,7 @@ Podršku funkcionalnom programiranju u Lui pruža biblioteka Lua Fun, koja se jo
 
 %% \beginAutor{Jovana Pejkic}
 
-Iako Lua nije objektno-orjentisan jezik, on nam obezbeđuje sve objekte koji nam dopuštaju da implementiramo sistem objekata. Umesto klasa, u Lui pametna upotreba meta tabela moze da kreira sistem klasa. Meta tabele mogu da kreiraju objekte bazirane na prototipovima. Više o objektima u nastavku teksta.
+Iako Lua nije objektno-orjentisan jezik, on obezbeđuje sve objekte koji nam dopuštaju da implementiramo sistem objekata. Umesto klasa, u Lui pametna upotreba meta tabela može da kreira sistem klasa. Meta tabele mogu da kreiraju objekte zasnovane na prototipovima. Više o objektima u nastavku teksta.
 
 %% endAutor{Jovana Pejkic}
 
@@ -215,9 +215,9 @@ sudo make install        # instalira
 
 %% \beginAutor{Jana Jovicic}
 
-Lua teži tome da bude fleksibilna, ali, takođe teži tome da bude mali jezik - i u pogledu implementacije i u terminima specifikacije. Za ugradne jezike ovo je bitna osobina pošto se često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik se pristupa ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele, funkcije prvog reda, korutine i refleksivne mogućnosti. Da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo brojeve u pokretnom zarezu dvostruke preciznosti kao tip vrednosti \cite{multiParadigms}.
+Lua teži tome da bude fleksibilna, ali, takođe teži tome da bude mali jezik - i u pogledu implementacije i u terminima specifikacije. Za ugradne jezike ovo je bitna osobina pošto se često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik pristupa se ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele, funkcije prvog reda, korutine i refleksivne mogućnosti. Da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo brojeve u pokretnom zarezu dvostruke preciznosti kao tip vrednosti \cite{multiParadigms}.
 %% \endAutor{Jana Jovicic}
-Lua ima ukupno 8 tipova: \textit{nil}, \textit{bool}, \textit{brojevi}, \textit{string}, \textit{korisnicki podaci}, \textit{funkcije}, \textit{niti} i \textit{table}. U slučaju greške funkcija vraća nil i ono karakteriše odsustvo vrednosti. Nil nalazi primenu u brisanju promenljivih i oslobađanju memorije. Kada se promenljivoj dodeli nil, njena ranija vrednost biva izbrisana ukoliko ništa ne pokazuje na nju. Svaki tip može biti ,,kastovan'' u bool, a način je dat u tabeli \ref{kastovanje}. U potpoglavljima biće reči o tabelama i funkcijama kao i o nekim važnim konceptima vezanim za njih.
+Lua ima ukupno 8 tipova: \textit{nil}, \textit{bool}, \textit{brojevi}, \textit{string}, \textit{korisnicki podaci}, \textit{funkcije}, \textit{niti} i \textit{table}. U slučaju greške funkcija vraća nil i ono karakteriše odsustvo vrednosti. Nil nalazi primenu u brisanju promenljivih i oslobađanju memorije. Kada se promenljivoj dodeli nil, njena ranija vrednost biva izbrisana ukoliko ništa ne pokazuje na nju. Svaki tip može biti ,,kastovan'' u bool, a način je dat u tabeli \ref{kastovanje}. U potpoglavljima biće reči o tabelama i funkcijama kao i o nekim njihovim važnim konceptima.
 
 \begin{table}[h!]
 \begin{center}
@@ -318,7 +318,7 @@ Međutim, prethodni primer deklaracije funkcije samo je lepši način da se zapi
 \begin{lstlisting}[caption={Dodela vrednosti tipa \textit{function} promenljivoj foo \cite{bookProgInLua}},frame=single, label=fun1]
     foo = function (x) return 2*x end
 \end{lstlisting}
-To jest, definicija funkcije je u stvari naredba koja promenljivoj dodeljuje vrednost tipa \textit{function}. Izraz sa desne strane operatora dodele se može posmatrati kao konstruktor za funkcije, baš kao što se vitičastim zagradama predstavlja konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako se uglavnom funkcijama dodeljuju imena, postoje i situacije kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruža funkciju \textit{table.sort}, koja prima tabelu i sortira njene elemente. Ova funkcija treba da omogući više varijacija sortiranja: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bi bile omogućene sve varijacije sortiranja, \textit{sort} pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. \textit{order function}), koja vrši poređenje dve vrednosti - prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Sledeći primer prikazuje gde je zgodno upotrebiti anonimnu funkciju. Na primer, neka je data tabela sa slogovima:
+To jest, definicija funkcije je, u stvari, naredba koja promenljivoj dodeljuje vrednost tipa \textit{function}. Izraz sa desne strane operatora dodele se može posmatrati kao konstruktor za funkcije, baš kao što se vitičastim zagradama predstavlja konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako se uglavnom funkcijama dodeljuju imena, postoje i situacije kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruža funkciju \textit{table.sort}, koja prima tabelu i sortira njene elemente. Ova funkcija treba da omogući više varijacija sortiranja: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bi bile omogućene sve varijacije sortiranja, \textit{sort} pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. \textit{order function}), koja vrši poređenje dve vrednosti - prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Sledeći primer prikazuje gde je zgodno upotrebiti anonimnu funkciju. Na primer, neka je data tabela sa slogovima:
 \begin{lstlisting}[caption={Primer tabele \cite{bookProgInLua}},frame=single, label=fun2]
      network = {
        {name = "grauna",  IP = "210.26.30.34"},
@@ -333,7 +333,7 @@ Da bi se vrednosti u tabeli sortirale po imenu polja u obrnutom alfabetskom pore
       return (a.name > b.name)
     end)
 \end{lstlisting}
-Funkciju koja prima drugu funkciju kao argument, kao što je \textit{sort}, zovemo funkcijom višeg reda (eng. \textit{higher-order function}). Funkcije višeg reda predstavljaju mehanizam u programiranju koji za kreiranje svojih argumenata često koristi anonimne funkcije. Funkcije višeg reda su posledica mogućnosti Lua-e da upravlja funkcijama kao vrednostima prve klase.
+Funkciju, koja prima drugu funkciju kao argument, kao što je \textit{sort}, zovemo funkcijom višeg reda (eng. \textit{higher-order function}). Funkcije višeg reda predstavljaju mehanizam u programiranju, koji za kreiranje svojih argumenata često koristi anonimne funkcije. Funkcije višeg reda su posledica mogućnosti Lua-e da upravlja funkcijama kao vrednostima prve klase.
 
 %% \endAutor{Jovana Pejkic}
 
@@ -343,8 +343,8 @@ Funkciju koja prima drugu funkciju kao argument, kao što je \textit{sort}, zove
 
 %% \beginAutor{Jovana Pejkic}
 
-U Lui, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Na primer kada postoji neka funkcija koja vraća anonimnu funkciju, anonimna funkcija može da vidi lokalne promenljive funkcije kojom je okruzena. Međutim, nakon sto je anonimna funkcija vraćena, ona može da nadživi funkciju koja ju je vratila kreirajuci zatvorenje. Ovaj mehanizam dopušta pristup stanju funkcije omotaca i nadpromenljivima\footnote{eng. upvalue -- vrednost promenljive funkcije omotaca}, iako se funkcija omotac više ne izvršava.
-Zatvorenje je funkcija plus sve što joj je potrebno da pristupi njenim upvalues korektno. Ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija sama za sebe je samo prototip za zatvorenje.
+U Lui, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Na primer, kada postoji neka funkcija koja vraća anonimnu funkciju, anonimna funkcija može da vidi lokalne promenljive funkcije kojom je okruzena. Međutim, nakon sto je anonimna funkcija vraćena, ona može da nadživi funkciju koja ju je vratila kreirajuci zatvorenje. Ovaj mehanizam dopušta pristup stanju funkcije omotaca i nadpromenljivima\footnote{eng. upvalue -- vrednost promenljive funkcije omotaca}, iako se funkcija omotac više ne izvršava.
+Zatvorenje je funkcija, plus sve što joj je potrebno da pristupi njenim upvalues korektno. Ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija, sama za sebe, samo je prototip za zatvorenje.
 
 %% \endAutor{Jovana Pejkic}
 
@@ -353,7 +353,7 @@ Zatvorenje je funkcija plus sve što joj je potrebno da pristupi njenim upvalues
 
 %% \beginAutor{Jana Jovicic}
 
-Iterator, konstrukcija koje omogćava prolazak kroz kolekciju, predstavlja se pomoću funkcije. Pri svakom pozivu ta funkcija vraća naredni element iz kolekcije. Na kodu \ref{iter1} dat je primer iteratora nad listom koji vraća vrednost elemenata liste.
+Iterator, konstrukcija koja omogćava prolazak kroz kolekciju, predstavlja se pomoću funkcije. Pri svakom pozivu, ta funkcija vraća naredni element iz kolekcije. U kodu \ref{iter1} dat je primer iteratora nad listom koji vraća vrednost elemenata liste.
 
 \begin{lstlisting}[caption={Primer iteratora nad listom},frame=single, label=iter1]
 function values (t)
@@ -372,7 +372,7 @@ Između uzastopnih poziva, iterator mora da pamti stanje u kom se nalazi kako bi
 
 U kodu \ref{iter1} funckija omotac je values(). Pri svakom pozivu ona pravi zatvorenje (koje predstavlja sam iterator). To zatvorenje čuva svoje stanje u spoljašnjim promenljivama (t, i, n) tako da, svaki put kada se pozove, vraća naredni element iz liste t. Kada više nema vrednosti u listi, vraća nil.
 
-Postoje i iteratori bez stanja (eng. stateless iterators). To su iteratori koji ne čuvaju sami svoja stanja, tako da možemo isti iterator iskoristiti u više petlji bez potrebe da pravimo nova zatvorenja. U svakoj itreaciji, for petlja poziva svoj iterator sa dva argumenta: invarijantnim stanjem i kontrolnom promenljivom. Iterator bez stanja generiše naredni element na osnovu te dve vrednosti. U kodu \ref{iter2} prikazan je jedan iterator bez stanja - ipairs()\cite{bookProgInLua}.
+Postoje i iteratori bez stanja (eng. stateless iterators). To su iteratori koji ne čuvaju sami svoja stanja, tako da možemo isti iterator iskoristiti u više petlji, bez potrebe da pravimo nova zatvorenja. U svakoj itreaciji, for petlja poziva svoj iterator sa dva argumenta: invarijantnim stanjem i kontrolnom promenljivom. Iterator bez stanja generiše naredni element na osnovu te dve vrednosti. U kodu \ref{iter2} prikazan je jedan iterator bez stanja - ipairs()\cite{bookProgInLua}.
 
 \begin{lstlisting}[caption={Primer iteratora bez stanja},frame=single, label=iter2]
 a = {"one", "two", "three"}
@@ -386,7 +386,7 @@ Rezultat izvrsavanja ovog programa je:
 2	two
 3	three
 \end{verbatim}
-Funkcija ipairs() vraća tri vrednosti: \textit{gen}, \textit{param}, i \textit{state} (koje se nazivaju iteratorski triplet). \textit{Gen} je funkcija koja generiše narednu vrednost u svakoj iteraciji. Ona vraća novo stanje (\textit{state}) i vrednost u tom stanju. \textit{Param} je trajni parametar \textit{gen} funkcije i koristi se za pravljenje instance \textit{gen} funkcije, npr. tabele. \textit{State} je privremeno stanje iteratora koje se menja nakon svake iteracije, npr. to je indeks niza\cite{luafun}. Na listingu \ref{iter3} su prikazane ove tri vrednosti.
+Funkcija ipairs() vraća tri vrednosti: \textit{gen}, \textit{param}, i \textit{state} (koje se nazivaju iteratorski triplet). \textit{Gen} je funkcija koja generiše narednu vrednost u svakoj iteraciji. Ona vraća novo stanje (\textit{state}) i vrednost u tom stanju. \textit{Param} je trajni parametar \textit{gen} funkcije i koristi se za pravljenje instance \textit{gen} funkcije, npr. tabele. \textit{State} je privremeno stanje iteratora koje se menja nakon svake iteracije, npr. to je indeks niza\cite{luafun}. U kodu \ref{iter3} su prikazane ove tri vrednosti.
 \begin{lstlisting}[caption={Primer iteratora bez stanja (nastavak)},frame=single, label=iter3]
 gen, param, state = ipairs(a)
 -- rezultat izvrsavanja: function: 0x41b9e0	table: 0x1e8efb0	0
