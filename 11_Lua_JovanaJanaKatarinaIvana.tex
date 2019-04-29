@@ -221,9 +221,9 @@ sudo make install        # instalira
 
 %% \beginAutor{Jana Jovicic}
 
-Lua teži tome da bude fleksibilna, ali, takođe teži tome da bude mali jezik. Za ugradne jezike ovo je bitna osobina pošto se često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik pristupa se ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele, funkcije prvog reda, korutine i refleksivne mogućnosti. Da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo brojeve u pokretnom zarezu dvostruke preciznosti kao tip vrednosti \cite{multiParadigms}.
+Lua teži tome da bude fleksibilna, ali, takođe teži tome da bude mali jezik. Za ugradne jezike ovo je bitna osobina pošto se često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik pristupa se ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele (opisane u poglavlju \ref{sec:tabele}), funkcije prvog reda (opisane u poglavlju \ref{sec:funkcije}), zatvorenja (opisana u poglavlju \ref{sec:zatvorenja}), iteratori (opisani u poglavlju \ref{sec:iteratori}) i refleksivne mogućnosti. Da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo brojeve u pokretnom zarezu dvostruke preciznosti kao tip vrednosti \cite{multiParadigms}.
 %% \endAutor{Jana Jovicic}
-Lua ima ukupno 8 tipova: \textit{nil}, \textit{bool}, \textit{brojevi}, \textit{string}, \textit{korisnicki podaci}, \textit{funkcije}, \textit{niti} i \textit{table}. U slučaju greške funkcija vraća nil i ono karakteriše odsustvo vrednosti. Nil nalazi primenu u brisanju promenljivih i oslobađanju memorije. Kada se promenljivoj dodeli nil, njena ranija vrednost biva izbrisana ukoliko ništa ne pokazuje na nju. Svaki tip može biti ,,kastovan'' u bool, a način je dat u tabeli \ref{kastovanje}. U potpoglavljima biće reči o tabelama i funkcijama kao i o nekim njihovim važnim konceptima.
+Lua ima ukupno 8 tipova: \textit{nil}, \textit{bool}, \textit{brojevi}, \textit{string}, \textit{korisnički podaci}, \textit{funkcije}, \textit{niti} i \textit{table}. U slučaju greške funkcija vraća nil i ono karakteriše odsustvo vrednosti. Nil nalazi primenu u brisanju promenljivih i oslobađanju memorije. Kada se promenljivoj dodeli nil, njena ranija vrednost biva izbrisana ukoliko ništa ne pokazuje na nju. Svaki tip može biti ,,kastovan'' u bool, a način je dat u tabeli \ref{kastovanje}. U potpoglavljima biće više reči o nekim važnim konceptima ovog programskog jezika.
 
 \begin{table}[h!]
 \begin{center}
@@ -259,7 +259,7 @@ Tabela se kreira uz pomoć konstruktora. Nakon što je kreirana, tabelu treba do
 \begin{verbatim}
 table[key] = value
 \end{verbatim}
-Naredni primer demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako tu vrednost izvući iz tabele: %srediti kod
+Primer \ref{tabela1} demonstrira kako napraviti tabelu, sačuvati vrednost sa ključem x, i kako tu vrednost izvući iz tabele: %srediti kod
 \begin{lstlisting}[caption={Primer čuvanja vrednosti u tabeli},frame=single, label=tabela1]
 k = "x"
 a[k]=10        --> nov ulaz, sa kljucem key="x" 
@@ -275,7 +275,7 @@ print(a["x"])  --> ispisuje 11
 
 
 \subsection*{Meta tabele i meta metodi}
-Meta tabela je standardna tabela u Lua-i koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz \textit{a + b}, gde su \textit{a} i \textit{b} tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \textit{\_\_add} polje. Ako Lua pronadje to polje, poziva odgovarajuću funkciju za računanje sume.
+Meta tabela je standardna tabela u Lui koja sadrži skup meta metoda koji mogu da promene ponašanje tabela. Meta metode su funkcije sa specifičnim imenom koje se pozivaju kada Lua izvršava određene operacije kao sto su sabiranje, konkatenacija stringova, poređenje itd. Na primer, koristeći meta tabele i meta metode, možemo definisati kako Lua računa izraz \textit{a + b}, gde su \textit{a} i \textit{b} tabele. Kad god Lua proba da sabere dve tabele, prvo proverava da li svaka od njih ima meta tabelu i da li ta meta tabela ima \textit{\_\_add} polje. Ako Lua pronadje to polje, poziva odgovarajuću funkciju za računanje sume.
 
 Bilo koja tabela može biti meta-tabela bilo koje druge tabele. Grupa povezanih tabela može da deli zajedničku meta-tabelu (koja opisuje njihovo zajedničko ponašanje), a takođe tabela može biti svoja sopstvena meta-tabela (tako da opisuje svoje individualno ponašanje) \cite{bookProgInLua}.
 
@@ -313,7 +313,7 @@ print ("result: " .. result)
 \label{sec:funkcije}
 
 %% \beginAutor{Jovana Pejkic}
-Funkcije u Lua-i su vrednosti prve klase (eng. \textit{first-class values}) sa odgovarajućim "leksičkim opsegom". Za funkciju se kaže da je vrednost prve klase ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da budu vraćene kao povratne vrednosti funkcija. Da funkcija ima "leksički opseg" znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lua-i možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
+Funkcije u Lui su vrednosti prve klase (eng. \textit{first-class values}) sa odgovarajućim ,,leksičkim opsegom''. Za funkciju se kaže da je vrednost prve klase ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da budu vraćene kao povratne vrednosti funkcija. Da funkcija ima ,,leksički opseg'' znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lui možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
 
 Iako su funkcije vrednosti, postoji izraz kojim se funkcija kreira - deklaracija funkcije obično izgleda ovako:
 \begin{lstlisting}[caption={Deklaracija funkcije \cite{bookProgInLua}},frame=single, label=fun1]
@@ -339,7 +339,7 @@ Da bi se vrednosti u tabeli sortirale po imenu polja u obrnutom alfabetskom pore
       return (a.name > b.name)
     end)
 \end{lstlisting}
-Funkciju, koja prima drugu funkciju kao argument, kao što je \textit{sort}, zovemo funkcijom višeg reda (eng. \textit{higher-order function}). Funkcije višeg reda predstavljaju mehanizam u programiranju, koji za kreiranje svojih argumenata često koristi anonimne funkcije. Funkcije višeg reda su posledica mogućnosti Lua-e da upravlja funkcijama kao vrednostima prve klase.
+Funkciju, koja prima drugu funkciju kao argument, kao što je \textit{sort}, zovemo funkcijom višeg reda (eng. \textit{higher-order function}). Funkcije višeg reda predstavljaju mehanizam u programiranju, koji za kreiranje svojih argumenata često koristi anonimne funkcije. Funkcije višeg reda su posledica mogućnosti Lue da upravlja funkcijama kao vrednostima prve klase.
 
 %% \endAutor{Jovana Pejkic}
 
@@ -349,8 +349,8 @@ Funkciju, koja prima drugu funkciju kao argument, kao što je \textit{sort}, zov
 
 %% \beginAutor{Jovana Pejkic}
 
-U Lui, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Na primer, kada postoji neka funkcija koja vraća anonimnu funkciju, anonimna funkcija može da vidi lokalne promenljive funkcije kojom je okruzena. Međutim, nakon sto je anonimna funkcija vraćena, ona može da nadživi funkciju koja ju je vratila kreirajuci zatvorenje. Ovaj mehanizam dopušta pristup stanju funkcije omotaca i nadpromenljivima\footnote{eng. upvalue -- vrednost promenljive funkcije omotaca}, iako se funkcija omotac više ne izvršava.
-Zatvorenje je funkcija, plus sve što joj je potrebno da pristupi njenim upvalues korektno. Ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija, sama za sebe, samo je prototip za zatvorenje.
+U Lui, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Na primer, kada postoji neka funkcija koja vraća anonimnu funkciju, anonimna funkcija može da vidi lokalne promenljive funkcije kojom je okruzena. Međutim, nakon sto je anonimna funkcija vraćena, ona može da nadživi funkciju koja ju je vratila kreirajuci zatvorenje. Ovaj mehanizam dopušta pristup stanju funkcije omotača i nadpromenljivama\footnote{eng. upvalue -- vrednost promenljive funkcije omotaca}, iako se funkcija omotac više ne izvršava.
+Zatvorenje je funkcija, plus sve što joj je potrebno da pristupi njenim nadpromenljivama korektno. Ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija, sama za sebe, samo je prototip za zatvorenje.
 
 %% \endAutor{Jovana Pejkic}
 
@@ -367,7 +367,6 @@ function values (t)
 	return function () i = i + 1; return t[i] end
 end
 
-# spoljasnja funkcija, koja se naziva fabrika, je values()
 t = {10, 20, 30}
 for element in values(t) do
 	print(element)
@@ -376,9 +375,9 @@ end
 
 Između uzastopnih poziva, iterator mora da pamti stanje u kom se nalazi kako bi znao da nastavi dalje odatle. U tu svrhu se koriste zatvorenja. \cite{lua_org_iterators}.
 
-U kodu \ref{iter1} funckija omotac je values(). Pri svakom pozivu ona pravi zatvorenje (koje predstavlja sam iterator). To zatvorenje čuva svoje stanje u spoljašnjim promenljivama (t, i, n) tako da, svaki put kada se pozove, vraća naredni element iz liste t. Kada više nema vrednosti u listi, vraća nil.
+U kodu \ref{iter1} funckija omotač je values(). Pri svakom pozivu ona pravi zatvorenje (koje predstavlja sam iterator). To zatvorenje čuva svoje stanje u spoljašnjim promenljivama (\textit{t, i, n}) tako da, svaki put kada se pozove, vraća naredni element iz liste t. Kada više nema vrednosti u listi, vraća nil.
 
-Postoje i iteratori bez stanja (eng. stateless iterators). To su iteratori koji ne čuvaju sami svoja stanja, tako da možemo isti iterator iskoristiti u više petlji, bez potrebe da pravimo nova zatvorenja. U svakoj itreaciji, for petlja poziva svoj iterator sa dva argumenta: invarijantnim stanjem i kontrolnom promenljivom. Iterator bez stanja generiše naredni element na osnovu te dve vrednosti. U kodu \ref{iter2} prikazan je jedan iterator bez stanja - ipairs()\cite{bookProgInLua}.
+Postoje i iteratori bez stanja (eng. \textit{stateless iterators}). To su iteratori koji ne čuvaju sami svoja stanja, tako da možemo isti iterator iskoristiti u više petlji, bez potrebe da pravimo nova zatvorenja. U svakoj itreaciji, for petlja poziva svoj iterator sa dva argumenta: invarijantnim stanjem i kontrolnom promenljivom. Iterator bez stanja generiše naredni element na osnovu te dve vrednosti. U kodu \ref{iter2} prikazan je jedan iterator bez stanja - ipairs()\cite{bookProgInLua}.
 
 \begin{lstlisting}[caption={Primer iteratora bez stanja},frame=single, label=iter2]
 a = {"one", "two", "three"}
@@ -394,12 +393,51 @@ Rezultat izvrsavanja ovog programa je:
 \end{verbatim}
 Funkcija ipairs() vraća tri vrednosti: \textit{gen}, \textit{param}, i \textit{state} (koje se nazivaju iteratorski triplet). \textit{Gen} je funkcija koja generiše narednu vrednost u svakoj iteraciji. Ona vraća novo stanje (\textit{state}) i vrednost u tom stanju. \textit{Param} je trajni parametar \textit{gen} funkcije i koristi se za pravljenje instance \textit{gen} funkcije, npr. tabele. \textit{State} je privremeno stanje iteratora koje se menja nakon svake iteracije, npr. to je indeks niza\cite{luafun}. U kodu \ref{iter3} su prikazane ove tri vrednosti.
 \begin{lstlisting}[caption={Primer iteratora bez stanja (nastavak)},frame=single, label=iter3]
+a = {"one", "two", "three"}
 gen, param, state = ipairs(a)
--- rezultat izvrsavanja: function: 0x41b9e0	table: 0x1e8efb0	0
+# rezultat izvrsavanja: function: 0x41b9e0	table: 0x1e8efb0	0
 print(gen(param, state))
--- rezultat izvrsavanja: 1	one
+# rezultat izvrsavanja: 1	one
 \end{lstlisting}
 
+
+\subsection{Primer jednostavnog koda}
+\label{sec:primer_koda}
+
+U ovom poglavlju će biti dat primer jednog jednostavnog koda u kom se može videti način na koje se koriste prethodno opisani elementi ovog programskog jezika. U primeru \ref{primer} je prikazano kako je moguće naći sve faktore broja koji se unosi sa standardnog ulaza. Od korisnika se prvo traži da unese broj, zatim se on učitava pomoću ugrađene funkcije \textit{io.read()} i poziva se korisnički definisana funkcija koja vraća tabelu svih faktora. U okviru te funkcije prvo je potrebno deklarisati praznu tabelu u koju će biti dodavani faktori. Zatim se u \textit{for} petlji proveravaju svi brojevi od 1 do korena prosleđenog broja, pri čemu je korak u iteriranju jednak 1. Ako taj broj deli prosleđeni broj, onda su on i broj koji se dobija deljenjem prosleđenog broja tim brojem faktori i dodaju se u tabelu pomoću funkcije \textit{insert()}. Zatim se tabela sortira i vraća kao rezultat funkcije. Na kraju, pri povratku iz funkcije, prolazi se kroz sve elemente tabele pomoću iteratora \textit{ipairs()} i oni se ispisuju na standardni izlaz. U ovom primeru se, takođe, može videti da se lokalne promenljive deklarišu ključom rečju \textit{local}. A prikazano je i pisanje jednolinijskih i višelinijskih komentara.
+
+\begin{lstlisting}[caption={Primer izračunavanja faktora broja},frame=single, label=primer]
+function get_all_factors(number)
+    --[[--
+    	Ova funkcija vraca sve faktore datog broja.
+    	Preciznije, vraca tabelu koja sadrzi sve faktore.
+    --]]--
+    
+    local factors = {}  -- Tabela u kojoj cuvamo faktore
+    for possible_factor=1, math.sqrt(number), 1 do
+        local remainder = number % possible_factor        
+        if remainder == 0 then
+           local factor1, factor2 = possible_factor, number/possible_factor
+           table.insert(factors, factor1)
+           table.insert(factors, factor2) 
+        end
+    end
+    table.sort(factors)
+    return factors
+end
+
+-- ovako se ispisuje poruka na standardni izlaz:
+print("Unesite broj cije faktore zelite da izracunate:")
+-- ovako se ucitava broj sa standardnog ulaza:
+num = io.read("*n")
+-- ovako se poziva funkcija:
+factors_of_num = get_all_factors(num)
+-- pomocu ipairs() iteratora se prolazi kroz kolekciju i ispisuje 
+-- se svaki od faktora prosledjenog broja
+for i, factor in ipairs(factors_of_num) do
+   print(factor) 
+end
+\end{lstlisting}
 
 %% endAutor{Jana Jovicic}
 
