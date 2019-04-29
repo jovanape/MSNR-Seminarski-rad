@@ -60,9 +60,10 @@ U ovom radu se govori o karakteristikama programskog jezika Lua, uslovima njegov
 \odgovor{
 Seminarski rad je sastavljen u skladu sa uputstvima koja su data. Poglavlje o nastanku jezika je veoma zanimljivo, jedina zamerka je da nema potrebe pisati toliko detaljno o pretečama jezika, postaje malo konfuzno .\newline
 \note{Za Kacu: na jednom mestu je spomenuto da nam treba vise podnaslova, mozes mozda tako da podelis da bude lakse za citanje kao manja celina.}
-Po mom mišljenju, svrha seminarskih radova je da nam približe programski jezik, gde i kada se koristi, zašto baš taj jezik i koje tipove problema najbolje rešava. Zato bih produžio sekciju o primenama jezika sa još primera \note{(Za Janu: mozda dodati primere nekih velikih projekata koji su radjeni posredstvom Lue, npr photoshop, sa sve referencama na github repozitorijume ako su open src, ili nesto slicno)} i detaljima korišćenja jezika \note{(Za Janu: mozda nacin kompajliranja sa C-om)}, a sekciju 
-\textbf{Programiranje u Lui} bih skratio 
-\note{(Za Jovanu: mozda da se na jednom primeru pokaze sve o metatabelama umesto na 4 razdvojena mesta, tako ce biti skraceno (ako nista bice manje captiona), a tekst ce ostati. Takodje sad tek vidim da u metatabelama imamo fusnotu na ,,\_\_add'' tek drugi put kad se pojavljuje, to treba da se stavi na prvo pominjanje \_add i da se upise u dodatne izmene u ovom fajlu}.  
+Po mom mišljenju, svrha seminarskih radova je da nam približe programski jezik, gde i kada se koristi, zašto baš taj jezik i koje tipove problema najbolje rešava. Zato bih produžio sekciju o primenama jezika sa još primera i detaljima korišćenja jezika, a sekciju 
+\textbf{Programiranje u Lui} bih skratio.\\
+\odgovorAutora{Produžena je sekcija o primenama Lue. Dodati su pasusi koji govore o tome je na koji način se Lua koristi u razvoju softvera zasnovanom na komponentama, Adobe Photoshop Lightroom-u i igricama.}
+\note{(Za Jovanu: mozda da se na jednom primeru pokaze sve o metatabelama umesto na 4 razdvojena mesta, tako ce biti skraceno (ako nista bice manje captiona), a tekst ce ostati. Takodje sad tek vidim da u metatabelama imamo fusnotu na ,,\_\_add'' tek drugi put kad se pojavljuje, to treba da se stavi na prvo pominjanje \_add i da se upise u dodatne izmene u ovom fajlu}  
 }
 \section{Sitne primedbe}
 % Напишете своја запажања на тему штампарских-стилских-језичких грешки
@@ -95,7 +96,7 @@ Primena:
   \odgovorAutora{Rečenica je prepravljena: ,,Ako se Lua upotrebljava u aplikaciji kao skript jezik, za njeno konfigurisanje potrebno je koristiti Lua-C API.''}
   \item alat za pravljenje dinamičkim veb stranicama i manipulisanje podacima prikupljenih putem veb formi - dinamičkih ; prikupljenih veb formama
   \odgovorAutora{Ispravljeno.}
-  \item  za upotrebu Lue jeste - za upotrebu Lue je
+  \item  za upotrebu Lue jeste - za upotrebu Lue je\\
   \odgovorAutora{Ispravljeno.}
 \end{itemize}
 Podržane paradigme:
@@ -185,6 +186,7 @@ Programiranje u Lui:
 \item Da li su slike i tabele funkcionalne i adekvatne?\\
 \odgovor{Reference na slike, kodove i tabele su neispravne i ne prikazuju odgovarajući sadržaj, kada se kliknu.} \\
 \note{Za Jovanu, Janu, Kacu: Trebalo bi da popravimo ovo. Verovatno je svuda isti problem, pa ko ga prvi resi neka primeni na sve reference.}
+\odgovorAutora{Ispravljena referenca na siku u poglavlju ,,Nastanak''.}
 \end{enumerate}
 
 \section{Ocenite sebe}
@@ -229,7 +231,7 @@ Nekoliko sitnih primedbi:
   \note{Za Jovanu, Janu ili Kacu: ovo ne znam gde pise}
   \item Sekcija 7. prva recenica. "Lua te\v zi tome da bude fleksibilna, ali, takodje te\v zi tome da bude mali
 jezik - i u pogledu implementacije i u terminima specifikacije." - U kom smislu mali u pogledima implementacije i specifikacije? Nije ba\v s jasno. \\
-  \note{Za Janu}
+  \odgovorAutora{Taj deo je izbačen.}
   \item U sekciji 4. kada se navode pojmovi: funkcije prvog reda, korutine, tabele i delegacije, mo\v zda treba navesti \v citaocu da \' ce u toku rada biti razja\v snjeno sta su pojmovi i referisati na mesto gde se to nalazi, jer mu u tom trenutku \v citanja nije jasno. \\
   \note{Za Janu i Jovanu: Jana spominje ovo sto je napisano, a kod Jovane se jos spominju i meta tabele i objekti. Trebalo bi da se stavi referenca na deo teksta. Za delove koji se ne spominju nigde u radu, npr. delegati, mozda treba takodje da se stavi referenca na neki sajt ili eko objasnjenje...}
 
@@ -267,7 +269,8 @@ jezik - i u pogledu implementacije i u terminima specifikacije." - U kom smislu 
 \end{itemize}
 
 \item \textbf {Da li je nešto važno propušteno?}\\
-  Rad ne sadr\v zi opis standardne biblioteke Lua programskog jezika. \\ \note{Globalno: Mislite li da bi trebalo dodati i ovo? Ja mislim da se moze eventualno spomenuti, staviti par primera u dodatke i slicno, nazivi nekih najkoriscenijih biblioteka, to je to... Mozda nesto da se iskoristi u onom helloWorld primeru, ne znam.}
+  Rad ne sadr\v zi opis standardne biblioteke Lua programskog jezika. \\ 
+  \odgovorAutora{U okviru sekcije ,,Primena'' je već navedeno koje sve biblioteke postoje. Samo je sada naglašeno da sve one čine standardnu biblioteku. Mislim da nema mnogo smisla opisivati svaku, jer se to svodi na prikazivanje rada funkcija koje se nalaze u tim bibliotekama, što nije cilj rada.}
 \item \textbf {Da li ima suštinskih grešaka i propusta?}\\
   Uzimaju\' ci u obzir moje znanje opisanog programskog jezika, nema.
 \item \textbf {Da li je naslov rada dobro izabran?}\\
@@ -282,7 +285,7 @@ jezik - i u pogledu implementacije i u terminima specifikacije." - U kom smislu 
   Odgovaraju\' ca literatura jeste navedena.
 \item \textbf {Da li su u radu reference korektno navedene?}\\
   Uglavnom jesu korektno navedene reference, s tim sto na nekim mestima je ista referenca navedena na razli\v cite na\v cine. \\
-\note{Za Jovanu, Janu i Kacu: proverite jos jednom reference. Mozda se recenzent zbunio jer je svuda autor isti pa bi to trebalo napisati u odg na ovu primedbu (Jana)?}
+\odgovorAutora{Reference su korektno navedene. Recenzentu se možda čini da je jedna referenca navođena na različite načine zbog toga što je većinu dostupne literature (knjige, naučne radove i zvanični sajt Lue) pisao jedan autor - Roberto Ierusalimschy, kreator programskog jezika Lua.}
 \item \textbf {Da li je struktura rada adekvatna?}\\
   Rad ima siroma\v san skup podsekcija. Samo sekcija 7. ima nekoliko podsekcija. Mozda treba drugacije organizovati strukturu rada. \\
 \note{Globalno: Sta vi mislite o vome? Ne vidim potrebu za vestackim pravljenjem sekcija, sekcije su priblizno slicnih velicina. Jedino sto bi moglo da se spoji su mozda instalazija i programiranje, ali time bismo samo prositili programiranje. Najduzi odeljci su ,,Nastanak'' i ,,Funckije'' tako da bi to moglo da se podeli na odeljke ako se odlucimo za deljenje.}
