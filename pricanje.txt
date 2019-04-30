@@ -1,0 +1,77 @@
+
+
+*******IVANA*********
+
+
+
+
+
+
+
+***********************
+
+*******KATARINA*********
+Jezik Lua nastao je 1993. na Katoličkom univerzitetu u Rio de Žaneiru, i znači mesec. U okviru grupe za razvoj tehnologija u računarskoj grafici, trojica naučnika (pokazujem imena na prezentaciji), od kojih je svaki specijalizovan za različitu naučnu oblast, razvili su jezik Lua, i oni još uvek rade na njegovom održavanju i proširivanju.
+20 sekundi
+
+Prethodnici Lue, dva mala jezika zvana DEL i SOL, čija skraćenica znači sunce, što je bila direktna inspiracija za naziv Lua tj mesec, nastali su godinu dana ranije, i svrha im je bila da se ubrza unos ogromne količine numeričkih podataka.
+15 sekundi
+
+Prioriteti pri razvoju novog jezika bili su jednostavnost semantike i sintakse, opis podataka kakav je u SOLu, i portabilnost. 
+7 sekundi
+
+????? U julu 1993, Valdermar je dovršio prvu implementaciju Lue, koja je bila izuzetno jednostavna. Od tada je izašlo ukupno pet verzija sa brojnim podverzijama, koje su dodavale nove funkcionalnosti. ??????
+
+fali nesto da poveze sa Janinim delom
+
+
+
+***********************
+
+*******JANA*********
+
+
+
+
+
+
+
+***********************
+
+*******JOVANA*********
+
+
+
+
+
+
+
+***********************
+
+*******KATARINA*********
+Tokom godina, nastala su brojna okruženja za jezik Lua, koja olakšavaju razvoj veb aplikacija.
+Među najpopuilarnija Lua okruženja spadaju Lapis, Sailor, Luvit i Fengari.
+
+Lapis je po svojoj funkcionalnosti analogan Reils okruženju za Rubi i Laravel okruženju za PHP. Omogućava HTML templating, jednostavno uvođenje middleware-a, upravljanje ORM modelima i slično. 
+
+Sailor okruženje je slično Lapisu ali uvodi naprednije funkcionalnosti poput mogućnost pisanja klijentskog koda u Lui, pomoću Lua virtuelne mašine implementirane u JavaScriptu. Još jedna prednost je što nije vezan za OpenResti, već ga je moguće izvršavati i na raznim drugim veb serverima
+
+Luvit je okruženje za Luu, koje implementira API identičan Node.js okruženju. Asinhrone I/O operacije se oslanjaju na istu biblioteku kao u Node.js-u (libuv).
+
+Fengari je implementacija Lua virtuelne mašine pisana u JavaScriptu. Izvršava se u veb pregledaču i omogućava izvršavanje Lua programa u tom okruženju. Lua kodu je dostupan kompletan API pregledača, uključujući i funkcije za manipulaciju DOM-a, pa može u potpunosti da zameni JavaScript pri pisanju klijentskog koda
+
+
+1:20 sekundi 
+
+***********************
+
+
+*******IVANA*********
+
+
+
+
+
+
+
+***********************
