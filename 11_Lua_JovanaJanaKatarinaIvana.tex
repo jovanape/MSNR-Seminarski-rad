@@ -19,6 +19,11 @@
 \usepackage{listings}
 
 \newtheorem{primer}{Primer}[section]
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{\textit{Ključne reči---}} #1
+}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.7,0.7,0.7}
@@ -68,9 +73,9 @@ rudinackatarina@gmail.com, ivanajordanov47@gmail.com}
 \maketitle
 
 \abstract{
-Pri rešavanju komplikovanih problema susrećemo se sa poteškoćom pri odabiru programskog jezika. Potrebno je da on bude fleksibilan, ali se ne bismo odrekli jednostavnosti ili dragocenog memorijskog prostora. Jedno od rešenja je programski jezik Lua. Cilj rada je pokazati kako je nastao ovaj programski jezik, kako se danas koristi i koje karakteristike poseduje. U te svrhe rad obuhvata opis njegovih fundamentalnih mehanizama, samim tim i načina kojim se složeni koncepti različitih programskih paradigmi posredstvom jednostavne semantike i svega 8 tipova podataka postižu u njemu.
-}
-
+Pri rešavanju komplikovanih problema susrećemo se sa poteškoćom pri odabiru programskog jezika. Potrebno je da on bude fleksibilan, ali se ne bismo odrekli jednostavnosti ili dragocenog memorijskog prostora. Jedno od rešenja je programski jezik Lua. Cilj rada je da se pokaže kako je nastao ovaj programski jezik, kako se danas koristi i koje karakteristike poseduje. U te svrhe rad obuhvata opis njegovih fundamentalnih mehanizama, samim tim i načina kojim se složeni koncepti različitih programskih paradigmi posredstvom jednostavne semantike i svega 8 tipova podataka postižu u njemu.
+} \\
+\keywords{Lua, skript programski jezik, tipovi podataka}
 \tableofcontents
 
 % u svrhu najispravnijeg ocenjivanja svih clanova tima  
@@ -83,7 +88,7 @@ Pri rešavanju komplikovanih problema susrećemo se sa poteškoćom pri odabiru 
 \label{sec:uvod}
 
 %% \beginAutor{Katarina Rudinac}
- Lua spada u dinamički tipizirane, gradivne (eng. embeddable\footnote{embeddable language - klasa jezika koji se često koriste da prošire ili utiču na ponašanje postojeće aplikacije}) skript jezike. Podržava proceduralno, objektno orjektisano, funkcionalno i programiranje vođeno podacima\footnote{programiranje vodjeno podacima - data-driven programming is a programming paradigm in which the program statements describe the data to be matched and the processing required rather than defining a sequence of steps to be taken}.
+ Lua spada u dinamički tipizirane, gradivne (eng. embeddable\footnote{embeddable language - klasa jezika koji se često koriste da prošire ili utiču na ponašanje postojeće aplikacije}) skript jezike. Podržava proceduralno, objektno orjektisano, funkcionalno i programiranje vođeno podacima\cite{bookUnix}.
 %% \endAutor{KatarinaRudinac}
 Nastao je kao potreba za fleksibilnim programskim jezikom koji će omogućiti jednostavno korišćenje nesrodnih mehanizama različitih programskih paradigmi, u jednoj zemlji u razvoju, a danas ima široku primenu u različitim oblastima programiranja. Koji su to mehanizmi i kako je nastala Lua biće opisano u poglavlju \ref{sec:nastanak} , dok će o njenoj primeni danas biti reči u poglavlju \ref{sec:primena}. Načini na koji su podržane funckionalna i objektno orjentisana paradigma biće spomenuti u poglavlju \ref{sec:paradigme}. Kao rezultat širenja brojna su okruzenja za Luu i njima će biti posvećeno celo poglavlje \ref{sec:okruzenja}. Jednostavnost programskog jezika će biti vidljiva kroz kodove koji demonstriraju ideju na kojoj je zasnovano programiranje u Lui (poglavlje \ref{sec:programiranje}), a pre toga u poglavlju \ref{sec:instalacija} biće date instrukcije za instalaciju.
 
@@ -93,12 +98,12 @@ Nastao je kao potreba za fleksibilnim programskim jezikom koji će omogućiti je
 %% \beginAutor{Katarina Rudinac}
 Programski jezik Lua nastao je 1993. na Katoličkom univerzitetu u Rio de Žaneiru u Brazilu, i u prevodu sa portugalskog znači mesec. U okviru Tecgraf-a, grupe za razvoj tehnologija u računarskoj grafici (eng. Computer Graphics Technology Group), pri pomenutom univerzitetu, trojica naučnika zvanih Roberto Jeruzalimski, Luiz Henrike de Figereido i Valdemar Keles, svaki specijalizovan za različitu naučnu oblast, razvili su jezik Lua, i od tada pa do danas rade na njegovom održavanju i proširivanju.
 
-\subsection{Istorijski kontekst}
+\subsection*{Istorijski kontekst}
 
 
 Zbog tadašnjih brazilskih zakona, koji su striktno ograničavali uvoz softvera i hardvera, favorizujući domaće proizvode i znatno otežavajući uvoz iz inostranstva (koji je bio dozvoljen samo ukoliko ne postoji adekvatna zamena, koju su proizvele domaće kompanije, što je bilo jako teško i komplikovano dokazati) stvorila se potreba za programskim jezikom nastalim u Brazilu. Lua se smatra jedinim programskim jezikom nastalim u nekoj zemlji u razvoju koji je dostigao globalnu popularnost, i pored Ruby nastalog u Japanu, jedinim značajnim jezikom nastalim van Evrope i severne Amerike.
 
-\subsection{Prethodnici jezika Lua}
+\subsection*{Prethodnici jezika Lua}
 
 
 Prethodnici Lue, dva mala programska jezika zvana DEL (Data Entry Language) i SOL (Simple Object Language, čija skraćenica u prevodu označava sunce, što je bila direktna inspiracija za naziv Lua), nastali su 1992. za potrebe brazilskog naftnog giganta Petrobrasa. Svrha naručenog grafičkog interfejsa je bila da olakša, ubrza i učini otpornijim na greške unos ogromne količine numeričkih podataka koji je morao biti unesen u zastarelom formatu nasleđenom iz doba bušenih kartica. 
@@ -108,15 +113,16 @@ DEL je nastao kako bi se olakšalo pisanje ovih grafičkih interfejsa. Na razvoj
 
 Paralelno sa razvojem DEL-a, razvijao se i PGM, na kojem su radili Roberto Jeruzalimski i Valdemar Keles. PGM je služio za ispis litoloških podataka i bilo je moguće ručno konfigurisati način ispisa. SOL je nastao kako bi se konfigurisanje olakšalo. SOL je završen marta 1993, ali nikada nije isporučen.
 
-\subsection{Nastanak jezika Lua}
+\subsection*{Nastanak jezika Lua}
 
-Ubrzo je nastala potreba za dodatnim mogućnostima u okviru DEL-a i SOL-a, tako da su vođe timova iza ova dva projekta sredinom 1993. zaključili da bi najbolje bilo da se ova dva mini jezika integrišu u jedan. Odlučeno je da će biti potreban pravi programski jezik, koji će da sadrži naredbe dodele, kontrole toka, podrutine… Zbog toga što ogroman deo potencijalnih korisnika nisu profesionalni programeri, sintaksa i semantika je trebalo da budu što jednostavnije, a postojala je i potreba za opisom podataka kao u SOL-u. Portabilnost je takođe označena kao jedan od prioriteta. DEL nije direktno uticao na Luu kao jezik, već samo idejno, u smislu umetanja delova skript jezika u ogromne projekte. Mnogi koncepti u Lui pozajmljeni su iz drugih programskih jezika, uključujući Modulu, CLU, C++, SNOBOL i Awk (prikaz hronologije nastanka ovih programskih jezika dat je na clici \ref{godine}). %Operator tačka zarez je odlučeno da bude opcion.
+Ubrzo je nastala potreba za dodatnim mogućnostima u okviru DEL-a i SOL-a, tako da su vođe timova iza ova dva projekta sredinom 1993. zaključili da bi najbolje bilo da se ova dva mini jezika integrišu u jedan. Odlučeno je da će biti potreban pravi programski jezik, koji će da sadrži naredbe dodele, kontrole toka, podrutine… Zbog toga što ogroman deo potencijalnih korisnika nisu profesionalni programeri, sintaksa i semantika je trebalo da budu što jednostavnije, a postojala je i potreba za opisom podataka kao u SOL-u. Portabilnost je takođe označena kao jedan od prioriteta. DEL nije direktno uticao na Luu kao jezik, već samo idejno, u smislu umetanja delova skript jezika u ogromne projekte. Mnogi koncepti u Lui pozajmljeni su iz drugih programskih jezika, uključujući Modulu, CLU, C++, SNOBOL i Awk (prikaz hronologije nastanka ovih programskih jezika dat je na slici \ref{godine}). %Operator tačka zarez je odlučeno da bude opcion.
 
 U julu 1993, Valdermar je dovršio prvu implementaciju Lue, koja je veoma brzo doživela ogroman uspeh. Prevedena je korišćenjem lex i yacc alata i bila je izuzetno jednostavna. Od tada je izašlo ukupno pet verzija sa brojnim podverzijama, koje su redom dodavale nove funkcionalnosti, a vremenski intervali između verzija su postajali sve duži. U uvodu je opisano u koje kategorije programskih jezika spada Lua, a na razvojnom stablu, jezik Lua se nalazi kao naslednik Perl-a i Pascal-a.
  
 %% \endAutor{Katarina Rudinac}
 
 \begin{figure}
+\label{godine}
 \begin{tikzpicture}
 \begin{axis}[symbolic x coords={Modula, CLU, C++, SNOBOL, Awk},
              xtick=data]
@@ -130,7 +136,7 @@ U julu 1993, Valdermar je dovršio prvu implementaciju Lue, koja je veoma brzo d
 \end{axis}
 \end{tikzpicture}
 \caption{Godine nastanka programskih jezika koji su uticali na Luu}
-\label{fig:godine}
+
 \end{figure}
 
 \section{Primena}	
@@ -192,20 +198,16 @@ Fengari je implementacija Lua virtuelne mašine pisana u JavaScriptu. Izvršava 
 
 \section{Instalacija}
 \label{sec:instalacija}
-  Lua je besplatna i pod MIT licencom. %\cite{mit_license}
-Na Linuks (eng. Linux) i Mek (eng. Mac) operativnom sistemu, Lua bi trebalo da je već instalirana ili postoje paketi za nju. 
+  Lua je besplatna i pod MIT licencom \cite{licenca}.
+Na Linuks (eng. Linux) i Mak (eng. Mac) operativnom sistemu, Lua bi trebalo da je već instalirana ili postoje paketi za nju. 
 
-U slučaju instalacije, treba pratiti uputstva iz koda \ref{kod_instalacija}, s tim što se u zavisnosti od platforme 'linux' treba zameniti doslovno nekom od reči iz niza:
-\begin{verbatim}
-aix, bsd, c89, freebsd, generic, macosx, mingw, posix, solaris
-\end{verbatim}
- U slučaju da nijedna reč nije odgovarajuća treba izabrati najsrodniju. Interpreter se može koristiti i bez poslednjeg koraka \cite{lua_org}.
+U slučaju instalacije, treba pratiti uputstva iz koda \ref{instalacija}. U zavisnosti od toga koja od platformi je najsrodnija onoj na kojoj se vrši instalacija, umesto ,,linux'' treba koristiti aix, bsd, c89, freebsd, generic, macosx, mingw, posix ili solaris. Interpreter se može koristiti i bez poslednjeg koraka \cite{lua_org}.
 
- Za Windows se preporucuje praćenje instrukcija sa zvanične stranice\footnote{zvanična strana: http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies}. U svrhu izbegavanja instalacije Lue moguće je koristiti onlajn interpreter\footnote{link online interpretera: http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies}.
+ Za Windows se preporucuje praćenje instrukcija sa zvanične stranice\footnote{zvanična strana: http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies}. U svrhu izbegavanja instalacije Lue moguće je koristiti onlajn interpreter\footnote{link onlajn interpretera: http://lua-users.org/wiki/BuildingLuaInWindowsForNewbies}.
 
 \begin{figure}
 
-\begin{lstlisting}[caption={Instalacija iz terminala na linuxu},frame=single, label=simple]
+\begin{lstlisting}[caption={Instalacija iz terminala na linuxu},frame=single, label=instalacija]
 # nacin 1:
 sudo apt install lua5.3	                      #Debian/Ubuntu systems 
 # yum install epel-release && yum install lua	#RHEL/CentOS systems 
@@ -223,7 +225,6 @@ cd lua-5.3.5             # pozicionira se u raspakovani folder
 make linux test          # kompajlira i testira
 sudo make install        # instalira
 \end{lstlisting}
-\label{kod_instalacija}
 \end{figure}
 
 \section{Programiranje u Lui}
@@ -233,7 +234,7 @@ sudo make install        # instalira
 
 Lua teži tome da bude fleksibilna, ali, takođe teži tome da bude mali jezik. Za ugradne jezike ovo je bitna osobina pošto se često koriste u uređajima koji imaju ograničene hardverske resurse. Kako bi se postigla ova dva suprotstavljena cilja, dodavanju novih karakteristika u jezik pristupa se ekonomično. Zbog toga Lua koristi malo mehanizama. A pošto ih je malo, oni moraju biti efikasni. Neki od takvih mehanizama su, na primer, tabele (opisane u poglavlju \ref{sec:tabele}), funkcije prvog reda (opisane u poglavlju \ref{sec:funkcije}), zatvorenja (opisana u poglavlju \ref{sec:zatvorenja}), iteratori (opisani u poglavlju \ref{sec:iteratori}) i refleksivne mogućnosti. Da bi jezik bio što manji, umesto hijerarhije numeričkih tipova (realni, racionalni, celi), Lua ima samo brojeve u pokretnom zarezu dvostruke preciznosti kao tip vrednosti \cite{multiParadigms}.
 %% \endAutor{Jana Jovicic}
-Lua ima ukupno 8 tipova: \textit{nil}, \textit{bool}, \textit{brojevi}, \textit{string}, \textit{korisnički podaci}, \textit{funkcije}, \textit{niti} i \textit{table}. U slučaju greške funkcija vraća nil i ono karakteriše odsustvo vrednosti. Nil nalazi primenu u brisanju promenljivih i oslobađanju memorije. Kada se promenljivoj dodeli nil, njena ranija vrednost biva izbrisana ukoliko ništa ne pokazuje na nju. Svaki tip može biti ,,kastovan'' u bool, a način je dat u tabeli \ref{kastovanje}. U potpoglavljima biće više reči o nekim važnim konceptima ovog programskog jezika.
+Lua ima ukupno 8 tipova: \textit{nil}, \textit{bool}, \textit{brojevi}, \textit{string}, \textit{korisnički podaci}, \textit{funkcije}, \textit{niti} i \textit{table}. U slučaju greške funkcija vraća nil i ono karakteriše odsustvo vrednosti. Nil nalazi primenu u brisanju promenljivih i oslobađanju memorije. Kada se promenljivoj dodeli nil, njena ranija vrednost biva izbrisana ukoliko ništa ne pokazuje na nju. Svaki tip može biti ,,kastovan'' u bool tako što se sve osim nil poima kao tačno. U tabeli \ref{kastovanje} su dati primeri nekih ishoda kastovanja u bool koji se razlikuju od, na primer, kastovanja u programskom jeziku C. U potpoglavljima biće više reči o nekim važnim konceptima ovog programskog jezika.
 
 \begin{table}[h!]
 \begin{center}
@@ -241,7 +242,7 @@ Lua ima ukupno 8 tipova: \textit{nil}, \textit{bool}, \textit{brojevi}, \textit{
 \hline
 Tip & Vrednost & Bool vrednost \\
 \hline
-string &  "čokolada" &  true \\
+string &  ''čokolada'' &  true \\
 \hline
 string  & '''' &  true \\
 \hline
@@ -257,7 +258,7 @@ nil &   & false \\
 \end{center}
 \end{table}
 
-\subsection{Tabele}
+\subsection*{Tabele}
 \label{sec:tabele}
 
 %% \ beginAutor{Jovana Pejkic}
@@ -319,7 +320,7 @@ print ("result: " .. result)
 %% \endAutor{Jovana Pejkic}
 
 
-\subsection{Funkcije}
+\subsection*{Funkcije}
 \label{sec:funkcije}
 
 %% \beginAutor{Jovana Pejkic}
@@ -352,7 +353,7 @@ Funkciju, koja prima drugu funkciju kao argument, kao što je \textit{sort}, zov
 %% \endAutor{Jovana Pejkic}
 
 
-\subsection{Zatvorenja}
+\subsection*{Zatvorenja}
 \label{sec:zatvorenja}
 
 %% \beginAutor{Jovana Pejkic}
@@ -362,7 +363,7 @@ Zatvorenje je funkcija, plus sve što joj je potrebno da pristupi njenim nadprom
 
 %% \endAutor{Jovana Pejkic}
 
-\subsection{Iteratori}
+\subsection*{Iteratori}
 \label{sec:iteratori}
 
 %% \beginAutor{Jana Jovicic}
@@ -409,7 +410,7 @@ print(gen(param, state))
 \end{lstlisting}
 
 
-\subsection{Primer jednostavnog koda}
+\subsection*{Primer jednostavnog koda}
 \label{sec:primer_koda}
 
 U ovom poglavlju će biti dat primer jednog jednostavnog koda u kom se može videti način na koje se koriste prethodno opisani elementi ovog programskog jezika. U primeru \ref{primer} je prikazano kako je moguće naći sve faktore broja koji se unosi sa standardnog ulaza. Od korisnika se prvo traži da unese broj, zatim se on učitava pomoću ugrađene funkcije \textit{io.read()} i poziva se korisnički definisana funkcija koja vraća tabelu svih faktora. U okviru te funkcije prvo je potrebno deklarisati praznu tabelu u koju će biti dodavani faktori. Zatim se u \textit{for} petlji proveravaju svi brojevi od 1 do korena prosleđenog broja, pri čemu je korak u iteriranju jednak 1. Ako taj broj deli prosleđeni broj, onda su on i broj koji se dobija deljenjem prosleđenog broja tim brojem faktori i dodaju se u tabelu pomoću funkcije \textit{insert()}. Zatim se tabela sortira i vraća kao rezultat funkcije. Na kraju, pri povratku iz funkcije, prolazi se kroz sve elemente tabele pomoću iteratora \textit{ipairs()} i oni se ispisuju na standardni izlaz. U ovom primeru se, takođe, može videti da se lokalne promenljive deklarišu ključom rečju \textit{local}. A prikazano je i pisanje jednolinijskih i višelinijskih komentara.
@@ -461,7 +462,7 @@ U radu je pokazano kako Lua, iako je nastala za lokalne potrebe, danas ima prime
 
 \appendix
 \section{Dodatak}
-\subsection{Korišćene funkcije}
+U dodatku sledi opis funkcija koje su korišćene u primerima.
 \label{dodaci}
 
 
