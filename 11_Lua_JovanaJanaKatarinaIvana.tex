@@ -323,9 +323,7 @@ print ("result: " .. result)
 \label{sec:funkcije}
 
 %% \beginAutor{Jovana Pejkic}
-Funkcije u Lui su vrednosti prve klase (eng. \textit{first-class values}) sa odgovarajućim ,,leksičkim opsegom''. Za funkciju se kaže da je vrednost prve klase ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da budu vraćene kao povratne vrednosti funkcija. Da funkcija ima ,,leksički opseg'' znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lui možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji.
-
-Iako su funkcije vrednosti, postoji izraz kojim se funkcija kreira - deklaracija funkcije obično izgleda ovako:
+Funkcije u Lui su vrednosti prve klase (eng. \textit{first-class values}) sa odgovarajućim ,,leksičkim opsegom''. Za funkciju se kaže da je vrednost prve klase ako ona ima ista prava kao i vrednosti poput brojeva i stringova. Funkcije mogu da se čuvaju u promenljivama (globalnim i lokalnim) i u poljima tabela, da se prosleđuju drugim funkcijama kao argumenti i da budu vraćene kao povratne vrednosti funkcija. Da funkcija ima ,,leksički opseg'' znači da može pristupati promenljivama funkcija kojima je okružena. Ova osobina omogućava da u Lui možemo da primenimo tehnike programiranja iz sveta funkcionalnih jezika kao i da program bude kraći i jednostavniji. Iako su funkcije vrednosti, postoji izraz kojim se funkcija kreira - deklaracija funkcije obično izgleda kao u primeru \ref{fun1}.
 \begin{lstlisting}[caption={Deklaracija funkcije \cite{bookProgInLua}},frame=single, label=fun1]
     function foo (x) return 2*x end
 \end{lstlisting}
@@ -334,7 +332,7 @@ Međutim, prethodni primer deklaracije funkcije samo je lepši način da se zapi
 \begin{lstlisting}[caption={Dodela vrednosti tipa \textit{function} promenljivoj foo \cite{bookProgInLua}},frame=single, label=fun1]
     foo = function (x) return 2*x end
 \end{lstlisting}
-To jest, definicija funkcije je, u stvari, naredba koja promenljivoj dodeljuje vrednost tipa \textit{function}. Izraz sa desne strane operatora dodele se može posmatrati kao konstruktor za funkcije, baš kao što se vitičastim zagradama predstavlja konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako se uglavnom funkcijama dodeljuju imena, postoje i situacije kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruža funkciju \textit{table.sort}, koja prima tabelu i sortira njene elemente. Ova funkcija treba da omogući više varijacija sortiranja: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bi bile omogućene sve varijacije sortiranja, \textit{sort} pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. \textit{order function}), koja vrši poređenje dve vrednosti - prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Sledeći primer prikazuje gde je zgodno upotrebiti anonimnu funkciju. Na primer, neka je data tabela sa slogovima:
+To jest, definicija funkcije je, u stvari, naredba koja promenljivoj dodeljuje vrednost tipa \textit{function}. Izraz sa desne strane operatora dodele se može posmatrati kao konstruktor za funkcije, baš kao što se vitičastim zagradama predstavlja konstruktor za tabelu. Rezultat takvog konstruktora funkcije zovemo anonimna funkcija. Iako se uglavnom funkcijama dodeljuju imena, postoje i situacije kada funkcije treba da ostanu anonimne. Na primer, biblioteka za tabele pruža funkciju \textit{table.sort}, koja prima tabelu i sortira njene elemente. Ova funkcija treba da omogući više varijacija sortiranja: rastuće ili opadajuće, numeričko ili alfabetsko, tabele sortirane po ključu, itd. Umesto kucanja posebnog koda da bi bile omogućene sve varijacije sortiranja, \textit{sort} pruza jedan (jedini) opcioni parametar, koji predstavlja funkciju za poređenje (engl. \textit{order function}), koja vrši poređenje dve vrednosti - prima dva elementa i vraća da li prvi argument treba da bude pre drugog. Primer \ref{fun2} prikazuje gde je zgodno upotrebiti anonimnu funkciju.
 \begin{lstlisting}[caption={Primer tabele \cite{bookProgInLua}},frame=single, label=fun2]
      network = {
        {name = "grauna",  IP = "210.26.30.34"},
@@ -343,7 +341,7 @@ To jest, definicija funkcije je, u stvari, naredba koja promenljivoj dodeljuje v
        {name = "derain",  IP = "210.26.23.20"},
      }
 \end{lstlisting}
-Da bi se vrednosti u tabeli sortirale po imenu polja u obrnutom alfabetskom poretku, kod treba da izgleda ovako:
+Da bi se vrednosti u tabeli sortirale po imenu polja u obrnutom alfabetskom poretku, kod treba da izgleda kao u primeru \ref{fun3}.
 \begin{lstlisting}[caption={Sortiranje vrednosti tabele \cite{bookProgInLua}},frame=single, label=fun3]
     table.sort(network, function (a,b)
       return (a.name > b.name)
@@ -359,7 +357,7 @@ Funkciju, koja prima drugu funkciju kao argument, kao što je \textit{sort}, zov
 
 %% \beginAutor{Jovana Pejkic}
 
-U Lui, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Na primer, kada postoji neka funkcija koja vraća anonimnu funkciju, anonimna funkcija može da vidi lokalne promenljive funkcije kojom je okruzena. Međutim, nakon sto je anonimna funkcija vraćena, ona može da nadživi funkciju koja ju je vratila kreirajuci zatvorenje. Ovaj mehanizam dopušta pristup stanju funkcije omotača i nadpromenljivama\footnote{eng. upvalue -- vrednost promenljive funkcije omotaca}, iako se funkcija omotac više ne izvršava.
+U Lui, promenljive koje su lokalne za neku funkciju su takođe dostupne u funkcijama koje su definisane unutar te funkcije, tj. unutar ugnježdenih definicija. Na primer, kada postoji neka funkcija koja vraća anonimnu funkciju, anonimna funkcija može da vidi lokalne promenljive funkcije kojom je okruzena. Međutim, nakon sto je anonimna funkcija vraćena, ona može da nadživi funkciju koja ju je vratila kreirajuci zatvorenje. Ovaj mehanizam dopušta pristup stanju funkcije omotača i nadpromenljivama\footnote{eng. upvalue - vrednost promenljive funkcije omotaca}, iako se funkcija omotac više ne izvršava.
 Zatvorenje je funkcija, plus sve što joj je potrebno da pristupi njenim nadpromenljivama korektno. Ono što je vrednost u Lui je zatvorenje, a ne funkcija. Funkcija, sama za sebe, samo je prototip za zatvorenje.
 
 %% \endAutor{Jovana Pejkic}
