@@ -1,0 +1,8 @@
+\begin{lstlisting}
+    meta . __add = function (left , right) 	-- dodaje meta-metod tabeli meta
+	return left . value + right 			-- left je tabela koja ima polje value
+	end
+	setmetatable (container , meta) 		-- postavljanje meta-tabele tabeli containter
+	result = container + 4
+
+   \end{lstlisting}

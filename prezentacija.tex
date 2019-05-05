@@ -10,6 +10,7 @@
 \usepackage{color}
 \usepackage[english,serbian]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
 
 
 \def\d{{\fontencoding{T1}\selectfont\dj}}
@@ -17,12 +18,12 @@
 
 \title[Programski jezik Lua]{Programski jezik Lua}
 
-\author{Jovana, Jana, Katarina, Ivana}
+\author{Jovana Pejkić, Jana Jovičić, Katarina Rudinac, Ivana Jordanov}
 \institute[Matematički fakultet]
 {
-\small{Prezentacija seminarskog rada \\u okviru kursa\\Metodologija strucnog i naucnog pisanja\\ Matematički fakultet\\}
+\small{Prezentacija seminarskog rada \\u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet\\}
 \medskip
-\textit{... ivanajordanov47@gmail.com}
+\textit{jov4ana@gmail.com ... ivanajordanov47@gmail.com}
 }
 \date{}
 
@@ -236,8 +237,95 @@ Lua može da se koristi na 3 načina:
 
 \end{frame}
 
+%------------------------------------------------
+\section{Tabele}
+\begin{frame}
+\frametitle{Tabele}
+\begin{itemize}
+\item Sastoje se iz parova \textbf{ključ-vrednost}
+\begin{itemize}
+\item \begin{semiverbatim} table[key] = value \end{semiverbatim}
+\end{itemize}
+\item Kreiraju se uz pomoć \textbf{konstruktora} \textbf{\{\}}
+\begin{itemize}
+\item \begin{semiverbatim} rgb = \{"red", "green", "blue"\} \end{semiverbatim}
+\end{itemize}
+\item Nakon kreiranja, treba ih dodeliti promenljivoj
+\begin{itemize}
+\item da bi mogle da budu referisane
+\end{itemize}
+\item Ako ne postoji referenca na tabelu
+\begin{itemize}
+\item upravljač memorije briše tabelu
+\item oslobađa memoriju koju je ona zauzimala
+\end{itemize}
+\end{itemize}
+\end{frame}
 
 %------------------------------------------------
+\section{Meta-tabele i meta-metodi}
+\begin{frame}
+\frametitle{Meta-tabele i meta-metodi}
+\begin{itemize}
+\item Meta-tabela
+\begin{itemize}
+\item je standardna tabela u Lui
+\item sadrži \textbf{skup meta-metoda}
+\item postavlja se pomoću funkcije \textbf{setmetatable()}
+\end{itemize}
+\item Meta-metodi
+\begin{itemize}
+\item \textbf{menjaju ponašanje tabela}
+\item pozivaju se kada Lua izvršava određene operacije %(npr. sabiranje)
+\end{itemize}
+\end{itemize}
+
+\begin{block}{Primer za operaciju sabiranja}
+
+\begin{semiverbatim}
+-- meta i container su prethodno kreirane tabele
+
+meta.\_\_add = function (left, right )
+
+               return left.value + right
+
+               end
+
+
+setmetatable (container, meta)
+
+result = container + 4
+
+\end{semiverbatim}
+\end{block}
+
+\end{frame}
+
+%------------------------------------------------
+
+\section{Zatvorenja}
+\begin{frame}
+\frametitle{Zatvorenja}
+\begin{itemize}
+\item Omogućuju pristup lokalnim promenljivama funkcije nakon njenog izvršenja
+\item Primer zatvorenja je \textbf{anonimna funkcija} unutar funkcije
+\begin{itemize}
+\item ona \textbf{,,vidi"} lokalne promenljive funkcije kojom je okružena
+\item može da \textbf{nadživi} postojeću funkciju
+% ako je vracena kao povratna vrednost,
+\end{itemize}
+\end{itemize}
+
+\begin{figure}
+\includegraphics[scale=2.98, width=160pt, height=100pt]{zatvorenje.png}
+\caption{Primer zatvorenja}
+\end{figure}
+
+
+\end{frame}
+
+
+%--------------------------------------------------
 
 
 \section{Zaključak}

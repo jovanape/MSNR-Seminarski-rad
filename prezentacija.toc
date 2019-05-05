@@ -1,0 +1,16 @@
+\babel@toc {serbian}{}
+\beamer@sectionintoc {1}{sekcija}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{podsekcija}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{primer}{4}{0}{1}
+\beamer@sectionintoc {2}{Nastanak jezika}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Mesto nastanka i autori}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Prethodnici i osnovni ciljevi}{6}{0}{2}
+\beamer@sectionintoc {3}{Primena Lue}{7}{0}{3}
+\beamer@subsectionintoc {3}{1}{Primena Lue kao skript jezika}{8}{0}{3}
+\beamer@sectionintoc {4}{Podr\IeC {\v z}ane paradigme}{9}{0}{4}
+\beamer@sectionintoc {5}{Programska okru\IeC {\v z}enja}{10}{0}{5}
+\beamer@sectionintoc {6}{Tabele}{11}{0}{6}
+\beamer@sectionintoc {7}{Meta-tabele i meta-metodi}{12}{0}{7}
+\beamer@sectionintoc {8}{Zatvorenja}{13}{0}{8}
+\beamer@sectionintoc {9}{Zaklju\IeC {\v c}ak}{14}{0}{9}
+\beamer@sectionintoc {10}{Literatura}{15}{0}{10}
