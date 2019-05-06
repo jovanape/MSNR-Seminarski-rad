@@ -2,10 +2,10 @@
 \beamer@sectionintoc {1}{Nastanak jezika}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{Mesto nastanka i autori}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{Prethodnici i osnovni ciljevi}{4}{0}{1}
-\beamer@sectionintoc {2}{Primena Lue}{5}{0}{2}
-\beamer@subsectionintoc {2}{1}{Primena Lue kao skript jezika}{6}{0}{2}
-\beamer@sectionintoc {3}{Podr\IeC {\v z}ane paradigme}{7}{0}{3}
-\beamer@sectionintoc {4}{Programska okru\IeC {\v z}enja}{8}{0}{4}
+\beamer@sectionintoc {2}{Programska okru\IeC {\v z}enja}{5}{0}{2}
+\beamer@sectionintoc {3}{Primena Lue}{6}{0}{3}
+\beamer@subsectionintoc {3}{1}{Primena Lue kao skript jezika}{7}{0}{3}
+\beamer@sectionintoc {4}{Podr\IeC {\v z}ane paradigme}{8}{0}{4}
 \beamer@sectionintoc {5}{Osnovni koncepti}{9}{0}{5}
 \beamer@subsectionintoc {5}{1}{Tabele}{9}{0}{5}
 \beamer@subsectionintoc {5}{2}{Meta-tabele i meta-metodi}{10}{0}{5}
