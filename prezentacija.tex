@@ -23,7 +23,7 @@
 {
 \small{Prezentacija seminarskog rada \\u okviru kursa\\Metodologija stručnog i naučnog rada\\ Matematički fakultet\\}
 \medskip
-\textit{jov4ana@gmail.com ... ivanajordanov47@gmail.com}
+\textit{jov4ana@gmail.com, jana.jovicic755@gmail.com, rudinackatarina@gmail.com, ivanajordanov47@gmail.com}
 }
 \date{}
 
@@ -39,44 +39,6 @@
 \frametitle{Sadržaj}
 \tableofcontents
 \end{frame}
-
-%------------------------------------------------
-
-\section{sekcija}
-\subsection{podsekcija}
-\begin{frame} 
-\frametitle{podsekcija}
- testetxte text text ...
-
-\begin{figure}
-%\includegraphics[width=270pt, height=126pt]{slika0.eps}
-\caption{Slikaneka}
-\end{figure}
-
-\end{frame}
-
-%------------------------------------------------
-
-\subsection{primer}
-\begin{frame}
-\frametitle{primer}
-
-\begin{itemize}
-\item sudhfudh
-
-\item nesto
-
-\item nesto
-
-\item nesto nesto
-
-\end{itemize}
-\begin{figure}
-%\includegraphics[width=270pt, height=106pt]{slika1.eps}
-\caption{blabla}
-\end{figure}
-\end{frame}
-
 
 %------------------------------------------------
 
@@ -287,7 +249,7 @@ Lua može da se koristi na 3 načina:
 
 meta.\_\_add = function (left, right )
 
-               return left.value + right
+               \quad return left.value + right
 
                end
 
@@ -327,6 +289,66 @@ result = container + 4
 
 %--------------------------------------------------
 
+\section{Iteratori}
+\begin{frame}
+\frametitle{Iteratori}
+
+\begin{itemize}
+\item Konstrukcije koje omogćuju prolazak kroz kolekciju
+\item Iteratori sa stanjem
+\begin{itemize}
+\item Koriste zatvorenja kako bi zapamtili prethodno stanje u kom su bili
+\item Čuvaju svoja stanja u okviru spoljašnje funkcije
+\end{itemize}
+\item Iteratori bez stanja
+\begin{itemize}
+\item Ne čuvaju sami svoja stanja
+\item Isti iterator se može iskoristiti u više petlji, bez potrebe za pravljenjem novih zatvorenja
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{block}{Primer iteratora sa stanjem}
+\begin{semiverbatim}
+function values ( t )
+
+	\quad local i = 0
+	
+	\quad return function () i = i + 1; return t [ i ] end
+	
+end
+
+t = \{10 , 20 , 30\}
+
+for element in values ( t ) do
+
+	\quad print ( element )
+	
+end
+\end{semiverbatim}
+\end{block}
+
+\begin{block}{Primer iteratora bez stanja}
+\begin{semiverbatim}
+a = \{ " one " , " two " , " three " \}
+
+for i , v in ipairs ( a ) do
+
+	\quad print (i , v )
+
+end
+
+\end{semiverbatim}
+\end{block}
+
+
+\end{frame}
+
+%--------------------------------------------------
 
 \section{Zaključak}
 
@@ -356,12 +378,5 @@ result = container + 4
 }
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}
-\Huge{\centerline{Hvala na pažnji!}}
-\end{frame}
-
-%----------------------------------------------------------------------------------------
 
 \end{document} 
