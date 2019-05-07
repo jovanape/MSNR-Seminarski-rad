@@ -30,11 +30,30 @@ fali nesto da poveze sa Janinim delom
 
 *******JANA*********
 
+Primena Lue
+
+Lua, zbog svoje jednostavnosti i efikasnosti, ima primenu u različitim oblastima.
+Obično se koristi na 3 načina: kao skript jezik u sastavu aplikacija pisanih na drugom jeziku,  zajedno sa C-om ili kao samostalan jezik.
+   U praksi, ako se koristi zajedno sa C-om, onda se najveći deo programa piše u C-u, a pomoću Lue se kreiraju interfejsi laki za upotrebu. Tada se Lua importuje kao biblioteka.
+   Kako bi Lua mogla samostalno da se koristi, razvijene su različite biblioteke - biblioteke za rad sa stringovima, tabelama, fajlovima,  itd. Sve one zajedno čine standardnu biblioteku Lue.
+
+-- sledeci slajd
+
+Sada ćemo videti neke primere korišćenja Lue kao skript jezik.
+   Lua se koristi u okviru CGILue. To je alat za pravljenje dinamičkih veb stranica. 
+   Lua je našla primenu u razvoju softvera zasnovanom na komponentnom programiranju. Komponente softvera se pišu u kompajliranom, statički tipiziranom jeziku, a onda se spajaju pomoću Lue, koja je efikasnija za to. I time se ubrzava proces razvoja softvera. 
+    Zbog svoje efikasnosti, Lua je veoma popularna u svetu igrica, o čemu govori činjenica da je 2003. godine je proglašena najboljim jezikom za pisanje skriptova za igrice.
+    Lua je korišćena i u Adobe Photoshop Lightroomu. Pomoću nje su napisane dodatne softverske komponente, kao što su npr. komponente za kreiranje različitih efekata, a  onda su integrisane sa postojećim programom. 
 
 
+Podržane paradigme
 
+Sada ću reći nešto o programskim paradigmama koje Lua podržava.
+  Pošto mehanizmi Lue rade nad standardnom proceduralnom semantikom, onda se i većina Lua programa piše u skladu sa proceduralnom paradigmom.Ali u Lui postoje i mehanizmi  pomoću kojih je moguće pisati programe i u nekom drugom stilu.
+   Zahvaljujući funkcijama koje su građani prvog reda (što znači da mogu da se prosleđuju kao argumenti drugih funkcija, da budu povratna vrednost druge funkcije, tj da se tretiraju kao promenljive), u Lui je moguće pisati i programe u funkcionalnom stilu. Podršku funkcionalnom programiranju daje biblioteka Lua Fun.
+   Zahvaljujući konstrukcijama kakve su tabele i meta-tabele u Lui je moguće kreirati sisteme klasa i objekata. Na taj način je u Lui podržana i objektno-orijentisana paradigma. Nešto više o tabelama i meta-tabelama će vam ispričati Jovana.
 
-
+    
 
 ***********************
 

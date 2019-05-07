@@ -193,7 +193,7 @@ Lua može da se koristi na 3 načina:
 
 \item \textbf{Funkcionalna}
 \begin{itemize}
-\item Biblioteka Lua Fun (funkcije map(), filter(), zip(), ...)
+\item Biblioteka Lua Fun
 \end{itemize}
 
 \item \textbf{Objektno-orijentisana}
@@ -298,69 +298,6 @@ result = container + 4
 
 \end{frame}
 
-
-%--------------------------------------------------
-
-
-\subsection{Iteratori}
-\begin{frame}
-\frametitle{Iteratori}
-
-\begin{itemize}
-\item Konstrukcije koje omogćuju prolazak kroz kolekciju
-\item Iteratori sa stanjem
-\begin{itemize}
-\item Koriste zatvorenja kako bi zapamtili prethodno stanje u kom su bili
-\item Čuvaju svoja stanja u okviru spoljašnje funkcije
-\end{itemize}
-\item Iteratori bez stanja
-\begin{itemize}
-\item Ne čuvaju sami svoja stanja
-\item Isti iterator se može iskoristiti u više petlji, bez potrebe za pravljenjem novih zatvorenja
-\end{itemize}
-\end{itemize}
-
-\end{frame}
-
-
-
-\begin{frame}
-
-\begin{block}{Primer iteratora sa stanjem}
-\begin{semiverbatim}
-function values ( t )
-
-	\quad local i = 0
-	
-	\quad return function () i = i + 1; return t [ i ] end
-	
-end
-
-t = \{10 , 20 , 30\}
-
-for element in values ( t ) do
-
-	\quad print ( element )
-	
-end
-\end{semiverbatim}
-\end{block}
-
-\begin{block}{Primer iteratora bez stanja}
-\begin{semiverbatim}
-a = \{ " one " , " two " , " three " \}
-
-for i , v in ipairs ( a ) do
-
-	\quad print (i , v )
-
-end
-
-\end{semiverbatim}
-\end{block}
-
-
-\end{frame}
 
 %--------------------------------------------------
 
