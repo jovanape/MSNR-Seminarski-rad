@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.28)  6 MAY 2019 21:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.28)  7 MAY 2019 21:28
 entering extended mode
 **./prezentacija.tex
 (prezentacija.tex
@@ -1156,7 +1156,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.115 \end{frame}
+l.121 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1167,7 +1167,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.115 \end{frame}
+l.121 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1178,7 +1178,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.115 \end{frame}
+l.121 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1192,7 +1192,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 \end{frame}
+l.152 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1203,7 +1203,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 \end{frame}
+l.152 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1214,7 +1214,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 \end{frame}
+l.152 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1228,7 +1228,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.177 \end{frame}
+l.182 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1239,7 +1239,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.177 \end{frame}
+l.182 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1250,7 +1250,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.177 \end{frame}
+l.182 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1264,7 +1264,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.207 \end{frame}
+l.206 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1275,7 +1275,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.207 \end{frame}
+l.206 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1286,7 +1286,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.207 \end{frame}
+l.206 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1374,7 +1374,7 @@ l.276 \end{frame}
 [10
 
 ]
-<zatvorenje.png, id=529, 149.55875pt x 112.42pt>
+<zatvorenje.png, id=530, 149.55875pt x 112.42pt>
 File: zatvorenje.png Graphic file (type png)
 <use zatvorenje.png>
 Package pdftex.def Info: zatvorenje.png  used on input line 299.
@@ -1417,13 +1417,18 @@ l.299 \end{frame}
 
  <./zatvorenje.png>]
 
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 304.
+
+
 ! Package pgf Error: Undefined shading "beamer@aboveframetitle".
 
 See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.323 \end{frame}
+l.315 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1434,7 +1439,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.323 \end{frame}
+l.315 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1445,7 +1450,7 @@ See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.323 \end{frame}
+l.315 \end{frame}
                  
 (That was another \errmessage.)
 
@@ -1453,94 +1458,39 @@ l.323 \end{frame}
 
 ]
 
+! Package pgf Error: Undefined shading "beamer@aboveframetitle".
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.342 \end{frame}
+                 
+(That was another \errmessage.)
+
+
+! Package pgf Error: Undefined shading "beamer@belowframetitle".
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.342 \end{frame}
+                 
+(That was another \errmessage.)
+
+
 ! Package pgf Error: Undefined shading "beamer@treeshade".
 
 See the pgf package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.363 \end{frame}
+l.342 \end{frame}
                  
 (That was another \errmessage.)
 
 [13
-
-]
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 367.
-
-
-! Package pgf Error: Undefined shading "beamer@aboveframetitle".
-
-See the pgf package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.378 \end{frame}
-                 
-(That was another \errmessage.)
-
-
-! Package pgf Error: Undefined shading "beamer@belowframetitle".
-
-See the pgf package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.378 \end{frame}
-                 
-(That was another \errmessage.)
-
-
-! Package pgf Error: Undefined shading "beamer@treeshade".
-
-See the pgf package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.378 \end{frame}
-                 
-(That was another \errmessage.)
-
-[14
-
-]
-
-! Package pgf Error: Undefined shading "beamer@aboveframetitle".
-
-See the pgf package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.400 \end{frame}
-                 
-(That was another \errmessage.)
-
-
-! Package pgf Error: Undefined shading "beamer@belowframetitle".
-
-See the pgf package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.400 \end{frame}
-                 
-(That was another \errmessage.)
-
-
-! Package pgf Error: Undefined shading "beamer@treeshade".
-
-See the pgf package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.400 \end{frame}
-                 
-(That was another \errmessage.)
-
-[15
 
  <C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/tex/latex/beamer/beamericona
 rticle.pdf>]
@@ -1553,39 +1503,57 @@ rticle.pdf>]
 \tf@snm=\write8
 \openout8 = `prezentacija.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 403.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 403.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 345.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 345.
  (prezentacija.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 403.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 403.
-Package rerunfilecheck Info: File `prezentacija.out' has not changed.
-(rerunfilecheck)             Checksum: 329BEFBF8D3714519EB0159E70E531F9;846.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 345.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 345.
 
+
+Package rerunfilecheck Warning: File `prezentacija.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `prezentacija.out':
+(rerunfilecheck)             Before: 329BEFBF8D3714519EB0159E70E531F9;846
+(rerunfilecheck)             After:  997F42A7CDE935AA36C849FB1E185758;785.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 19396 strings out of 492946
- 369384 string characters out of 3126266
+ 19393 strings out of 492946
+ 369354 string characters out of 3126266
  453242 words of memory out of 3000000
- 22824 multiletter control sequences out of 15000+200000
+ 22822 multiletter control sequences out of 15000+200000
  7600 words of font info for 28 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,14n,63p,802b,660s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmss10.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmss12.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/jovan/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/jovan/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/jo
-van/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pf
-b><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmtt10.pfb>
-Output written on prezentacija.pdf (15 pages, 310596 bytes).
+pdfTeX warning (dest): name{Navigation14} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Navigation15} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.5.4.12} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.1.7} has been referenced but does not ex
+ist, replaced by a fixed one
+
+<C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmss10.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmss12.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/jovan/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/jovan/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/jova
+n/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
+<C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Users/jovan/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmtt10.pfb>
+Output written on prezentacija.pdf (13 pages, 285900 bytes).
 PDF statistics:
- 748 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 747 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 665 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 657 words of extra memory for PDF output out of 10000 (max. 10000000)
 
